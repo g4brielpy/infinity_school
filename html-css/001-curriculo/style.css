@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* Conf. gerais */
 * {
   margin: 0;
   padding: 0;
@@ -7,19 +8,23 @@
   font-family: var(--font-padrao);
 }
 
+/* VARIAVEIS */
 :root {
   --font-padrao: "Source Sans Pro", sans-serif;
 
   --cor-paragrafo: #3d3d3d;
   --cor-destaque: #6592c9;
-  --cor-destaque-2: #49997d;
+  --cor-destaque-2: #49997d6c;
   --cor-box-destaque: #0a9077b3;
 
   --white: #fff;
   --black: #000;
 }
 
+
+/* header | cabeçalho */
 header {
+  margin-top: 2em !important;
   display: flex;
   flex-flow: column wrap;
   gap: 10px;
@@ -30,6 +35,7 @@ header {
   text-align: center;
   font-variant: small-caps;
 }
+
 .rede-social {
   color: var(--cor-paragrafo);
   border-bottom: 2px solid var(--cor-box-destaque);
@@ -47,17 +53,99 @@ header {
   gap: 15px;
 }
 
+.contato {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contato img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* main | conteudo principal */
 main {
   width: 100%;
   max-width: 1024px;
 
   height: 100%;
-  min-height: 680px;
+  min-height: 500px;
+  max-height: 1900px;
 
   margin: 2em auto 0;
   padding: 1em;
 
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-around;
+}
+/* espaçamento de cada seção */
+section {
+  margin-bottom: 4em;
+}
+
+section h3:first-child {
+  color: #49997d;
+  font-variant: small-caps;
+  font-size: 1.5em;
+
+  margin-bottom: 0.5em;
+}
+
+section > p {
+  color: var(--cor-paragrafo);
+  font-size: 1.1em;
+
+  margin-top: 1em;
+  line-height: 1.4em;
+}
+section > p:last-of-type::after {
+  content: " ";
+  background-color: var(--cor-box-destaque);
+
+  display: block;
+  margin-top: 10px;
+
+  width: 40%;
+  height: 2px;
+}
+
+/* section | formação */
+.conteiner-form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+}
+
+.title-cert {
+    font-size: 0.8em;
+    font-weight: 600;
+    padding-left: 0.5em;
+}
+
+a.link-certif {
+  color: var(--cor-destaque);
+
+  font-weight: bold;
+  font-size: 15px;
+
+  margin: 0 0.4em;
+}
+
+.formacao .box-form,
+.experiencias .box-exper {
+  background-color: var(--cor-destaque-2);
+  padding: 1em;
+}
+
+/* section | experiências */
+.box-exper h4 {
+  margin-bottom: 0.4em;
+}
+.box-exper h4 span {
+  color: rgb(84, 20, 20);
+}
+
+.experiencias .box-exper p {
+  padding-left: 0.5em;
 }
