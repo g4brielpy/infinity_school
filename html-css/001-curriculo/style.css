@@ -27,13 +27,18 @@ header {
   margin-top: 2em !important;
   display: flex;
   flex-flow: column wrap;
-  gap: 10px;
+  row-gap: 30px;
   align-items: center;
 }
 
 .apresentacao {
   text-align: center;
   font-variant: small-caps;
+
+  border-bottom: 1px solid var(--cor-box-destaque);
+}
+span.title-destq{
+  color: var(--cor-box-destaque);
 }
 
 .rede-social {
@@ -48,15 +53,18 @@ header {
 
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .contato {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+
+  flex: 1 1 150px;
 }
 .contato img {
   width: 20px;
