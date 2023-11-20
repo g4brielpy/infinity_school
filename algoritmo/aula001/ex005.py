@@ -1,0 +1,1 @@
+print("Nome: Gabriel Iuri, Idade: 17")
