@@ -21,7 +21,6 @@
   --black: #000;
 }
 
-
 /* header | cabeçalho */
 header {
   margin-top: 2em !important;
@@ -37,7 +36,7 @@ header {
 
   border-bottom: 1px solid var(--cor-box-destaque);
 }
-span.title-destq{
+span.title-destq {
   color: var(--cor-box-destaque);
 }
 
@@ -70,7 +69,6 @@ span.title-destq{
   width: 20px;
   height: 20px;
 }
-
 
 /* main | conteudo principal */
 main {
@@ -126,9 +124,9 @@ section > p:last-of-type::after {
 }
 
 .title-cert {
-    font-size: 0.8em;
-    font-weight: 600;
-    padding-left: 0.5em;
+  font-size: 0.8em;
+  font-weight: 600;
+  padding-left: 0.5em;
 }
 
 a.link-certif {
