@@ -1,6 +1,6 @@
-numb_1 = float(input('Digite o primeiro número: '))
-numb_2 = float(input('Digite o segundo número: '))
-numb_3 = float(input('Digite o terceiro número: '))
+numb_1 = int(input('Digite o primeiro número: '))
+numb_2 = int(input('Digite o segundo número: '))
+numb_3 = int(input('Digite o terceiro número: '))
 
 if (numb_1 > numb_2):
     print(f'Númeor {numb_1} é o maior')
