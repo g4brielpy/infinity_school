@@ -15,7 +15,13 @@
         <form action="#" class="form_avaliacao">
           <div class="box_input">
             <label for="nome">Nome</label>
-            <input type="text" name="user" id="nome" required placeholder="Digite seu nome completo" />
+            <input
+              type="text"
+              name="user"
+              id="nome"
+              required
+              placeholder="Digite seu nome completo"
+            />
           </div>
           <div class="box_input">
             <label for="data">Data</label>
@@ -29,10 +35,32 @@
               cols="30"
               rows="3"
               required
-            >Digite aqui sua Avaliação!</textarea
+            >
+Digite aqui sua Avaliação!</textarea
             >
           </div>
         </form>
+      </div>
+    </section>
+
+    <section class="secao_table">
+      <div class="container_table">
+        <table class="table_avaliacao">
+          <thead>
+            <tr>
+              <th scope="col">Nome do Usuário</th>
+              <th scope="col">Data</th>
+              <th scope="col">Avaliação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>Gabriel</td>
+                <td>04/12/2023</td>
+                <td>Ótimo serviço, estou satisfeito!</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </body>
