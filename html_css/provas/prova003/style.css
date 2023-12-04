@@ -34,7 +34,6 @@ div.box_input {
 }
 .box_input label {
   font-size: 1.1em;
-
 }
 .box_input input {
   padding: 0.4em;
@@ -44,3 +43,25 @@ div.box_input {
 }
 
 /* seção tabela */
+section.secao_table {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  padding: 1em;
+}
+table.table_avaliacao {
+  background-color: rgba(0, 255, 255, 0);
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+}
+.table_avaliacao thead tr {
+  background-color: #858585;
+  height: 1em;
+  text-align: left;
+}
+.table_avaliacao :is(td, th) {
+  padding: 0.5em;
+  border: 1px solid #b1b1b1;
+}
