@@ -4,10 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Deixe seu Feedback aqui!" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Feedback</title>
   </head>
   <body>
+    <h1>Página de Feedback</h1>
 
+    <section class="secao_form">
+      <div class="container_form">
+        <form action="#" class="form_avaliacao">
+          <div class="box_input">
+            <label for="nome">Nome</label>
+            <input type="text" name="user" id="nome" required placeholder="Digite seu nome completo" />
+          </div>
+          <div class="box_input">
+            <label for="data">Data</label>
+            <input type="date" name="data_av" id="data" required />
+          </div>
+          <div class="box_input">
+            <label for="avaliacao">Avaliação</label>
+            <textarea
+              name="comentario"
+              id="avaliacao"
+              cols="30"
+              rows="3"
+              required
+            >Digite aqui sua Avaliação!</textarea
+            >
+          </div>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
