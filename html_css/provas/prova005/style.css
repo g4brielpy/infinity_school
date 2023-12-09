@@ -11,9 +11,8 @@ body {
   align-items: center;
 }
 
-div.triangulo {
+div.retrangulo {
   width: 400px;
   height: 200px;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background: linear-gradient(90deg, blue 50%, yellow 50%);
 }
