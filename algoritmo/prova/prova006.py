@@ -1,12 +1,20 @@
-'''
-Escreva um código em Python que peça três números e determine:
-- O maior número;
-- O menor número;
-- Se existem números iguais e caso exista, quais são os números.
-'''
 valores = [ ]
+iguai = [ ]
 for i in range(1, 4):
     x = int(input(f'Digite o {i}° valor: '))
+
+    if (x in valores):
+        iguai.append(x)
+        continue
+
     valores.append(x)
 
-print(valores)
+maior_valor = max(valores)
+menor_valor = min(valores)
+
+print(f'\nO maior valor é {maior_valor}')
+print(f'O menor valor é {menor_valor}')
+if (len(iguai) >= 1):
+    print(f'Os valores iguais são {iguai}')
+else:
+    print('Não há valores iguais')
