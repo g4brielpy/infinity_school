@@ -6,8 +6,9 @@ clientes = list()
 i = True
 
 while (i == True):
+    print('\nNOVO CLIENTE\n')
     # inputs de coleta de dados
-    nome = str(input('\nDigite seu nome: '))
+    nome = str(input('Digite seu nome: '))
     if (nome.upper() == 'FIM'):
         break
     telefone = str(input('Digite seu telefone: '))
@@ -37,4 +38,12 @@ while (i == True):
 
 # sorteio do cliente e adicionado os dados em um dict
 cliente_sorteado = dict(random.choice(clientes))
-print(cliente_sorteado)
+
+# exibindo o cliente sorteado
+print('\nSORTEIO\n')
+
+print(f'O cliente soteado: {cliente_sorteado['nome'].title()}')
+print(f'O telefone dele: {cliente_sorteado['telefone']}')
+print(f'O endereço dele: {cliente_sorteado['endereço'].title()}\n')
+
+print('FIM')
