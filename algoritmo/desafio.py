@@ -34,3 +34,7 @@ while (i == True):
             break
         else:
             print('Valor inválido!')
+
+# sorteio do cliente e adicionado os dados em um dict
+cliente_sorteado = dict(random.choice(clientes))
+print(cliente_sorteado)
