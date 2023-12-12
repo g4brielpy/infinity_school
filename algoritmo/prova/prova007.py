@@ -21,7 +21,15 @@ pessoas_velhas = 0
 for i in range(5):
     nome = str(input('\nDigite seu nome: ').title())
     idade = int(input('Digite sua idade: '))
-    sexo = str(input('Digite seu sexo [F / M]: ').upper())
+    while True:
+        sexo = str(input('Digite seu sexo [F / M]: ').upper())
+        if (sexo == 'F'):
+            sexo = 'Feminino'
+            break
+        elif (sexo == 'M'):
+            sexo = 'Masculino'
+        else:
+            print('Valor inválido!\n')
 
     # atribuindo os valores as lista
     lista_nomes.append(nome)
