@@ -1,14 +1,3 @@
-'''
-- A média de idade de todo o grupo. OK
-
-- Qual o nome da pessoa mais velha. OK
-
-- Quantas pessoas têm menos de 20 anos. OK
-
-- Quantas pessoas têm mais de 40 anos. OK
-
-- Qual o sexo da pessoa mais nova.
-'''
 # lista de daddos
 lista_nomes = list()
 lista_idades = list()
@@ -58,9 +47,9 @@ menor_idade = lista_idades.index(min(lista_idades))
 sexo_pessoa_nova = lista_sexos[menor_idade]
 
 # Exibir os resultados
-print("\nResultados:")
+print("\nGRUPO:")
 print(f"Média de idade do grupo: {media_idades} anos")
-print(f"Pessoa mais velha: {nome_pessoa_velha.title()} ({max(lista_idades)} anos)")
+print(f"Pessoa mais velha: {nome_pessoa_velha.title()}")
 print(f"Pessoas com menos de 20 anos: {pessoas_novas}")
 print(f"Pessoas com mais de 40 anos: {pessoas_velhas}")
 print(f"Sexo da pessoa mais nova: {sexo_pessoa_nova}")
