@@ -3,7 +3,7 @@ Crie um programa em Python que permita adicionar, remover e visualizar alunos e 
 
 O programa deve fornecer as seguintes funcionalidades:
 
-Adicionar um aluno: O usuário poderá adicionar o nome e o número de matrícula de um aluno ao dicionário.
+Adicionar um aluno: O usuário poderá adicionar o nome e o número de matrícula de um aluno ao dicionário. OK
 
 Remover um aluno: O usuário poderá remover um aluno do dicionário informando o número de matrícula.
 
@@ -11,7 +11,11 @@ Visualizar todos os alunos: O usuário poderá visualizar todos os alunos regist
 
 O programa deve ser executado em um loop contínuo até que o usuário escolha sair.
 '''
-print('CADASTRO DE ALUNOS')
+dados_alunos = dict()
+lista_alunos = dict()
+
+print('\nCADASTRO DE ALUNOS')
+print('-- '*7, '\n')
 while True:
     # solicitação do nome e matrícula
     aluno = str(input('Digite o Nome do aluno: ').title())
@@ -22,3 +26,24 @@ while True:
             break
         else:
             print('valor inválido!')
+    
+    # add aluno no dicionário
+    dados_alunos = {
+        matricula: aluno
+    }
+    lista_alunos[matricula] = aluno
+    print(lista_alunos)
+
+    # remover um aluno
+    remover = str(input('Deseja remover algum aluno [S / N]: ').upper())
+    if (remover == 'S'):
+        matricula_remover = str(input('Digite a matricula do aluno que será removido: '))
+        if matricula_remover.isdigit():
+            matricula_remover = int(matricula_remover)
+        else:
+            print('valor inválido!')
+
+        lista_alunos.pop(matricula_remover, None)
+
+
+    print(lista_alunos)
