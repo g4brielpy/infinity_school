@@ -1,4 +1,6 @@
-x = 27
+import random
+
+x = random.randint(1, 100)
 tentativas = 1
 
 print('\nADIVINHE O NÚMERO\n')
