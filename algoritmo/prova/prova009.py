@@ -19,42 +19,48 @@ opcao = 1
 print('\nCADASTRO DE ALUNOS')
 print('-- '*7)
 while True:
+    print('\nPAINEL DE ALUNOS')
     print('\nAdicionar um aluno = 1')
     print('Remover um aluno = 2')
     print('Visualizar lista de alunos cadastrados = 3')
     opcao = int(input('Digite a opção desejada: '))
-    print('\n')
+    print('-- '*7, '\n')
 
-    # solicitação do nome e matrícula
-    aluno = str(input('Digite o Nome do aluno: ').title())
-    while True:
-        matricula = str(input(f'Digite a Matrícula do {aluno}: '))
-        if matricula.isdigit():
-            matricula = int(matricula)
-            break
-        else:
-            print('valor inválido!')
-    
-    # add aluno no dicionário
-    dados_alunos = {
-        matricula: aluno
-    }
-    lista_alunos[matricula] = aluno
-    contidade_alunos += 1
+    match opcao:
+        case 1:
+        # solicitação do nome e matrícula
+            print('CADASTRAR ALUNO')
+            aluno = str(input('Digite o Nome do aluno: ').title())
+            while True:
+                matricula = str(input(f'Digite a Matrícula do {aluno}: '))
+                if matricula.isdigit():
+                    matricula = int(matricula)
+                    break
+                else:
+                    print('valor inválido!')
+            
+            # add aluno no dicionário
+            dados_alunos = {
+                matricula: aluno
+            }
+            lista_alunos[matricula] = aluno
+            contidade_alunos += 1
 
-    # remover um aluno
-    remover = str(input('Deseja remover algum aluno [S / N]: ').upper())
-    if (remover == 'S'):
-        matricula_remover = str(input('Digite a matricula do aluno que será removido: '))
-        if matricula_remover.isdigit():
-            matricula_remover = int(matricula_remover)
-        else:
-            print('valor inválido!')
+        case 2:
+        # remover um aluno
+            remover = str(input('Deseja remover algum aluno [S / N]: ').upper())
+            if (remover == 'S'):
+                print('REMOVER ALUNO')
+                matricula_remover = str(input('Digite a matricula do aluno que será removido: '))
+                if matricula_remover.isdigit():
+                    matricula_remover = int(matricula_remover)
+                else:
+                    print('valor inválido!')
 
-        lista_alunos.pop(matricula_remover, None)
+                lista_alunos.pop(matricula_remover, None)
 
-    # visualizar alunos
-    print('Alunos existentes')
-    print('-- '*7)
-    for i in lista_alunos:
-        print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
+        case 3 :
+        # visualizar alunos
+            print('ALUNOS CADASTRADOS')
+            for i in lista_alunos:
+                print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
