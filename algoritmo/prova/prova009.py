@@ -5,7 +5,7 @@ O programa deve fornecer as seguintes funcionalidades:
 
 Adicionar um aluno: O usuário poderá adicionar o nome e o número de matrícula de um aluno ao dicionário. OK
 
-Remover um aluno: O usuário poderá remover um aluno do dicionário informando o número de matrícula.
+Remover um aluno: O usuário poderá remover um aluno do dicionário informando o número de matrícula. OK
 
 Visualizar todos os alunos: O usuário poderá visualizar todos os alunos registrados no dicionário, exibindo seus respectivos números de matrícula.
 
@@ -13,10 +13,18 @@ O programa deve ser executado em um loop contínuo até que o usuário escolha s
 '''
 dados_alunos = dict()
 lista_alunos = dict()
+contidade_alunos = 0
+opcao = 1
 
 print('\nCADASTRO DE ALUNOS')
-print('-- '*7, '\n')
+print('-- '*7)
 while True:
+    print('\nAdicionar um aluno = 1')
+    print('Remover um aluno = 2')
+    print('Visualizar lista de alunos cadastrados = 3')
+    opcao = int(input('Digite a opção desejada: '))
+    print('\n')
+
     # solicitação do nome e matrícula
     aluno = str(input('Digite o Nome do aluno: ').title())
     while True:
@@ -32,7 +40,7 @@ while True:
         matricula: aluno
     }
     lista_alunos[matricula] = aluno
-    print(lista_alunos)
+    contidade_alunos += 1
 
     # remover um aluno
     remover = str(input('Deseja remover algum aluno [S / N]: ').upper())
@@ -45,5 +53,8 @@ while True:
 
         lista_alunos.pop(matricula_remover, None)
 
-
-    print(lista_alunos)
+    # visualizar alunos
+    print('Alunos existentes')
+    print('-- '*7)
+    for i in lista_alunos:
+        print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
