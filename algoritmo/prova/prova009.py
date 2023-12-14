@@ -1,6 +1,7 @@
 dados_alunos = dict()
 lista_alunos = dict()
 contidade_alunos = 0
+alunos_removidos = 0
 opcao = 1
 
 print('\nCADASTRO DE ALUNOS')
@@ -36,14 +37,21 @@ while True:
 
         case 2:
         # remover um aluno
-            remover = str(input('Deseja remover algum aluno [S / N]: ').upper())
+            remover = str(input('Tem certeza que deseja remover um aluno(a) [S / N]: ').upper())
             if (remover == 'S'):
-                print('REMOVER ALUNO')
+                print('\nREMOVER ALUNO')
                 matricula_remover = str(input('Digite a matricula do aluno que será removido: '))
                 if matricula_remover.isdigit():
                     matricula_remover = int(matricula_remover)
                 else:
                     print('valor inválido!')
+
+                if (matricula_remover in lista_alunos):
+                    print(f'Aluno(a) {lista_alunos[matricula_remover]} removido')
+                    contidade_alunos -= 1
+                    alunos_removidos += 1
+                else:
+                    print('Aluno não encontrado')
 
                 lista_alunos.pop(matricula_remover, None)
 
@@ -52,6 +60,8 @@ while True:
             print('ALUNOS CADASTRADOS')
             for i in lista_alunos:
                 print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
+            print(f'\nQuantidade de alunos(a) cadastrados: {contidade_alunos}')
+            print(f'Quabtidade de alunos(a) removidos: {alunos_removidos}')
 
         case 4:
         # finalizar o programa
