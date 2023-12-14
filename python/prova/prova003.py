@@ -60,7 +60,7 @@ while True:
             print('ALUNOS CADASTRADOS')
             for i in lista_alunos:
                 print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
-            print(f'\nQuantidade de alunos(a) cadastrados: {contidade_alunos}')
+            print(f'Quantidade de alunos(a) cadastrados: {contidade_alunos}')
             print(f'Quabtidade de alunos(a) removidos: {alunos_removidos}')
 
         case 4:
