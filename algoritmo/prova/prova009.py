@@ -1,16 +1,3 @@
-'''
-Crie um programa em Python que permita adicionar, remover e visualizar alunos e seus números de matrícula usando um dicionário.
-
-O programa deve fornecer as seguintes funcionalidades:
-
-Adicionar um aluno: O usuário poderá adicionar o nome e o número de matrícula de um aluno ao dicionário. OK
-
-Remover um aluno: O usuário poderá remover um aluno do dicionário informando o número de matrícula. OK
-
-Visualizar todos os alunos: O usuário poderá visualizar todos os alunos registrados no dicionário, exibindo seus respectivos números de matrícula.
-
-O programa deve ser executado em um loop contínuo até que o usuário escolha sair.
-'''
 dados_alunos = dict()
 lista_alunos = dict()
 contidade_alunos = 0
@@ -19,10 +6,11 @@ opcao = 1
 print('\nCADASTRO DE ALUNOS')
 print('-- '*7)
 while True:
-    print('\nPAINEL DE ALUNOS')
-    print('\nAdicionar um aluno = 1')
+    print('\nPAINEL DE ALUNOS\n')
+    print('Adicionar um aluno = 1')
     print('Remover um aluno = 2')
-    print('Visualizar lista de alunos cadastrados = 3')
+    print('Lista de alunos cadastrados = 3')
+    print('Exit = 4')
     opcao = int(input('Digite a opção desejada: '))
     print('-- '*7, '\n')
 
@@ -59,8 +47,17 @@ while True:
 
                 lista_alunos.pop(matricula_remover, None)
 
-        case 3 :
+        case 3:
         # visualizar alunos
             print('ALUNOS CADASTRADOS')
             for i in lista_alunos:
                 print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
+
+        case 4:
+        # finalizar o programa
+            print('EXIT...\n')
+            break
+
+        case _:
+        # caso nenhuma opção acima seja atendida
+            print('valor inválido!')
