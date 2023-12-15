@@ -11,8 +11,13 @@ Também crie uma função chamada "verificar_situacao" que, com base na média c
 '''
 # variáveis
 lista_notas = list()
-media = int()
+media = float()
 quantidad_notas = 1
+
+# funções
+def calcular_media(notas_aluno):
+    media_aluno = sum(notas_aluno) / len(notas_aluno)
+    return media_aluno
 
 # coletar notas
 while True:
@@ -42,4 +47,7 @@ while True:
     else:
         break
 
-print(lista_notas)
+# chamada da função média
+media = calcular_media(lista_notas)
+print(f'A média do aluno é: {media}')
+    
