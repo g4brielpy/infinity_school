@@ -13,6 +13,9 @@ Função reduce()  para obter a soma de todos os números da lista numeros
 
 Qual o resultado obtido após a execução das operações acima?
 '''
+# import de funções
+from functools import reduce
+
 # lista de números
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -23,3 +26,7 @@ print(f'O quadrado de cada número são: {quadrado}')
 # função filter - nova lista com números pares
 pares = list(filter(lambda x: x % 2 == 0, numeros))
 print(f'Os números pares são: {pares}')
+
+# função reduce - soma de todos os números
+soma = int(reduce(lambda x, y: x + y, numeros))
+print(soma)
