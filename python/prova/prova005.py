@@ -18,5 +18,8 @@ numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # função map - quadrado de cada número da lista numeros
 quadrado = list(map(lambda x: x **2, numeros))
-print(quadrado)
+print(f'O quadrado de cada número são: {quadrado}')
 
+# função filter - nova lista com números pares
+pares = list(filter(lambda x: x % 2 == 0, numeros))
+print(f'Os números pares são: {pares}')
