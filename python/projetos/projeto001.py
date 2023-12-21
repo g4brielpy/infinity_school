@@ -73,6 +73,7 @@ while True:
     print('Sair: [EXIT]')
     print(f'Quantidade de taferas: {qtd_tarefas}')
     comando = str(input('Comando: ').upper())
+    print(' ')
     match comando:
         case 'ADD':
             qtd_tarefas = add_tarefa(qtd_tarefas)
