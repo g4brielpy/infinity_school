@@ -1,4 +1,5 @@
 # VARIÁVEIS
+
 # Lista com todas as Tarefas criadas
 Lista_Tarefas = list() 
 
@@ -7,6 +8,7 @@ Tarefas = dict()
 
 
 # FUNÇÕES TAREFAS
+
 def add_tarefa():
     # valida nome
     while True:
@@ -75,13 +77,27 @@ def del_tarefa():
 
 
 # MENU DE COMANDOS
-print('\n  MENU PRINCIPAL')
-print('~~~~~~~~~~~~~~~~~~')
-print('[1] - Add Tarefa')
-print('[2] - Del Tarefa')
-print('[3] - Lista de Tarefas')
-print('[4] - Tarefas por Prioridade')
-print('[5] - Exit')
-comando = str(input('COMANDO: '))
-print(' ')
+while True:
+    print('\n  MENU PRINCIPAL')
+    print('~~~~~~~~~~~~~~~~~~')
+    print('[1] - Add Tarefa')
+    print('[2] - Del Tarefa')
+    print('[3] - Lista de Tarefas')
+    print('[4] - Tarefas por Prioridade')
+    print('[5] - Exit')
+    comando = str(input('COMANDO: '))
+    print(' ')
+    match comando:
+        case '1':
+            add_tarefa()
+        case '2':
+            del_tarefa()
+        case '3':
+            print(Lista_Tarefas)
+        # case '4':
+        #     Função
+        case '5':
+            break
+        case _:
+            print('Valor inválido! Digite novamente')
 
