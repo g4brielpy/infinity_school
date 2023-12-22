@@ -73,6 +73,15 @@ def del_tarefa():
     # mensagem de aviso coso a tarefa não seja encontrada
     if (valor_localizado == False):
         print('Tarefa não encontrada')
+
+
+def exibir_tarefas():
+    for tarefa in Lista_Tarefas:
+        print('TAREFA')
+        print(f'Nome: {tarefa['nome']}')
+        print(f'Descrição: {tarefa['descrição']}')
+        print(f'Prioridade: {tarefa['prioridade']}')
+        print(f'Categoria: {tarefa['categoria']}\n')
     
 
 
@@ -93,7 +102,7 @@ while True:
         case '2':
             del_tarefa()
         case '3':
-            print(Lista_Tarefas)
+            exibir_tarefas()
         # case '4':
         #     Função
         case '5':
