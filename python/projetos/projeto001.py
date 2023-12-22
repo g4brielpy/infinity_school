@@ -51,7 +51,26 @@ def add_tarefa():
 
 
 def del_tarefa():
+    # nome da tarefa para remover
     nome_tarefa_del = str(input('Qual a tarefa que deseja remove: '))
+    lista_copia = Lista_Tarefas
+    index_del = 0
+
+    # verificando se a tarefa existe
+    for tarefa in lista_copia:
+        if nome_tarefa_del == tarefa['nome']:
+            # removendo tarefa pelo index
+            print(f'TAREFA: {Lista_Tarefas[index_del] ['nome']} Removido')
+            Lista_Tarefas.pop(index_del)
+            valor_localizado = True
+            break
+        else:
+            valor_localizado = False
+        index_del += 1
+
+    # mensagem de aviso coso a tarefa não seja encontrada
+    if (valor_localizado == False):
+        print('Tarefa não encontrada')
     
 
 
@@ -66,6 +85,3 @@ print('[5] - Exit')
 comando = str(input('COMANDO: '))
 print(' ')
 
-
-
-print(Lista_Tarefas)
