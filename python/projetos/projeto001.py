@@ -50,6 +50,11 @@ def add_tarefa():
     print(f'Tarefa ({nome_input}) adicionada.')
 
 
+def del_tarefa():
+    nome_tarefa_del = str(input('Qual a tarefa que deseja remove: '))
+    
+
+
 # MENU DE COMANDOS
 print('\n  MENU PRINCIPAL')
 print('~~~~~~~~~~~~~~~~~~')
@@ -61,8 +66,6 @@ print('[5] - Exit')
 comando = str(input('COMANDO: '))
 print(' ')
 
-add_tarefa()
-add_tarefa()
-add_tarefa()
+
 
 print(Lista_Tarefas)
