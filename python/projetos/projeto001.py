@@ -1,7 +1,7 @@
 # VARIÁVEIS
 
 # Lista com todas as Tarefas criadas
-Lista_Tarefas = list() 
+Lista_Tarefas = list()
 
 # Dicionário para criar uma Tarefas e atribuir ela a lista
 Tarefas = dict()
@@ -10,6 +10,7 @@ Tarefas = dict()
 # FUNÇÕES TAREFAS
 
 def add_tarefa():
+
     # valida nome
     while True:
         nome_input = str(input('Nome da Tarefa: '))
@@ -53,10 +54,17 @@ def add_tarefa():
 
 
 def del_tarefa():
+
+    # verificar se a lista está vazia
+    if Lista_Tarefas == []:
+        print('Lista de Tarefa vazia')
+        return
+
     # nome da tarefa para remover
     nome_tarefa_del = str(input('Qual a tarefa que deseja remove: '))
     lista_copia = Lista_Tarefas
     index_del = 0
+
 
     # verificando se a tarefa existe
     for tarefa in lista_copia:
@@ -76,12 +84,18 @@ def del_tarefa():
 
 
 def exibir_tarefas():
+
+    # verificar se a lista está vazia
+    if Lista_Tarefas == []:
+        print('Lista de Tarefa vazia')
+        return
+
     for tarefa in Lista_Tarefas:
         print('TAREFA')
-        print(f'Nome: {tarefa['nome']}')
-        print(f'Descrição: {tarefa['descrição']}')
-        print(f'Prioridade: {tarefa['prioridade']}')
-        print(f'Categoria: {tarefa['categoria']}\n')
+        print(f'Nome: {tarefa["nome"]}')
+        print(f'Descrição: {tarefa["descrição"]}')
+        print(f'Prioridade: {tarefa["prioridade"]}')
+        print(f'Categoria: {tarefa["categoria"]}\n')
     
 
 
