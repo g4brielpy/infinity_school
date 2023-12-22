@@ -3,7 +3,7 @@
 Lista_Tarefas = list() 
 
 # Dicionário para criar uma Tarefas e atribuir ela a lista
-Tarefas = dict() 
+Tarefas = dict()
 
 
 # FUNÇÕES TAREFAS
@@ -12,6 +12,12 @@ def add_tarefa():
     while True:
         nome_input = str(input('Nome da Tarefa: '))
         
+        # verificar se valor é repetido
+        for tarefa in Lista_Tarefas:
+            if tarefa['nome'] == nome_input:
+                print('Tarefa já existente')
+                return
+                
         if nome_input.isalpha():
             break
         else:
@@ -24,7 +30,6 @@ def add_tarefa():
     while True:
         prioridade_input = str(input('Prioridade [A - alta] [M - média] [B - baixa]: ').upper())
 
-        # if (prioridade_input == 'A') or (prioridade_input == 'M') or (prioridade_input == 'B'):
         if prioridade_input in ('A', 'M', 'B'):
             break
         else:
@@ -42,6 +47,7 @@ def add_tarefa():
     }
     # Adicionando a tarefa criada a lista
     Lista_Tarefas.append(Tarefas)
+    print(f'Tarefa ({nome_input}) adicionada.')
 
 
 # MENU DE COMANDOS
@@ -57,3 +63,6 @@ print(' ')
 
 add_tarefa()
 add_tarefa()
+add_tarefa()
+
+print(Lista_Tarefas)
