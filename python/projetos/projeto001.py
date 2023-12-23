@@ -96,6 +96,10 @@ def exibir_tarefas():
         print(f'Descrição: {tarefa["descrição"]}')
         print(f'Prioridade: {tarefa["prioridade"]}')
         print(f'Categoria: {tarefa["categoria"]}\n')
+
+
+def buscar_tarefa_prioridade():
+    
     
 
 
