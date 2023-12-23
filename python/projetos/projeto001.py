@@ -112,8 +112,25 @@ def buscar_tarefa_prioridade():
         return
     
     # input para busca tarefa
-    tarefa_busca = str(input('Informe qual tarefa deseja preocurar: '))
+    while True:
+        tarefa_busca = str(input('Informe qual Prioridade de tarefa deseja buscar [A - alta] [M - média] [B - baixa]: ').upper())
 
+        if tarefa_busca in ('A', 'M', 'B'):
+            match tarefa_busca:
+                case 'A':
+                    tarefa_busca = 'Alta'
+                case 'M':
+                    tarefa_busca = 'Média'
+                case 'B':
+                    tarefa_busca = 'Baixa'
+            break
+        else:
+            print('Valor invalido')
+        
+    # busca
+    for tarefa in Lista_Tarefas:
+        print(tarefa)
+        
 
 
 
@@ -135,8 +152,8 @@ while True:
             del_tarefa()
         case '3':
             exibir_tarefas()
-        # case '4':
-        #     Função
+        case '4':
+            buscar_tarefa_prioridade()
         case '5':
             break
         case _:
