@@ -34,6 +34,13 @@ def add_tarefa():
         prioridade_input = str(input('Prioridade [A - alta] [M - média] [B - baixa]: ').upper())
 
         if prioridade_input in ('A', 'M', 'B'):
+            match prioridade_input:
+                case 'A':
+                    prioridade_input = 'Alta'
+                case 'M':
+                    prioridade_input = 'Média'
+                case 'B':
+                    prioridade_input = 'Baixa'
             break
         else:
             print('Valor invalido')
@@ -106,6 +113,7 @@ def buscar_tarefa_prioridade():
     
     # input para busca tarefa
     tarefa_busca = str(input('Informe qual tarefa deseja preocurar: '))
+
 
 
 
