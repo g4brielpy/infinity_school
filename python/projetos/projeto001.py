@@ -111,6 +111,9 @@ def buscar_tarefa_prioridade():
         print('Lista de Tarefa vazia')
         return
     
+    # atribuir tarefas a lista geral
+    Lista_Tarefas_Prioridade = list()
+    
     # input para busca tarefa
     while True:
         tarefa_busca = str(input('Informe qual Prioridade de tarefa deseja buscar [A - alta] [M - média] [B - baixa]: ').upper())
@@ -127,10 +130,12 @@ def buscar_tarefa_prioridade():
         else:
             print('Valor invalido')
         
-    # busca
+    # busca e armazenar tarefas
     for tarefa in Lista_Tarefas:
-        print(tarefa)
-        
+        if tarefa['prioridade'] == tarefa_busca:
+            Lista_Tarefas_Prioridade.append(tarefa)
+
+    print(Lista_Tarefas_Prioridade)
 
 
 
