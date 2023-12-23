@@ -99,8 +99,14 @@ def exibir_tarefas():
 
 
 def buscar_tarefa_prioridade():
+    # verificar se a lista está vazia
+    if Lista_Tarefas == []:
+        print('Lista de Tarefa vazia')
+        return
     
-    
+    # input para busca tarefa
+    tarefa_busca = str(input('Informe qual tarefa deseja preocurar: '))
+
 
 
 # MENU DE COMANDOS
