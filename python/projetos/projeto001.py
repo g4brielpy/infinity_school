@@ -117,6 +117,7 @@ def buscar_tarefa_prioridade():
     # input para busca tarefa
     while True:
         tarefa_busca = str(input('Informe qual Prioridade de tarefa deseja buscar [A - alta] [M - média] [B - baixa]: ').upper())
+        print(' ')
 
         if tarefa_busca in ('A', 'M', 'B'):
             match tarefa_busca:
@@ -135,7 +136,13 @@ def buscar_tarefa_prioridade():
         if tarefa['prioridade'] == tarefa_busca:
             Lista_Tarefas_Prioridade.append(tarefa)
 
-    print(Lista_Tarefas_Prioridade)
+    # exibir tarefas
+    for tarefa in Lista_Tarefas_Prioridade:
+        print(f'TAREFA DE PRIORIDADE {tarefa_busca.upper()}')
+        print(f'Nome: {tarefa["nome"]}')
+        print(f'Descrição: {tarefa["descrição"]}')
+        print(f'Prioridade: {tarefa["prioridade"]}')
+        print(f'Categoria: {tarefa["categoria"]}\n')
 
 
 
