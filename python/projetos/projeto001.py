@@ -111,7 +111,7 @@ def buscar_tarefa_prioridade():
         print('Lista de Tarefa vazia')
         return
     
-    # atribuir tarefas a lista geral
+    # lista de tarefas da mesma prioridade
     Lista_Tarefas_Prioridade = list()
     
     # input para busca tarefa
@@ -131,7 +131,7 @@ def buscar_tarefa_prioridade():
         else:
             print('Valor invalido')
         
-    # busca e armazenar tarefas
+    # buscar e armazenar tarefas
     for tarefa in Lista_Tarefas:
         if tarefa['prioridade'] == tarefa_busca:
             Lista_Tarefas_Prioridade.append(tarefa)
@@ -139,6 +139,31 @@ def buscar_tarefa_prioridade():
     # exibir tarefas
     for tarefa in Lista_Tarefas_Prioridade:
         print(f'TAREFA DE PRIORIDADE {tarefa_busca.upper()}')
+        print(f'Nome: {tarefa["nome"]}')
+        print(f'Descrição: {tarefa["descrição"]}')
+        print(f'Prioridade: {tarefa["prioridade"]}')
+        print(f'Categoria: {tarefa["categoria"]}\n')
+
+
+def buscar_tarefa_categoria():
+    # verificar se a lista está vazia
+    if Lista_Tarefas == []:
+        print('Lista de Tarefa vazia')
+        return
+    
+    # lista de tarefas da mesma cartegoria
+    Lista_Tarefas_categoria = list()
+
+    tarefa_busca = str(input('Informe qual Categoria de tarefa deseja buscar: '))
+
+    # buscar e armazenar terefas
+    for tarefa in Lista_Tarefas:
+        if tarefa['categoria'] == tarefa_busca:
+            Lista_Tarefas_categoria.append(tarefa)
+
+    # exibir tarefas
+    for tarefa in Lista_Tarefas_categoria:
+        print(f'TAREFA DE CATEGORIA {tarefa_busca.upper()}')
         print(f'Nome: {tarefa["nome"]}')
         print(f'Descrição: {tarefa["descrição"]}')
         print(f'Prioridade: {tarefa["prioridade"]}')
@@ -154,7 +179,8 @@ while True:
     print('[2] - Del Tarefa')
     print('[3] - Lista de Tarefas')
     print('[4] - Tarefas por Prioridade')
-    print('[5] - Exit')
+    print('[5] - Tarefas por Categorias')
+    print('[6] - Exit')
     comando = str(input('COMANDO: '))
     print(' ')
     match comando:
@@ -167,7 +193,8 @@ while True:
         case '4':
             buscar_tarefa_prioridade()
         case '5':
+            buscar_tarefa_categoria()
+        case '6':
             break
         case _:
             print('Valor inválido! Digite novamente')
-
