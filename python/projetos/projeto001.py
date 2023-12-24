@@ -130,11 +130,18 @@ def buscar_tarefa_prioridade():
             break
         else:
             print('Valor invalido')
+    valor_localizado = False
         
     # buscar e armazenar tarefas
     for tarefa in Lista_Tarefas:
         if tarefa['prioridade'] == tarefa_busca:
             Lista_Tarefas_Prioridade.append(tarefa)
+            valor_localizado = True
+
+    # mensagem de aviso coso a tarefa não seja encontrada
+    if (valor_localizado == False):
+        print('Prioridade não encontrada')
+
 
     # exibir tarefas
     for tarefa in Lista_Tarefas_Prioridade:
