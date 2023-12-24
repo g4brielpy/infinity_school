@@ -155,11 +155,17 @@ def buscar_tarefa_categoria():
     Lista_Tarefas_categoria = list()
 
     tarefa_busca = str(input('Informe qual Categoria de tarefa deseja buscar: '))
+    print(' ')
 
     # buscar e armazenar terefas
     for tarefa in Lista_Tarefas:
         if tarefa['categoria'] == tarefa_busca:
             Lista_Tarefas_categoria.append(tarefa)
+
+    # verificar se algum valor foi encontrado
+    if len(Lista_Tarefas_categoria) == 0:
+        print('Categoria não encontrada')
+        return
 
     # exibir tarefas
     for tarefa in Lista_Tarefas_categoria:
