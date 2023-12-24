@@ -57,7 +57,7 @@ def add_tarefa():
     }
     # Adicionando a tarefa criada a lista
     Lista_Tarefas.append(Tarefas)
-    print(f'Tarefa ({nome_input}) adicionada.')
+    print(f'TAREFA ({nome_input}) ADICIONADA.\n')
 
 
 def del_tarefa():
