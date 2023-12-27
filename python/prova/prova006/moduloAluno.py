@@ -6,6 +6,18 @@ aluno = dict()
 
 # MÓDULOS
 
+# função verificar lista vazia
+def lista_valida():
+    if len(lista_alunos) > 0:
+        valido = True
+        return valido
+    else:
+        valido = False
+        print('ERRO: Lista Vazia')
+        return valido
+    
+
+
 # função adicionar alunos
 def AdicionarAluno():
     print('ADICIONAR ALUNO')
@@ -31,6 +43,10 @@ def AdicionarAluno():
 
 # função remover aluno
 def RemoverAluno():
+    valido = lista_valida()
+    if not valido:
+        return
+
     print('REMOVER ALUNO')
     # validar número da matrícula
     while True:
@@ -67,6 +83,10 @@ def RemoverAluno():
 
 # função atualizar nome de aluno
 def AtualizarAluno():
+    valido = lista_valida()
+    if not valido:
+        return
+
     print('ATUALIZAR CADASTRO DE ALUNO')
     lista_alunos_atualizada = lista_alunos
 
@@ -112,6 +132,10 @@ def AtualizarAluno():
         
 # função exibir lista de alunos
 def Exibir_Aluno():
+    valido = lista_valida()
+    if not valido:
+        return
+
     for dicionario_aluno in lista_alunos:
         for chave_matricula, valor_nome in dicionario_aluno.items():
             print('\nALUNO')
