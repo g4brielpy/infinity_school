@@ -1,4 +1,6 @@
-from add_aluno import AdicionarAluno
+from moduloAluno import (
+    AdicionarAluno
+)
 
 # Menu principal
 while True:
