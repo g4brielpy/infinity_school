@@ -3,6 +3,9 @@ lista_alunos = list()
 aluno = dict()
 
 
+
+# MÓDULOS
+
 # função adicionar alunos
 def AdicionarAluno():
     print('ADICIONAR ALUNO')
@@ -23,6 +26,7 @@ def AdicionarAluno():
     }
     # adicionando à lista de alunos
     lista_alunos.append(aluno)
+
 
 
 # função remover aluno
@@ -53,13 +57,59 @@ def RemoverAluno():
                 valor_encontrado = True
     
     # removendo caso seja encontrado
-    if valor_encontrado == True:
+    if valor_encontrado:
         print(f'Aluno {nome_removido} removido')
         lista_alunos.remove(matricula_del)
     else:
         print('Aluno não encontrado')
 
 
+
+# função atualizar nome de aluno
+def AtualizarAluno():
+    print('ATUALIZAR CADASTRO DE ALUNO')
+    lista_alunos_atualizada = lista_alunos
+
+    # validar número da matrícula
+    while True:
+        # entrada da matrícula para atualizar
+        matricula_atualizar = str(input('Matrícula do aluno que sejá atualizado: '))
+        if matricula_atualizar.isdigit():
+            break
+        else:
+            print('Valor inválido, digite apenas número\n')
+    
+    # novo nome
+    nome_input = str(input('Novo nome do aluno: '))
+
+    # busca matrícula na lista
+    valor_encontrado = False
+    i = 0
+    for dicionario_aluno in lista_alunos_atualizada:
+
+        # iterar sobre cada dicionário separadamente
+        for chave_aluno, valor_aluno in dicionario_aluno.items():
+            if chave_aluno == matricula_atualizar:
+
+                # atualizar nome
+                dicionario_aluno[chave_aluno] = nome_input
+                valor_encontrado = True
+
+                # subir para lista original
+                lista_alunos[i] = dicionario_aluno
+
+        # atualizar index caso o valor não seja localizado
+        i += 1
+
+    # saída se o valor for encontrado
+    if valor_encontrado:
+        print('Valor alterado')
+        print(f'Novo nome: {nome_input}')
+    else:
+        print('Valor não localizado')
+
+                
+        
 # função exibir lista de alunos
 def Exibir_Aluno():
     for dicionario_aluno in lista_alunos:
