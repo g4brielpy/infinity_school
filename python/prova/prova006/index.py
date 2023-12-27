@@ -1,5 +1,6 @@
 from moduloAluno import (
-    AdicionarAluno
+    AdicionarAluno,
+    RemoverAluno
 )
 
 # Menu principal
@@ -17,8 +18,8 @@ while True:
     match comando:
         case '1':
             AdicionarAluno()
-        # case '2':
-            # Função
+        case '2':
+            RemoverAluno()
         # case '3':
             # Função
         # case '4':
