@@ -62,4 +62,9 @@ def RemoverAluno():
 
 # função exibir lista de alunos
 def Exibir_Aluno():
-    print(lista_alunos)
+    for dicionario_aluno in lista_alunos:
+        for chave_matricula, valor_nome in dicionario_aluno.items():
+            print('\nALUNO')
+            print(f'Nome: {valor_nome}')
+            print(f'Matrícula: {chave_matricula}')
+        
