@@ -1,6 +1,7 @@
 from moduloAluno import (
     AdicionarAluno,
-    RemoverAluno
+    RemoverAluno,
+    Exibir_Aluno,
 )
 
 # Menu principal
@@ -12,6 +13,7 @@ while True:
     print('[2] - Remover Aluno')
     print('[3] - Atualizar Aluno')
     print('[4] - Lista de Alunos')
+    print('[5] - Exibir lista de Alunos')
     comando = str(input('COMANDO: '))
 
     # estrutura de chamada de módulo
@@ -22,8 +24,8 @@ while True:
             RemoverAluno()
         # case '3':
             # Função
-        # case '4':
-            # Função
+        case '4':
+            Exibir_Aluno()
         case '5':
             break
         case _:
