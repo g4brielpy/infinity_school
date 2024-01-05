@@ -5,7 +5,7 @@ Adicionar produtos:
 """
 
 
-def adicionar_produto(listaProdutos):
+def adicionarProduto(listaProdutos):
 
     # cadastro do produto
     nome_input = str(input('Nome do produto: '))
