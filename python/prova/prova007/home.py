@@ -22,3 +22,10 @@ while True:
             add_produtos.adicionarProduto(lista_produtos)
         case '2':
             del_produtos.removerProduto(lista_produtos)
+        case '3':
+            print(lista_produtos)
+
+        case '5':
+            break
+        case _:
+            print('Valor inválido')
