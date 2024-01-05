@@ -25,7 +25,7 @@ while True:
         case '3':
             print(lista_produtos)
 
-        case '5':
+        case '6':
             break
         case _:
             print('Valor inválido')
