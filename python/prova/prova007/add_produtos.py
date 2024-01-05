@@ -5,7 +5,7 @@ Adicionar produtos:
 """
 
 
-def adicionar_produto(lista_produtos):
+def adicionar_produto(listaProdutos):
 
     # cadastro do produto
     nome_input = str(input('Nome do produto: '))
@@ -20,5 +20,6 @@ def adicionar_produto(lista_produtos):
         'valor unitario': valorUnitario_input,
         'valor total': valorTotal
     }
-    lista_produtos.append(produto)
-    print(lista_produtos)
+    listaProdutos.append(produto)
+
+    return listaProdutos
