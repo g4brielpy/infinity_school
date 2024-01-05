@@ -1,0 +1,2 @@
+def removerProduto(listaProdutos):
+    return

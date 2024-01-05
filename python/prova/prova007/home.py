@@ -1,5 +1,6 @@
 # módulos
 import add_produtos
+import del_produtos
 
 # variáveis
 lista_produtos = list()
@@ -18,4 +19,6 @@ while True:
 
     match comando:
         case '1':
-            add_produtos.adicionar_produto(lista_produtos)
+            add_produtos.adicionarProduto(lista_produtos)
+        case '2':
+            del_produtos.removerProduto(lista_produtos)
