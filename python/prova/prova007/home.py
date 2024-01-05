@@ -1,6 +1,7 @@
 # módulos
 import add_produtos
 import del_produtos
+import ver_produtos
 
 # variáveis
 lista_produtos = list()
@@ -23,7 +24,7 @@ while True:
         case '2':
             del_produtos.removerProduto(lista_produtos)
         case '3':
-            print(lista_produtos)
+            ver_produtos.exiberProduto(lista_produtos)
 
         case '6':
             break

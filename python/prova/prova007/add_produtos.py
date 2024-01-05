@@ -16,7 +16,7 @@ def adicionarProduto(listaProdutos):
 
     produto = {
         'nome': nome_input,
-        'quatidade': quantidade_input,
+        'quantidade': quantidade_input,
         'valor unitario': valorUnitario_input,
         'valor total': valorTotal
     }
