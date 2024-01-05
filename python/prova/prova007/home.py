@@ -14,8 +14,8 @@ while True:
     print('[1] - Adicionar produtos')
     print('[2] - Remover produto')
     print('[3] - Lista de produtos')
-    print('[5] - Atualizar produtos')
-    print('[6] - Encerrar programa')
+    print('[4] - Atualizar produtos')
+    print('[5] - Encerrar programa')
     comando = str(input('COMANDO: '))
 
     match comando:
@@ -26,7 +26,7 @@ while True:
         case '3':
             ver_produtos.exiberProduto(lista_produtos)
 
-        case '6':
+        case '5':
             break
         case _:
             print('Valor inválido')
