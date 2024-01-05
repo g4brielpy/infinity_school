@@ -2,6 +2,7 @@
 import add_produtos
 import del_produtos
 import ver_produtos
+import att_produtos
 
 # variáveis
 lista_produtos = list()
@@ -25,7 +26,8 @@ while True:
             del_produtos.removerProduto(lista_produtos)
         case '3':
             ver_produtos.exiberProduto(lista_produtos)
-
+        case '4':
+            att_produtos.atualizarProduto(lista_produtos)
         case '5':
             break
         case _:
