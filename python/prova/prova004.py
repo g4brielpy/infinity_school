@@ -5,9 +5,12 @@ situacao = str()
 quantidad_notas = 1
 
 # funções
+
+
 def calcular_media(notas_aluno):
     media_aluno = sum(notas_aluno) / len(notas_aluno)
     return media_aluno
+
 
 def verificar_situacao(media):
     if (media == 10):
@@ -16,6 +19,7 @@ def verificar_situacao(media):
         return ('Aprovado')
     else:
         return ('Reprovado')
+
 
 # coletar notas
 while True:
@@ -36,10 +40,10 @@ while True:
         print('Valor inválido! Informe novamente')
         continue
 
-
     while True:
-    # verificar se o user vai informar outra nota
-        mais_notas = str(input('\nDeseja informar outra Nota [S / N]: ').upper())
+        # verificar se o user vai informar outra nota
+        mais_notas = str(
+            input('\nDeseja informar outra Nota [S / N]: ').upper())
         if (mais_notas == 'S') or (mais_notas == 'N'):
             break
 
@@ -57,4 +61,3 @@ situacao = verificar_situacao(media)
 
 print(f'\nA média do aluno é: {media}')
 print(f'Situação do aluno: {situacao}')
-    
