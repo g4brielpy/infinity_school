@@ -16,6 +16,10 @@ def exiberProduto(listaProdutos):
         print(f'Valor unitário: R$ {produto["valor unitario"]}')
         print(f'TOTAL: R$ {produto["valor total"]}\n')
 
+    # lista vazia
+    if not listaProdutos:
+        print('Lista vazia!')
+
     # valor total de todos os produtos
     total = valor_total.valorTotal(listaProdutos)
     print(f'Valor total de todos os produtos: R$ {total}')
