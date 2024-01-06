@@ -18,6 +18,7 @@ while True:
     print('[4] - Atualizar produtos')
     print('[5] - Encerrar programa')
     comando = str(input('COMANDO: '))
+    print(' ')
 
     match comando:
         case '1':
