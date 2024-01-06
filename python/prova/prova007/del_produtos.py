@@ -14,7 +14,7 @@ def removerProduto(listaProdutos):
     for produto in listaProdutos_clone:
     # produto = dicionário de cada item; contendo todas as informações de um produto
         
-        if produto['nome'] in nomeRevomer_input:
+        if produto['nome'] == nomeRevomer_input:
             # localizando o produto
             print(f'Produto removido: {produto["nome"]}')
 
