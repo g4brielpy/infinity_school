@@ -3,6 +3,7 @@ Ver a lista de produtos:
     O programa exibe a lista de produtos adicionados até o momento, mostrando o nome do produto, o valor unitário, a quantidade e o valor total do produto. 
     Além disso, exibe o valor total de todos os produtos da lista.
 """
+import valor_total
 
 
 def exiberProduto(listaProdutos):
@@ -14,3 +15,7 @@ def exiberProduto(listaProdutos):
         print(f'Quatidade: {produto["quantidade"]}')
         print(f'Valor unitário: R$ {produto["valor unitario"]}')
         print(f'TOTAL: R$ {produto["valor total"]}\n')
+
+    # valor total de todos os produtos
+    total = valor_total.valorTotal(listaProdutos)
+    print(f'Valor total de todos os produtos: R$ {total}')
