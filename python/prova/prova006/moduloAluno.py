@@ -3,7 +3,6 @@ lista_alunos = list()
 aluno = dict()
 
 
-
 # MÓDULOS
 
 # função verificar lista vazia
@@ -15,7 +14,6 @@ def lista_valida():
         valido = False
         print('ERRO: Lista Vazia')
         return valido
-    
 
 
 # função adicionar alunos
@@ -38,7 +36,6 @@ def AdicionarAluno():
     }
     # adicionando à lista de alunos
     lista_alunos.append(aluno)
-
 
 
 # função remover aluno
@@ -71,14 +68,13 @@ def RemoverAluno():
                 nome_removido = valor_aluno
                 # marcando que o valor foi localizado
                 valor_encontrado = True
-    
+
     # removendo caso seja encontrado
     if valor_encontrado:
         print(f'Aluno {nome_removido} removido')
         lista_alunos.remove(matricula_del)
     else:
         print('Aluno não encontrado')
-
 
 
 # função atualizar nome de aluno
@@ -93,12 +89,13 @@ def AtualizarAluno():
     # validar número da matrícula
     while True:
         # entrada da matrícula para atualizar
-        matricula_atualizar = str(input('Matrícula do aluno que sejá atualizado: '))
+        matricula_atualizar = str(
+            input('Matrícula do aluno que sejá atualizado: '))
         if matricula_atualizar.isdigit():
             break
         else:
             print('Valor inválido, digite apenas número\n')
-    
+
     # novo nome
     nome_input = str(input('Novo nome do aluno: '))
 
@@ -128,8 +125,7 @@ def AtualizarAluno():
     else:
         print('Valor não localizado')
 
-                
-        
+
 # função exibir lista de alunos
 def Exibir_Aluno():
     valido = lista_valida()
@@ -141,4 +137,3 @@ def Exibir_Aluno():
             print('\nALUNO')
             print(f'Nome: {valor_nome}')
             print(f'Matrícula: {chave_matricula}')
-        
