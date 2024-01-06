@@ -13,6 +13,7 @@ def adicionarProduto(listaProdutos):
     valorUnitario_input = float(input('Valor Unitário: R$ '))
 
     valorTotal = (quantidade_input * valorUnitario_input)
+    print(f'Valor Total: R$ {valorTotal}')
 
     produto = {
         'nome': nome_input,

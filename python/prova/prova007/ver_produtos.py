@@ -9,8 +9,8 @@ def exiberProduto(listaProdutos):
 
     for produto in listaProdutos:
         # produto = dicionário de cada item; contendo todas as informações de um produto
-        print(f'\nPRODUTO {produto["nome"].upper()}')
+        print(f'PRODUTO {produto["nome"].upper()}')
         print(f'Nome: {produto["nome"]}')
         print(f'Quatidade: {produto["quantidade"]}')
         print(f'Valor unitário: R$ {produto["valor unitario"]}')
-        print(f'TOTAL: R$ {produto["valor total"]}')
+        print(f'TOTAL: R$ {produto["valor total"]}\n')
