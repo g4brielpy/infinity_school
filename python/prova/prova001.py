@@ -10,7 +10,7 @@ while (erro == True):
     # Email e Senha errados
     if (email_input != email) or (senha_input != senha):
         print('\nEmail e Senha errado')
-        print('-- ' * 7,'\n')
+        print('-- ' * 7, '\n')
         email_input = str(input('Digite seu email novamente: '))
         senha_input = str(input('Digite sua senha novamente: '))
     else:
