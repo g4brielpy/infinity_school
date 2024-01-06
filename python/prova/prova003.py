@@ -17,7 +17,7 @@ while True:
 
     match opcao:
         case 1:
-        # solicitação do nome e matrícula
+            # solicitação do nome e matrícula
             print('CADASTRAR ALUNO')
             aluno = str(input('Digite o Nome do aluno: ').title())
             while True:
@@ -27,7 +27,7 @@ while True:
                     break
                 else:
                     print('valor inválido!')
-            
+
             # add aluno no dicionário
             dados_alunos = {
                 matricula: aluno
@@ -36,18 +36,21 @@ while True:
             contidade_alunos += 1
 
         case 2:
-        # remover um aluno
-            remover = str(input('Tem certeza que deseja remover um aluno(a) [S / N]: ').upper())
+            # remover um aluno
+            remover = str(
+                input('Tem certeza que deseja remover um aluno(a) [S / N]: ').upper())
             if (remover == 'S'):
                 print('\nREMOVER ALUNO')
-                matricula_remover = str(input('Digite a matricula do aluno que será removido: '))
+                matricula_remover = str(
+                    input('Digite a matricula do aluno que será removido: '))
                 if matricula_remover.isdigit():
                     matricula_remover = int(matricula_remover)
                 else:
                     print('valor inválido!')
 
                 if (matricula_remover in lista_alunos):
-                    print(f'Aluno(a) {lista_alunos[matricula_remover]} removido')
+                    print(f'Aluno(a) {
+                          lista_alunos[matricula_remover]} removido')
                     contidade_alunos -= 1
                     alunos_removidos += 1
                 else:
@@ -56,7 +59,7 @@ while True:
                 lista_alunos.pop(matricula_remover, None)
 
         case 3:
-        # visualizar alunos
+            # visualizar alunos
             print('ALUNOS CADASTRADOS')
             for i in lista_alunos:
                 print(f'Aluno: {lista_alunos[i]}; Matrícula: {i}')
@@ -64,10 +67,10 @@ while True:
             print(f'Quabtidade de alunos(a) removidos: {alunos_removidos}')
 
         case 4:
-        # finalizar o programa
+            # finalizar o programa
             print('EXIT...\n')
             break
 
         case _:
-        # caso nenhuma opção acima seja atendida
+            # caso nenhuma opção acima seja atendida
             print('valor inválido!')
