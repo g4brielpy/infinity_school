@@ -11,27 +11,13 @@ deve ser classificada como &quot;Suspeita&quot;, entre 3 e 4 como &quot;Cúmplic
 Caso contrário, ele será classificado como &quot;Inocente&quot;.
 '''
 
+perguntas = ['Telefonou para a vítima ', 'Esteve no local do crime ', 'Mora perto da vítima ', 'Devia para a vítima ', 'Já trabalhou com a vítima ']
 respostas = 0
 
-pergunta1 = str(input('Telefonou para a vítima? [S / N] ').upper())
-if pergunta1 == 'S':
-    respostas += 1
-
-pergunta2 = str(input('Esteve no local do crime? [S / N] ').upper())
-if pergunta2 == 'S':
-    respostas += 1
-
-pergunta3 = str(input('Mora perto da vítima? [S / N] ').upper())
-if pergunta3 == 'S':
-    respostas += 1
-
-pergunta4 = str(input('Devia para a vítima? [S / N] ').upper())
-if pergunta4 == 'S':
-    respostas += 1
-
-pergunta5 = str(input('Já trabalhou com a vítima? [S / N] ').upper())
-if pergunta5 == 'S':
-    respostas += 1
+for pergunta in perguntas:
+    resposta = str(input(f'{pergunta} [S / N]: ').upper())
+    if resposta == 'S':
+        respostas += 1
 
 
 if respostas <= 1:
