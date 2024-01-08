@@ -12,22 +12,22 @@ def funcao_salvar():
 root = tk.Tk()
 root.title("Exemplo de Menu")
 
-menu = tk.Menu(root)
+menuP = tk.Menu(root)
 
 # Adicionando opções diretamente ao menu
-menu.add_command(label="Novo", command=lambda: print("Novo"))
-menu.add_command(label="Fechar", command=root.destroy)
+menuP.add_command(label="Novo", command=lambda: print("Novo"))
+menuP.add_command(label="Fechar", command=root.destroy)
 
 # Criando um submenu
-submenu_arquivo = tk.Menu(menu, tearoff=0)
+submenu_arquivo = tk.Menu(menuP, tearoff=0)
 submenu_arquivo.add_command(label="Abrir", command=funcao_abrir)
 submenu_arquivo.add_command(label="Salvar", command=funcao_salvar)
 
 # Adicionando o submenu ao menu principal
-menu.add_cascade(label="Arquivo", menu=submenu_arquivo)
+menuP.add_cascade(label="Arquivo", menu=submenu_arquivo)
 
 # associar o menu criado (menu) à janela principal
-root.config(menu=menu)
+root.config(menu=menuP)
 
 
 root.mainloop()
