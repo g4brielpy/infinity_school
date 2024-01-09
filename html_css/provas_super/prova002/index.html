@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Envio de Formulário Teste - Infinity" />
     <title>Imagens - Tabelas - Formulários</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <h1>Formulário</h1>
@@ -12,15 +14,15 @@
         <legend>Dados Pessoais</legend>
         <div class="input_box">
           <label for="nome">Nome</label>
-          <input type="text" name="name" id="nome" />
+          <input type="text" name="name" id="nome" required />
         </div>
         <div class="input_box">
           <label for="senha">Senha</label>
-          <input type="password" name="senha_user" id="senha" />
+          <input type="password" name="senha_user" id="senha" required />
         </div>
         <div class="input_box">
           <label for="email">E-mail</label>
-          <input type="email" name="email_user" id="email" />
+          <input type="email" name="email_user" id="email" required />
         </div>
       </fieldset>
 
@@ -58,6 +60,12 @@
           <input type="radio" name="Termo" id="valor_2" value="Termo" />
           <label for="valor_2">Não</label>
         </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Botões</legend>
+        <button type="submit">Enviar</button>
+        <button type="reset">Resetar</button>
       </fieldset>
     </form>
   </body>
