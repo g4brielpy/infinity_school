@@ -1,2 +1,71 @@
 @charset "UTF-8";
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+/* título da página */
+h1 {
+  margin: 1em 0;
+  text-align: center;
+}
+
+/* formulário */
+form {
+  margin: auto;
+  padding: 1em;
+
+  width: 100%;
+  max-width: 800px;
+}
+
+/* BOX: dados - Checkboxes  - Radiobutton */
+fieldset {
+  padding: 1em;
+
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.9em;
+}
+/* BOX: botões */
+fieldset:last-of-type {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+/* BOX Legenda */
+legend {
+  font-weight: 600;
+  padding: 0 0.6em;
+}
+
+/* input_box - dados pessoais */
+div.input_box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+.input_box input {
+  padding: 0.4em;
+}
+
+/* input_checks - Checkboxes, Radiobutton */
+div.input_checks {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+/* Botões */
+fieldset:last-of-type button {
+  padding: 0.8em;
+  flex: 1 1 200px;
+
+  font-size: 1em;
+  font-weight: 600;
+}
