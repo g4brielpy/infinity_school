@@ -1,3 +1,3 @@
 A Infinity School te contratou para desenvolver uma tela de login para o acesso ao portal (Onde se encontra o material das aulas),
-a escola pediu que essa tela tenha dois campos de entrada, um para o email e outro para a senha, um botão escrito "ENTRAR" e, u
-m link com o texto "Esqueceu sua senha". As cores dessa tela devem ser preto e vermelho.
+a escola pediu que essa tela tenha dois campos de entrada, um para o email e outro para a senha, um botão escrito "ENTRAR" 
+e, um link com o texto "Esqueceu sua senha". As cores dessa tela devem ser preto e vermelho.
