@@ -1,1 +1,42 @@
 @charset "UTF-8";
+
+/* CONFG GLOBAL - Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonte_padrao);
+  font-size: 1em;
+}
+:root {
+  --fonte_padrao: Arial, Helvetica, sans-serif;
+
+  --cor_de_fundo: #101010;
+  --cor_primaria: #ba1d0a;
+  --cor_segundario: #1bbc9b;
+  --white: #fff;
+}
+body {
+  background-color: var(--cor_de_fundo);
+  color: var(--white);
+
+  width: 100%;
+  max-width: calc(500px + 2em);
+
+  margin: auto;
+  padding: 1em 2em;
+}
+
+/* header | cabeçalho */
+header.cabecalho {
+  padding: 5em 0 3em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.cabecalho img[alt="Logo Infinity School"] {
+  width: 300px;
+  object-fit: cover;
+}
