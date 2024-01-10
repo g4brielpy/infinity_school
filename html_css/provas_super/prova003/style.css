@@ -42,7 +42,6 @@ header.cabecalho {
   object-fit: cover;
 }
 
-
 /* formuçário */
 div.container_inputs {
   display: flex;
@@ -50,10 +49,10 @@ div.container_inputs {
   gap: 1.5em;
 }
 
-div.box_input{
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
+div.box_input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
 }
 .box_input label {
   font-size: 0.9em;
@@ -67,4 +66,52 @@ div.box_input{
   padding: 0.6em 1em;
   border-radius: 4px;
   font-size: 0.95rem;
+  position: relative;
+}
+
+div.box_help {
+  margin: 2em 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+a.link {
+  text-decoration: none;
+}
+a.link:hover {
+  text-decoration: underline;
+}
+.red_link {
+  color: var(--cor_primaria);
+}
+.green_link {
+  color: var(--cor_segundario);
+}
+
+div.botao {
+  margin: 4em 0 2em;
+  display: flex;
+  justify-content: center;
+}
+button.entrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 158px;
+  height: 42px;
+
+  border: none;
+  border-radius: 20px;
+
+  background-color: var(--cor_primaria);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+}
+button.entrar:hover {
+  opacity: 0.8;
 }
