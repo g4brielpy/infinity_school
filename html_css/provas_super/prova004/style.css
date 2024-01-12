@@ -1,1 +1,74 @@
 @charset "UTF-8";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+/* estilos da página */
+h1 {
+  color: #356100;
+  font-size: 2em;
+  text-align: center;
+  margin: 2em 0;
+}
+
+main.container_secoes {
+  width: 100%;
+  max-width: 1024px;
+
+  margin: auto;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+/* seções de cada time */
+section.container_time {
+  background-color: #3a6604f8;
+  border: 2px solid #000;
+
+  width: 100%;
+  max-width: 600px;
+  padding: 1.2em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+.container_time h2 {
+  color: #fff;
+  font-size: 1.5rem;
+
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+div.box_infor {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+}
+div.box_curiosidade {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.box_infor h3 {
+  color: #dadada;
+  font-size: 1.2rem;
+}
+.box_infor p {
+  color: #c7c7c7;
+}
