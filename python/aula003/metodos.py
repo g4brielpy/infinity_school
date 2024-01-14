@@ -1,4 +1,4 @@
-{
+super_dict = {
     "ticket_origem": "SR-1020070",
     "url_ticket_origem": "https://servicedesk.algartech.com/helpdesk/tickets/1020070",
     "tipo_de_solicitacao": "ESTACAO DE TRABALHO - DESATIVAR",
@@ -20,3 +20,7 @@
     "tratativa_com_fornecedor": "null",
     "tentativa_de_contato": "null"
 }
+
+print(type(super_dict))
+print(list(super_dict))
+print(len(super_dict))
