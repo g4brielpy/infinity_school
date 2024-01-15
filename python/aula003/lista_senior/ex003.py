@@ -18,7 +18,7 @@ dados = {
                 'descricao_resumida': 'recolha de monitor ',
                 'regional': 17000313903,
                 'telefone': '34992106551',
-                'usuario_em_home_office': 'Não', # HOME OFFICE
+                'usuario_em_home_office': 'Sim',  # HOME OFFICE
                 'horario_de_entrega_recolhimento': 'null',
                 'matricula_do_associado': '92266',
                 'numero_de_patrimonio_dos_ativos': '-',
@@ -48,3 +48,15 @@ dados = {
         }
     ]
 }
+
+user_home_office = dados['requested_items'][0]['custom_fields']['usuario_em_home_office']
+
+if user_home_office.lower() == 'sim':
+    regiao_user_home_office = dados["requested_items"][0]['custom_fields']['regional']
+    matricula_user_home_office = dados["requested_items"][0]['custom_fields']['matricula_do_associado']
+    telefone_user_home_office = dados["requested_items"][0]['custom_fields']['telefone']
+
+    print(f"\nUsuario que mora na regional {regiao_user_home_office} esta em Home-office ele possui a matricula: {
+        matricula_user_home_office} e telefone {telefone_user_home_office}\n")
+else:
+    print('Usuário não estar em home-office')
