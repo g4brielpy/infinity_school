@@ -10,6 +10,17 @@ aluno = bool(True)
 alunos = dict()
 notas = list()
 
+
+def calc_media(alunos):
+    alunos_media = dict()
+
+    for aluno, nota in alunos.items():
+        media_aluno = sum(nota) / len(nota)
+        alunos_media[aluno] = media_aluno
+
+    return alunos_media
+
+
 while aluno:
     print(f'\nAluno {cont}')
     i = int(1)
@@ -56,3 +67,8 @@ while aluno:
         # valor inválido
         else:
             print('Valor inválido')
+
+media_alunos = calc_media(alunos)
+
+for chave, valor in media_alunos.items():
+    print(f'{chave.title()} Média: {valor}')
