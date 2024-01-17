@@ -10,3 +10,12 @@ Funcionalidades Principais:
 Interface Gráfica:
     . Uma interface gráfica será construída utilizando o Tkinter para proporcionar uma experiência amigável ao usuário
 '''
+
+import tkinter as tk
+
+# config gerais do modal
+root = tk.Tk()
+root.title('Mercado')
+root.geometry('400x300+200+200')
+
+root.mainloop()
