@@ -3,6 +3,7 @@ Projeto de criação de tela de login utilizando Tkinter GUI em python
 '''
 
 from tkinter import *
+from login import fazer_login
 
 # config do modal
 root = Tk()
@@ -24,7 +25,11 @@ email_input = Entry(
 
 senha_entrada = StringVar()
 senha_label = Label(frame_senha, text='Senha:', font=('Arial', 15))
-senha_input = Entry(frame_senha, textvariable=senha_entrada, show='*')
+senha_input = Entry(frame_senha, textvariable=senha_entrada,
+                    show='*', font=('Arial', 12))
+
+botao_login = Button(root, text='Fazer Login', font=('Arial', 12),
+                     command=lambda: fazer_login(email_entrada, senha_entrada))
 
 # exibir elementos
 titulo_label.pack(pady=(0, 50))
@@ -36,6 +41,8 @@ email_input.grid(row=0, column=1, pady=5, padx=(0, 15))
 frame_senha.pack(pady=(0, 20))
 senha_label.grid(row=0, column=0, pady=5, padx=(10))
 senha_input.grid(row=0, column=1, pady=5, padx=(0, 15))
+
+botao_login.pack()
 
 # exibir modal em loop
 root.mainloop()
