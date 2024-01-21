@@ -1,7 +1,7 @@
 def saudacao(horas):
-    if horas <= 12:
+    if horas <= 12 and horas >= 6:
         return 'Bom dia'
-    elif horas > 12 and horas <= 16:
+    elif horas > 12 and horas <= 18:
         return 'Boa tarde'
     elif horas > 16 and horas < 24:
         return 'Boa noite'
