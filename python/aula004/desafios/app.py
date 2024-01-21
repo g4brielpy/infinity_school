@@ -32,7 +32,7 @@ def remover_tarefa(posicao):
 menu = '''Lista de Tarefas
 
 [1] - Adicionar Tarefas
-[2] - Listar Tarefas
+[2] - Listar e ver posições das Tarefas
 [3] - Remover Tarefas
 [4] - Sair
 => '''
