@@ -37,6 +37,14 @@ def gera_senha_personalizada(escolhas, tamanho):
     return senha
 
 
+def verificar_tamanho(tamanho):
+    if tamanho.isdigit():
+        return int(tamanho)
+    else:
+        print('Valor inválido, digite só número!')
+        return False
+
+
 MENU = '''
 GERADOR DE SENHA
 [1] - Senha Padrão
@@ -54,7 +62,12 @@ while True:
 
         case '2':
             escolhas = []
-            tamanho = int(input('Quantidade de caracteres: '))
+            while True:
+                tamanho = str(input('Quantidade de caracteres: '))
+                tamanho = verificar_tamanho(tamanho)
+                if tamanho:
+                    break
+
             opcoes_caracteres = ['Letras minúsculas',
                                  'Letras maiúsculas', 'Caracteres especiais']
 
