@@ -39,7 +39,10 @@ senha_input = Entry(frame_senha, textvariable=senha_entrada,
 
 style.configure('TButton', font=('Arial', 12))
 botao_login = Button(root, text='Fazer Login', style='TButton',
-                     command=lambda: fazer_login(email_entrada, senha_entrada))
+                     command=lambda: fazer_login(email_entrada, senha_entrada, login))
+
+# condição de login
+login = Label(root, text='', font=('Arial', 15))
 
 # Exibição dos elementos
 titulo_label.pack(pady=(0, 50))
@@ -53,6 +56,8 @@ senha_label.grid(row=0, column=0, pady=5, padx=(10))
 senha_input.grid(row=0, column=1, pady=5, padx=(0, 15))
 
 botao_login.pack()
+
+login.pack(pady=(50, 0))
 
 # Loop principal da aplicação
 root.mainloop()
