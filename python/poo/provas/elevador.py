@@ -40,10 +40,25 @@ class Elevador:
         else:
             print('Entrando uma pessoa')
             self.atual_capacidade += 1
-    
+
     def Sair(self):
         if self.atual_capacidade <= 0:
             print('NÃO TEM NINGUÉM')
         else:
             print('Saindo uma pessoa')
             self.atual_capacidade -= 1
+
+
+# instancia um objeto
+elevador_servico = Elevador(total_capacidade=10, atual_capacidade=5,
+                            total_andar=5, atual_andar=1)
+
+# Movendo o elevador para cima
+elevador_servico.Subir()
+# Movendo o elevador para baixo
+elevador_servico.Descer()
+
+# Entrando uma pessoa no elevador
+elevador_servico.Entrar()
+# Saindo uma pessoa do elevador
+elevador_servico.Sair()
