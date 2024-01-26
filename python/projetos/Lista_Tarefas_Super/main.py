@@ -12,4 +12,4 @@ MENU = '''MENU TAREFAS
 [3] - Remover Tarefa
 [Q] - Sair
 => '''
-
+command = str(input(MENU))
