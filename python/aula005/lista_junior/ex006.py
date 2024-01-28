@@ -1,6 +1,14 @@
-numeros = [12, 13, 14, 15, 16, 17]
+'''
+6)Ordenação de números: Escreva uma função chamada ordenar_numeros que aceita um 
+número variável de argumentos e retorna uma lista ordenada desses números em ordem crescente
+'''
 
-dobrar = lambda x: x * 2
-numeros_dobrado = list(map(dobrar, numeros))
 
-print(numeros_dobrado)
+def ordenar_numeros(*args):
+    args = list(args)
+    lista_ordenada = sorted(args)
+    return lista_ordenada
+
+
+numeros = (5, 8, 9, 2, 1, 12)
+print(ordenar_numeros(*numeros))
