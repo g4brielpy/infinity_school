@@ -12,7 +12,9 @@ my_tarefas = Tarefa("", "", "", "")
 MENU = f'''\nMENU TAREFAS
 [1] - Criar Nova Tarefa
 [2] - Listar Tarefas
-[3] - Remover Tarefa
+[3] - Listar Tarefas por Categoria/Prioridade
+[4] - Remover Tarefa
+[5] - Marca Tarefa Como Concluida
 [Q] - Sair
 => '''
 
@@ -39,7 +41,7 @@ while True:
             # print(my_tarefas.lista_de_tarefas)
             my_tarefas.exibir_tarefas()
 
-        case '3':
+        case '4':
             nome_deletar = input('Excluir tarefa de nome: ')
             my_tarefas.excluir_tarefa(nome_deletar)
 
