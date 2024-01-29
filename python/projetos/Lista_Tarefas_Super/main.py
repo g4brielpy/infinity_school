@@ -8,8 +8,8 @@ um ambiente virtual.
 
 from tarefa import Tarefa
 
-minhas_tarefas = Tarefa("", "", "", "")
-MENU = '''MENU TAREFAS
+my_tarefas = Tarefa("", "", "", "")
+MENU = f'''\nMENU TAREFAS
 [1] - Criar Nova Tarefa
 [2] - Listar Tarefas
 [3] - Remover Tarefa
@@ -36,7 +36,8 @@ while True:
             )
 
         case '2':
-            print(minhas_tarefas.lista_de_tarefas)
+            # print(my_tarefas.lista_de_tarefas)
+            my_tarefas.exibir_tarefas()
 
         case '2':
             nome_deletar = input('Excluir tarefa de nome: ')

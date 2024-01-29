@@ -16,6 +16,12 @@ class Tarefa:
             }
             self.lista_de_tarefas.append(dados_tarefa)
 
+    def exibir_tarefas(self):
+        for tarefa in self.lista_de_tarefas:
+            print(f'\nTAREFA')
+            for chave, valor in tarefa.items():
+                print(f'{chave}: {valor}')
+
 '''    def excluir_tarefa(self, nome_deletar: str):
         tarefas_copia = self.lista_de_tarefas.copy()
 
