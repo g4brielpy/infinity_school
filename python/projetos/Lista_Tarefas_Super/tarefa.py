@@ -6,10 +6,19 @@ class Tarefa:
         self.descricao = descricao
         self.prioridade = prioridade
         self.categoria = categoria
-        tarefa = {
-            'Nome': self.nome,
-            'Descrição': self.descricao,
-            'Prioridade': self.prioridade,
-            'Categoria': self.categoria
-        }
-        self.lista_de_tarefas.append(tarefa)
+
+        if self.nome and self.descricao and self.prioridade and self.categoria:
+            dados_tarefa = {
+                'Nome': self.nome,
+                'Descrição': self.descricao,
+                'Prioridade': self.prioridade,
+                'Categoria': self.categoria
+            }
+            self.lista_de_tarefas.append(dados_tarefa)
+
+'''    def excluir_tarefa(self, nome_deletar: str):
+        tarefas_copia = self.lista_de_tarefas.copy()
+
+        for tarefa in tarefas_copia:
+            if tarefa['Nome'] == nome_deletar:
+                self.lista_de_tarefas.remove(tarefa)'''
