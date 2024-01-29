@@ -22,9 +22,10 @@ class Tarefa:
             for chave, valor in tarefa.items():
                 print(f'{chave}: {valor}')
 
-'''    def excluir_tarefa(self, nome_deletar: str):
+    def excluir_tarefa(self, nome_deletar: str):
         tarefas_copia = self.lista_de_tarefas.copy()
 
         for tarefa in tarefas_copia:
             if tarefa['Nome'] == nome_deletar:
-                self.lista_de_tarefas.remove(tarefa)'''
+                self.lista_de_tarefas.remove(tarefa)
+                print('Tarefa removida!')
