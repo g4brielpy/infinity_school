@@ -42,3 +42,23 @@ class Tarefa:
                 [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
         return minhas_tarefas
+
+    def exibir_tarefas_categoria(self, categoria):
+        if not self.lista_de_tarefas:
+            return 'Não há tarefas para exibir.'
+
+        minhas_tarefas_categoria = ''
+
+        for tarefa in self.lista_de_tarefas:
+            if tarefa['Categoria'] == categoria:
+                minhas_tarefas_categoria += f'\nTAREFA CATEGORIA\n'
+                minhas_tarefas_categoria += '\n'.join(
+                    [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
+
+        if not minhas_tarefas_categoria:
+            return f'Tarefas da categoria {categoria} não existe.'
+        else:
+            return minhas_tarefas_categoria
+
+    def exibir_tarefa_prioridade(self):
+        pass
