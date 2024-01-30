@@ -28,7 +28,7 @@ while True:
             while True:
                 prioridade_tarefa = input(
                     'Prioridade da tarefa [A, M, B]: ').upper()
-                
+
                 if prioridade_tarefa in ['A', 'M', 'B']:
                     match prioridade_tarefa:
                         case 'A':
@@ -41,19 +41,21 @@ while True:
                 else:
                     print('Valor inválido!')
             categoria_tarefa = input('Categoria da tarefa: ')
-            minha_tarefas = Tarefa(
-                nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa
-            )
 
             try:
                 minha_tarefa = Tarefa(
-                    nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa)
+                    nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa
+                )
                 print('Tarefa criada com sucesso!')
             except ValueError as e:
                 print(f"Erro ao criar tarefa: {e}")
 
         case '2':
             print(my_tarefas.exibir_tarefas())
+
+        case '3':
+            categoria_exibir = input('Exibir qual cartegoria de tarefas: ')
+            print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
 
         case '4':
             nome_deletar = input('Excluir tarefa de nome: ')

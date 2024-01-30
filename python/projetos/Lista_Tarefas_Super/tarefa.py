@@ -30,7 +30,7 @@ class Tarefa:
 
         return f'Tarefa {nome_deletar} não encontrada!'
 
-    def exibir_tarefas(self):
+    def exibir_tarefas(self) -> str:
         if not self.lista_de_tarefas:
             return 'Não há tarefas para exibir.'
 
@@ -43,7 +43,7 @@ class Tarefa:
 
         return minhas_tarefas
 
-    def exibir_tarefas_categoria(self, categoria):
+    def exibir_tarefas_categoria(self, categoria: str) -> str:
         if not self.lista_de_tarefas:
             return 'Não há tarefas para exibir.'
 
