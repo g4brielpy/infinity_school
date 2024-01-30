@@ -12,7 +12,8 @@ class Tarefa:
                 'Nome': self.nome,
                 'Descrição': self.descricao,
                 'Prioridade': self.prioridade,
-                'Categoria': self.categoria
+                'Categoria': self.categoria,
+                'Status': 'A Fazer'
             }
             self.lista_de_tarefas.append(dados_tarefa)
 
