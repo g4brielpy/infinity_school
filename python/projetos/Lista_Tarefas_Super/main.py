@@ -38,12 +38,11 @@ while True:
             )
 
         case '2':
-            # print(my_tarefas.lista_de_tarefas)
-            my_tarefas.exibir_tarefas()
+            print(my_tarefas.exibir_tarefas())
 
         case '4':
             nome_deletar = input('Excluir tarefa de nome: ')
-            my_tarefas.excluir_tarefa(nome_deletar)
+            print(my_tarefas.excluir_tarefa(nome_deletar))
 
         case 'q':
             print('PROGRAMA FINALIZADO')

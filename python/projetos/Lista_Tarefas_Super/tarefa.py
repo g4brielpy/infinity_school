@@ -17,10 +17,16 @@ class Tarefa:
             self.lista_de_tarefas.append(dados_tarefa)
 
     def exibir_tarefas(self):
-        for tarefa in self.lista_de_tarefas:
-            print(f'\nTAREFA')
+        minhas_tarefas = ''
+
+        for i, tarefa in enumerate(self.lista_de_tarefas):
+            i += 1
+            minhas_tarefas += (f'\nTAREFA {i}\n')
+
             for chave, valor in tarefa.items():
-                print(f'{chave}: {valor}')
+                minhas_tarefas += (f'{chave}: {valor} \n')
+
+        return minhas_tarefas
 
     def excluir_tarefa(self, nome_deletar: str):
         tarefas_copia = self.lista_de_tarefas.copy()
@@ -28,4 +34,6 @@ class Tarefa:
         for tarefa in tarefas_copia:
             if tarefa['Nome'] == nome_deletar:
                 self.lista_de_tarefas.remove(tarefa)
-                print('Tarefa removida!')
+                return 'Tarefa removida!'
+            
+        return 'Tarefa não encontrada!'
