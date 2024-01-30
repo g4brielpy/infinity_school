@@ -20,15 +20,23 @@ MENU = f'''\nMENU TAREFAS
 
 while True:
     command = str(input(MENU))
-    match command:
+
+    match command.lower():
         case '1':
             nome_tarefa = input('Nome da tarefa: ')
             descricao_tarefa = input('Descrição da tarefa: ')
             while True:
                 prioridade_tarefa = input(
-                    'Prioridade da tarefa [A, M, B]: '
-                ).upper()
+                    'Prioridade da tarefa [A, M, B]: ').upper()
+                
                 if prioridade_tarefa in ['A', 'M', 'B']:
+                    match prioridade_tarefa:
+                        case 'A':
+                            prioridade_tarefa = 'Alta'
+                        case 'M':
+                            prioridade_tarefa = 'Media'
+                        case 'B':
+                            prioridade_tarefa = 'Baixa'
                     break
                 else:
                     print('Valor inválido!')
@@ -36,6 +44,13 @@ while True:
             minha_tarefas = Tarefa(
                 nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa
             )
+
+            try:
+                minha_tarefa = Tarefa(
+                    nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa)
+                print('Tarefa criada com sucesso!')
+            except ValueError as e:
+                print(f"Erro ao criar tarefa: {e}")
 
         case '2':
             print(my_tarefas.exibir_tarefas())
@@ -47,3 +62,6 @@ while True:
         case 'q':
             print('PROGRAMA FINALIZADO')
             break
+
+        case _:
+            print('Opção inválida, por favor, escolha novamente.')
