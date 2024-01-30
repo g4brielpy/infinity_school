@@ -4,20 +4,22 @@ O objetivo é permitir que o usuário faça login somente se a senha tiver mais 
 realizar uma tela de login com restrições de e-mail e senha.
 '''
 
-from tkinter import *
-from tkinter.ttk import *
 from login import fazer_login
 
+import tkinter as tk
+from tkinter.ttk import (
+    Style, Label, Entry, Button, Frame
+)
+
 # Configurações da janela principal
-root = Tk()
+root = tk.Tk()
 root.title('Fazer Login')
 root.config(padx=10, pady=20)
 root.geometry('400x500+250+200')
 
 # temas e estilos
 style = Style()
-root.style = Style(root)
-root.style.theme_use('clam')
+style.theme_use('clam')
 # TEMAS: 'clam', 'alt', 'default', 'classic', etc.
 
 # Containers
@@ -27,12 +29,12 @@ frame_senha = Frame(root, relief='groove', borderwidth=2)
 # Configuração dos widgets
 titulo_label = Label(root, text='Login', font=('Arial', 20))
 
-email_entrada = StringVar()
+email_entrada = tk.StringVar()
 email_label = Label(frame_email, text='E-mail:', font=('Arial', 15))
 email_input = Entry(
     frame_email, textvariable=email_entrada, font=('Arial', 12))
 
-senha_entrada = StringVar()
+senha_entrada = tk.StringVar()
 senha_label = Label(frame_senha, text='Senha:', font=('Arial', 15))
 senha_input = Entry(frame_senha, textvariable=senha_entrada,
                     show='*', font=('Arial', 12))
