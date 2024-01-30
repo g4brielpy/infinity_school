@@ -23,7 +23,18 @@ while True:
 
     match command.lower():
         case '1':
-            nome_tarefa = input('Nome da tarefa: ')
+            while True:
+                nome_tarefa = input('Nome da tarefa: ').strip()
+                if nome_tarefa == '':
+                    print('Valor inválido, digite um nome para a tarefa.')
+                    continue
+                nome_valido = my_tarefas.verificar_nome(nome_tarefa)
+
+                if nome_valido:
+                    break
+                else:
+                    print('Já existe uma tarefa com este nome.')
+
             descricao_tarefa = input('Descrição da tarefa: ')
             while True:
                 prioridade_tarefa = input(

@@ -17,7 +17,13 @@ class Tarefa:
             }
             self.lista_de_tarefas.append(dados_tarefa)
 
-    def excluir_tarefa(self, nome_deletar: str):
+    def verificar_nome(self, nome: str) -> bool:
+        for tarefa in self.lista_de_tarefas:
+            if tarefa['Nome'] == nome:
+                return False
+        return True
+
+    def excluir_tarefa(self, nome_deletar: str) -> str:
         if not self.lista_de_tarefas:
             return 'Não há tarefas para excluir'
 
@@ -60,5 +66,5 @@ class Tarefa:
         else:
             return minhas_tarefas_categoria
 
-    def exibir_tarefa_prioridade(self):
+    def exibir_tarefa_prioridade(self) -> None:
         pass
