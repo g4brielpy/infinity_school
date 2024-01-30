@@ -16,24 +16,28 @@ class Tarefa:
             }
             self.lista_de_tarefas.append(dados_tarefa)
 
-    def exibir_tarefas(self):
-        minhas_tarefas = ''
-
-        for i, tarefa in enumerate(self.lista_de_tarefas):
-            i += 1
-            minhas_tarefas += (f'\nTAREFA {i}\n')
-
-            for chave, valor in tarefa.items():
-                minhas_tarefas += (f'{chave}: {valor} \n')
-
-        return minhas_tarefas
-
     def excluir_tarefa(self, nome_deletar: str):
+        if not self.lista_de_tarefas:
+            return 'Não há tarefas para excluir'
+
         tarefas_copia = self.lista_de_tarefas.copy()
 
         for tarefa in tarefas_copia:
             if tarefa['Nome'] == nome_deletar:
                 self.lista_de_tarefas.remove(tarefa)
-                return 'Tarefa removida!'
-            
-        return 'Tarefa não encontrada!'
+                return f'Tarefa {nome_deletar} removida!'
+
+        return f'Tarefa {nome_deletar} não encontrada!'
+
+    def exibir_tarefas(self):
+        if not self.lista_de_tarefas:
+            return 'Não há tarefas para exibir.'
+
+        minhas_tarefas = ''
+
+        for i, tarefa in enumerate(self.lista_de_tarefas, start=1):
+            minhas_tarefas += f'\nTAREFA {i}\n'
+            minhas_tarefas += '\n'.join(
+                [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
+
+        return minhas_tarefas
