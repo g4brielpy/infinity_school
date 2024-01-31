@@ -26,7 +26,7 @@ while True:
         case '1':
             while True:
                 nome_tarefa = input('Nome da tarefa: ').strip()
-                if nome_tarefa == '':
+                if not nome_tarefa:
                     print('Valor inválido, digite um nome para a tarefa.')
                     continue
                 nome_valido = my_tarefas.verificar_nome(nome_tarefa)
@@ -37,21 +37,16 @@ while True:
                     print('Já existe uma tarefa com este nome.')
 
             descricao_tarefa = input('Descrição da tarefa: ')
+
             while True:
                 prioridade_tarefa = input(
-                    'Prioridade da tarefa [A, M, B]: ').upper()
+                    'Prioridade da tarefa [Alta, Media, Baixa]: ').title()
 
-                if prioridade_tarefa in ['A', 'M', 'B']:
-                    match prioridade_tarefa:
-                        case 'A':
-                            prioridade_tarefa = 'Alta'
-                        case 'M':
-                            prioridade_tarefa = 'Media'
-                        case 'B':
-                            prioridade_tarefa = 'Baixa'
+                if prioridade_tarefa in ['Alta', 'Media', 'Baixa']:
                     break
                 else:
                     print('Valor inválido!')
+
             categoria_tarefa = input('Categoria da tarefa: ')
 
             try:
@@ -68,7 +63,7 @@ while True:
         case '3':
             categoria_exibir = input('Exibir qual categoria de tarefas: ')
             print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
-        
+
         case '4':
             prioridade_exibit = input('Exibir qual prioridade de tarefas: ')
             print(my_tarefas.exibir_tarefa_prioridade(prioridade_exibit))
