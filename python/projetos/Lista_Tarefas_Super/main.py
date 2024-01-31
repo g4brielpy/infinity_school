@@ -7,9 +7,10 @@ um ambiente virtual.
 '''
 
 from tarefa import Tarefa
-from time import sleep
 
+from time import sleep
 from termcolor import colored
+from os import system
 
 my_tarefas = Tarefa("", "", "", "")
 MENU = f'''\nMENU TAREFAS
@@ -23,12 +24,14 @@ MENU = f'''\nMENU TAREFAS
 => '''
 
 while True:
-    sleep(1.5)
+    sleep(1)
     command = str(input(MENU))
+    system('cls')
 
     match command.lower():
         case '1':
             while True:
+                print(colored(f'Criar Tarefa\n', 'blue'))
                 nome_tarefa = input('Nome da tarefa: ').strip()
                 if not nome_tarefa:
                     print(colored('Valor inválido, digite um nome para a tarefa.', 'red'))
@@ -67,21 +70,25 @@ while True:
                 sleep(1)
 
         case '2':
+            print(colored(f'Exibir Tarefas', 'blue'))
             print(my_tarefas.exibir_tarefas())
-            sleep(3)
+            sleep(2)
 
         case '3':
+            print(colored(f'Exibir Tarefas Por Categoria\n', 'blue'))
             categoria_exibir = input('Exibir qual categoria de tarefas: ')
             print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
-            sleep(3)
+            sleep(2)
 
         case '4':
+            print(colored(f'Exibir Tarefas Por Prioridade\n', 'blue'))
             prioridade_exibit = input(
                 'Exibir qual prioridade de tarefas: ').title()
             print(my_tarefas.exibir_tarefa_prioridade(prioridade_exibit))
-            sleep(3)
+            sleep(2)
 
         case '5':
+            print(colored(f'Excluir Tarefa\n', 'blue'))
             nome_deletar = input('Excluir tarefa de nome: ')
             print(my_tarefas.excluir_tarefa(nome_deletar))
             sleep(1.5)

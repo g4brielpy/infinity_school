@@ -45,11 +45,11 @@ class Tarefa:
         minhas_tarefas = ''
 
         for i, tarefa in enumerate(self.lista_de_tarefas, start=1):
-            minhas_tarefas += f'\nTAREFA {i}\n'
+            minhas_tarefas += colored(f'\nTAREFA {i}\n', 'yellow')
             minhas_tarefas += '\n'.join(
                 [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
-        return minhas_tarefas.rstrip()
+        return minhas_tarefas.strip()
 
     def exibir_tarefas_categoria(self, categoria: str) -> str:
         if not self.lista_de_tarefas:
@@ -59,14 +59,14 @@ class Tarefa:
 
         for tarefa in self.lista_de_tarefas:
             if tarefa['Categoria'] == categoria:
-                minhas_tarefas_categoria += f'\nTAREFA CATEGORIA\n'
+                minhas_tarefas_categoria += colored(f'\nTAREFA CATEGORIA\n', 'yellow')
                 minhas_tarefas_categoria += '\n'.join(
                     [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
         if not minhas_tarefas_categoria:
             return colored(f'Tarefas da categoria {categoria} não existe.', 'red')
         else:
-            return minhas_tarefas_categoria.rstrip()
+            return minhas_tarefas_categoria.strip()
 
     def exibir_tarefa_prioridade(self, prioridade: str) -> str:
         if not self.lista_de_tarefas:
@@ -76,18 +76,18 @@ class Tarefa:
 
         for tarefa in self.lista_de_tarefas:
             if tarefa['Prioridade'] == prioridade:
-                minhas_tarefas_prioridade += f'\nTAREFA PRIORIDADE\n'
+                minhas_tarefas_prioridade += colored(f'\nTAREFA PRIORIDADE\n', 'yellow')
                 minhas_tarefas_prioridade += '\n'.join(
                     [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
         if not minhas_tarefas_prioridade:
             return colored(f'Tarefas da prioridade {prioridade} não existe.', 'red')
         else:
-            return minhas_tarefas_prioridade.rstrip()
+            return minhas_tarefas_prioridade.strip()
         
     def concluir_tarefa(self, nome: str) -> str:
         for tarefa in self.lista_de_tarefas:
             if tarefa['Nome'] == nome:
-                tarefa['Status'] = 'Concluido'
+                tarefa['Status'] = colored('Concluido', 'green')
         
         return colored(f'Tarefa {nome} concluida.', 'green')
