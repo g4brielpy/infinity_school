@@ -66,5 +66,19 @@ class Tarefa:
         else:
             return minhas_tarefas_categoria
 
-    def exibir_tarefa_prioridade(self) -> None:
-        pass
+    def exibir_tarefa_prioridade(self, prioridade: str) -> str:
+        if not self.lista_de_tarefas:
+            return 'Não há tarefas para exibir.'
+
+        minhas_tarefas_prioridade = ''
+
+        for tarefa in self.lista_de_tarefas:
+            if tarefa['Prioridade'] == prioridade:
+                minhas_tarefas_prioridade += f'\nTAREFA PRIORIDADE\n'
+                minhas_tarefas_prioridade += '\n'.join(
+                    [f'{chave}: {valor}' for chave, valor in tarefa.items()])
+                
+        if not minhas_tarefas_prioridade:
+            return f'Tarefas da prioridade {prioridade} não existe.'
+        else:
+            return minhas_tarefas_prioridade
