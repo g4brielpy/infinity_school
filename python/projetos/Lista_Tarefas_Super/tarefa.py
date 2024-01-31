@@ -47,7 +47,7 @@ class Tarefa:
             minhas_tarefas += '\n'.join(
                 [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
-        return minhas_tarefas
+        return minhas_tarefas.strip()
 
     def exibir_tarefas_categoria(self, categoria: str) -> str:
         if not self.lista_de_tarefas:
@@ -64,7 +64,7 @@ class Tarefa:
         if not minhas_tarefas_categoria:
             return f'Tarefas da categoria {categoria} não existe.'
         else:
-            return minhas_tarefas_categoria
+            return minhas_tarefas_categoria.strip()
 
     def exibir_tarefa_prioridade(self, prioridade: str) -> str:
         if not self.lista_de_tarefas:
@@ -81,4 +81,11 @@ class Tarefa:
         if not minhas_tarefas_prioridade:
             return f'Tarefas da prioridade {prioridade} não existe.'
         else:
-            return minhas_tarefas_prioridade
+            return minhas_tarefas_prioridade.strip()
+        
+    def concluir_tarefa(self, nome: str) -> str:
+        for tarefa in self.lista_de_tarefas:
+            if tarefa['Nome'] == nome:
+                tarefa['Status'] = 'Concluido'
+        
+        return f'Tarefa {nome} concluida.'

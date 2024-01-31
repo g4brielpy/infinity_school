@@ -7,6 +7,7 @@ um ambiente virtual.
 '''
 
 from tarefa import Tarefa
+from time import sleep
 
 my_tarefas = Tarefa("", "", "", "")
 MENU = f'''\nMENU TAREFAS
@@ -20,6 +21,7 @@ MENU = f'''\nMENU TAREFAS
 => '''
 
 while True:
+    sleep(1)
     command = str(input(MENU))
 
     match command.lower():
@@ -65,12 +67,28 @@ while True:
             print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
 
         case '4':
-            prioridade_exibit = input('Exibir qual prioridade de tarefas: ')
+            prioridade_exibit = input(
+                'Exibir qual prioridade de tarefas: ').title()
             print(my_tarefas.exibir_tarefa_prioridade(prioridade_exibit))
 
         case '5':
             nome_deletar = input('Excluir tarefa de nome: ')
             print(my_tarefas.excluir_tarefa(nome_deletar))
+
+        case '6':
+            while True:
+                tarefa_concluida = input('Nome da tarefa concluida: ').strip()
+                if not tarefa_concluida:
+                    print('Valor inválido, digite o nome da tarefa.')
+                    continue
+
+                tarefa_valida = my_tarefas.verificar_nome(tarefa_concluida)
+
+                if not tarefa_valida:
+                    print(my_tarefas.concluir_tarefa(tarefa_concluida))
+                else:
+                    print(f'Tarefa {tarefa_concluida} não existe.')
+                break
 
         case 'q':
             print('PROGRAMA FINALIZADO')
