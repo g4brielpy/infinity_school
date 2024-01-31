@@ -12,9 +12,10 @@ my_tarefas = Tarefa("", "", "", "")
 MENU = f'''\nMENU TAREFAS
 [1] - Criar Nova Tarefa
 [2] - Listar Tarefas
-[3] - Listar Tarefas por Categoria/Prioridade
-[4] - Remover Tarefa
-[5] - Marca Tarefa Como Concluida
+[3] - Buscar Tarefas por Categoria
+[4] - Buscar Tarefas por Prioridade
+[5] - Remover Tarefa
+[6] - Marca Tarefa Como Concluida
 [Q] - Sair
 => '''
 
@@ -65,10 +66,14 @@ while True:
             print(my_tarefas.exibir_tarefas())
 
         case '3':
-            categoria_exibir = input('Exibir qual cartegoria de tarefas: ')
+            categoria_exibir = input('Exibir qual categoria de tarefas: ')
             print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
-
+        
         case '4':
+            prioridade_exibit = input('Exibir qual prioridade de tarefas: ')
+            print(my_tarefas.exibir_tarefa_prioridade(prioridade_exibit))
+
+        case '5':
             nome_deletar = input('Excluir tarefa de nome: ')
             print(my_tarefas.excluir_tarefa(nome_deletar))
 

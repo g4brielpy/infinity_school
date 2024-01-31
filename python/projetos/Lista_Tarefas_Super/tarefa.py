@@ -76,8 +76,8 @@ class Tarefa:
             if tarefa['Prioridade'] == prioridade:
                 minhas_tarefas_prioridade += f'\nTAREFA PRIORIDADE\n'
                 minhas_tarefas_prioridade += '\n'.join(
-                    [f'{chave}: {valor}' for chave, valor in tarefa.items()])
-                
+                    [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
+
         if not minhas_tarefas_prioridade:
             return f'Tarefas da prioridade {prioridade} não existe.'
         else:
