@@ -1,3 +1,5 @@
+from termcolor import colored
+
 class Tarefa:
     lista_de_tarefas: list = []
 
@@ -25,20 +27,20 @@ class Tarefa:
 
     def excluir_tarefa(self, nome_deletar: str) -> str:
         if not self.lista_de_tarefas:
-            return 'Não há tarefas para excluir'
+            return colored('Não há tarefas para excluir', 'red')
 
         tarefas_copia = self.lista_de_tarefas.copy()
 
         for tarefa in tarefas_copia:
             if tarefa['Nome'] == nome_deletar:
                 self.lista_de_tarefas.remove(tarefa)
-                return f'Tarefa {nome_deletar} removida!'
+                return colored(f'Tarefa {nome_deletar} removida!', 'green')
 
-        return f'Tarefa {nome_deletar} não encontrada!'
+        return colored(f'Tarefa {nome_deletar} não encontrada!', 'red')
 
     def exibir_tarefas(self) -> str:
         if not self.lista_de_tarefas:
-            return 'Não há tarefas para exibir.'
+            return colored('Não há tarefas para exibir.', 'red')
 
         minhas_tarefas = ''
 
@@ -47,11 +49,11 @@ class Tarefa:
             minhas_tarefas += '\n'.join(
                 [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
-        return minhas_tarefas.strip()
+        return minhas_tarefas.rstrip()
 
     def exibir_tarefas_categoria(self, categoria: str) -> str:
         if not self.lista_de_tarefas:
-            return 'Não há tarefas para exibir.'
+            return colored('Não há tarefas para exibir.', 'red')
 
         minhas_tarefas_categoria = ''
 
@@ -62,13 +64,13 @@ class Tarefa:
                     [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
         if not minhas_tarefas_categoria:
-            return f'Tarefas da categoria {categoria} não existe.'
+            return colored(f'Tarefas da categoria {categoria} não existe.', 'red')
         else:
-            return minhas_tarefas_categoria.strip()
+            return minhas_tarefas_categoria.rstrip()
 
     def exibir_tarefa_prioridade(self, prioridade: str) -> str:
         if not self.lista_de_tarefas:
-            return 'Não há tarefas para exibir.'
+            return colored('Não há tarefas para exibir.', 'red')
 
         minhas_tarefas_prioridade = ''
 
@@ -79,13 +81,13 @@ class Tarefa:
                     [f'{chave}: {valor}' for chave, valor in tarefa.items()]) + '\n'
 
         if not minhas_tarefas_prioridade:
-            return f'Tarefas da prioridade {prioridade} não existe.'
+            return colored(f'Tarefas da prioridade {prioridade} não existe.', 'red')
         else:
-            return minhas_tarefas_prioridade.strip()
+            return minhas_tarefas_prioridade.rstrip()
         
     def concluir_tarefa(self, nome: str) -> str:
         for tarefa in self.lista_de_tarefas:
             if tarefa['Nome'] == nome:
                 tarefa['Status'] = 'Concluido'
         
-        return f'Tarefa {nome} concluida.'
+        return colored(f'Tarefa {nome} concluida.', 'green')

@@ -9,6 +9,8 @@ um ambiente virtual.
 from tarefa import Tarefa
 from time import sleep
 
+from termcolor import colored
+
 my_tarefas = Tarefa("", "", "", "")
 MENU = f'''\nMENU TAREFAS
 [1] - Criar Nova Tarefa
@@ -21,7 +23,7 @@ MENU = f'''\nMENU TAREFAS
 => '''
 
 while True:
-    sleep(1)
+    sleep(1.5)
     command = str(input(MENU))
 
     match command.lower():
@@ -29,14 +31,16 @@ while True:
             while True:
                 nome_tarefa = input('Nome da tarefa: ').strip()
                 if not nome_tarefa:
-                    print('Valor inválido, digite um nome para a tarefa.')
+                    print(colored('Valor inválido, digite um nome para a tarefa.', 'red'))
+                    sleep(1)
                     continue
                 nome_valido = my_tarefas.verificar_nome(nome_tarefa)
 
                 if nome_valido:
                     break
                 else:
-                    print('Já existe uma tarefa com este nome.')
+                    print(colored('Já existe uma tarefa com este nome.', 'red'))
+                    sleep(1)
 
             descricao_tarefa = input('Descrição da tarefa: ')
 
@@ -47,7 +51,8 @@ while True:
                 if prioridade_tarefa in ['Alta', 'Media', 'Baixa']:
                     break
                 else:
-                    print('Valor inválido!')
+                    print(colored('Valor inválido!', 'red'))
+                    sleep(1)
 
             categoria_tarefa = input('Categoria da tarefa: ')
 
@@ -55,44 +60,54 @@ while True:
                 minha_tarefa = Tarefa(
                     nome_tarefa, descricao_tarefa, prioridade_tarefa, categoria_tarefa
                 )
-                print('Tarefa criada com sucesso!')
+                print(colored('Tarefa criada com sucesso!', 'green'))
+                sleep(1.5)
             except ValueError as e:
-                print(f"Erro ao criar tarefa: {e}")
+                print(colored(f"Erro ao criar tarefa: {e}", 'red'))
+                sleep(1)
 
         case '2':
             print(my_tarefas.exibir_tarefas())
+            sleep(3)
 
         case '3':
             categoria_exibir = input('Exibir qual categoria de tarefas: ')
             print(my_tarefas.exibir_tarefas_categoria(categoria_exibir))
+            sleep(3)
 
         case '4':
             prioridade_exibit = input(
                 'Exibir qual prioridade de tarefas: ').title()
             print(my_tarefas.exibir_tarefa_prioridade(prioridade_exibit))
+            sleep(3)
 
         case '5':
             nome_deletar = input('Excluir tarefa de nome: ')
             print(my_tarefas.excluir_tarefa(nome_deletar))
+            sleep(1.5)
 
         case '6':
             while True:
                 tarefa_concluida = input('Nome da tarefa concluida: ').strip()
                 if not tarefa_concluida:
-                    print('Valor inválido, digite o nome da tarefa.')
+                    print(colored('Valor inválido, digite o nome da tarefa.', 'red'))
+                    sleep(1)
                     continue
 
                 tarefa_valida = my_tarefas.verificar_nome(tarefa_concluida)
 
                 if not tarefa_valida:
                     print(my_tarefas.concluir_tarefa(tarefa_concluida))
+                    sleep(1.5)
                 else:
-                    print(f'Tarefa {tarefa_concluida} não existe.')
+                    print(colored(f'Tarefa {tarefa_concluida} não existe.', 'red'))
+                    sleep(1)
                 break
 
         case 'q':
-            print('PROGRAMA FINALIZADO')
+            print(colored('PROGRAMA FINALIZADO', 'blue'))
             break
 
         case _:
-            print('Opção inválida, por favor, escolha novamente.')
+            print(colored('Opção inválida, por favor, escolha novamente.', 'red'))
+            sleep(1)
