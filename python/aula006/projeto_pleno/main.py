@@ -38,5 +38,5 @@ while True:
         case 'q':
             break
         case _:
-            print('Opção inválida')
+            print('Opção inválida \n')
 
