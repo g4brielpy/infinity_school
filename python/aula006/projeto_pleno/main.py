@@ -17,7 +17,7 @@ MENU = '''MENU
 [Q] - Sair
 => '''
 
-# simulção de entrada de dados do usuário
+# Simulação de entrada de dados padrão
 dados = {
     'nome':'Gabriel Iuri Dos Santos',
     'data_nascimento':'11/12/2005',
