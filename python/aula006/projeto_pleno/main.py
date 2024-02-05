@@ -11,9 +11,10 @@ endereço : assim como nas datas separe por rua numero bairro e cidade cada dado
 import metodos
 
 MENU = '''MENU
-[1] - Exibir nome
-[2] - Exibir data de nascimento1
+[1] - Exibir Nome
+[2] - Exibir Data De Nascimento
 [3] - Exibir Endereço
+[4] - Exibir Setor
 [Q] - Sair
 => '''
 
@@ -21,7 +22,7 @@ MENU = '''MENU
 dados = {
     'nome':'Gabriel Iuri Dos Santos',
     'data_nascimento':'11/12/2005',
-    'setor': 'fiscal', #operação ou fiscal
+    'setor': 'Fiscal', #operação ou fiscal
     'endereco': 'Rua Nossa Senhora, 190, Barreiro, Belo Horizonte'   
 }
 
