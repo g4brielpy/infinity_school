@@ -22,7 +22,7 @@ class Funcionario:
         return user
 
     def format_data(self) -> str:
-        # lista com todos os meses
+        # data padrão: dd/mm/aa
         lista_meses = (
             'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
             'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro',
@@ -44,8 +44,14 @@ class Funcionario:
 
         # retirando o '0'
 
-    def format_endereço(self):
-        pass
+    def format_endereco(self):
+        # endereço padrão: Rua, número, Bairro, Cidade
+        # Os valores são separados por 'virgula'
+        rua, numero, bairro, cidade = self.endereco.split(', ')
+        endereco_formatado = f'Rua: {rua} \nNúmero: {
+            numero} \nBairro: {bairro} \nCidade: {cidade}'
+        
+        return endereco_formatado
 
 
 # entrada de dados padrão
@@ -62,6 +68,7 @@ try:
 
     print(biel.cria_user())
     print(biel.format_data())
+    print(biel.format_endereco())
 
 except Exception as e:
     print(f'Valores inválidos. Exceção: {e}')
