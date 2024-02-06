@@ -9,3 +9,28 @@ A classe "Revista" será outra subclasse da classe "Material" e terá um constru
 
 Crie instâncias das classes "Livro" e "Revista" com informações específicas e chame o método "exibir_informacoes" para mostrar os detalhes de cada material.
 '''
+
+
+class Material:
+    def __init__(self, titulo: str, autor_editora: str) -> None:
+        self.titulo = titulo
+        self.autor_editora = autor_editora
+
+    def exibir_informacoes(self) -> str:
+        return f'Título: {self.titulo} \nAutor/Editora: {self.autor_editora}'
+    
+
+class Livro(Material):
+    def __init__(self, titulo: str, autor_editora: str, genero: str) -> None:
+        super().__init__(titulo, autor_editora)
+        self.genero = genero
+
+    def exibir_informacoes(self) -> str: 
+        return f'{super().exibir_informacoes()} \nGenero: {self.genero}'
+
+
+material = Material('Python Super', 'Infinity School')
+print(material.exibir_informacoes())
+
+livro = Livro('Entendendo Algoritmos', 'Aditya Y. Bhargava', 'Tecnologia')
+print(livro.exibir_informacoes())
