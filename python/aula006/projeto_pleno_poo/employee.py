@@ -63,14 +63,25 @@ class Operador(Funcionario):
         else:
             raise Exception('Dados não fornecidos.')
 
-    # setor operação deve tirar 33% do salário
+    # setor de operação deve tirar 33% de reajuste do salário
     def _aplicar_reajuste(self) -> None:
         reajuste = (self.salario * 33) / 100
         self.salario -= reajuste
 
 
 class Fiscal(Funcionario):
-    pass
+    def __init__(self, dados: dict, salario: float) -> None:
+        if dados and salario:
+            super().__init__(dados)
+            self.salario = salario
+            self._aplicar_reajuste()
+        else:
+            raise Exception('Dados não fornecidos.')
+
+    # setor de fiscalização deve tirar 7% de reajuste do salário
+    def _aplicar_reajuste(self) -> None:
+        reajuste = (self.salario * 7) / 100
+        self.salario -= reajuste
 
 
 # entrada de dados padrão
@@ -87,22 +98,3 @@ dados_operador = {
     'setor': 'Operacao',
     'endereco': 'Rua Principal, 123, Centro, Contagem'
 }
-
-# teste
-try:
-    print('\nClass Funcionário')
-    biel = Funcionario(dados)
-
-    print(biel.cria_user())
-    print(biel.format_data())
-    print(biel.format_endereco())
-
-    print('\nClass Operador')
-    operador_iuri = Operador(dados_operador, 5000)
-    print(operador_iuri.cria_user())
-    print(operador_iuri.format_data())
-    print(operador_iuri.format_endereco())
-
-
-except Exception as e:
-    print(f'Valores inválidos. Exceção: {e}')
