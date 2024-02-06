@@ -1,9 +1,13 @@
 class Funcionario:
     def __init__(self, dados: dict) -> None:
-        self.nome = dados['nome']
-        self.data_nascimento = dados['data_nascimento']
-        self.setor = dados['setor']
-        self.endereco = dados['endereco']
+        # validar entrada de dados e cadastrar funcionário.
+        if dados:
+            self.nome = dados['nome']
+            self.data_nascimento = dados['data_nascimento']
+            self.setor = dados['setor']
+            self.endereco = dados['endereco']
+        else:
+            raise Exception('Dados não fornecidos.')
 
     def cria_user(self) -> str:
         # separa todos os nomes e pegar o primeiro
@@ -13,6 +17,7 @@ class Funcionario:
         # pegar todas as iniciais dos sobrenomes
         user += ''.join([i[0] for i in nomes[1:]])
 
+        # transformando a str em minúscula e retornando
         user = user.lower()
         return user
 
@@ -42,6 +47,7 @@ class Funcionario:
     def format_endereço(self):
         pass
 
+
 # entrada de dados padrão
 dados = {
     'nome': 'Gabriel Iuri Dos Santos',
@@ -56,7 +62,6 @@ try:
 
     print(biel.cria_user())
     print(biel.format_data())
-    
+
 except Exception as e:
     print(f'Valores inválidos. Exceção: {e}')
-
