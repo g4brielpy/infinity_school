@@ -18,19 +18,30 @@ class Material:
 
     def exibir_informacoes(self) -> str:
         return f'Título: {self.titulo} \nAutor/Editora: {self.autor_editora}'
-    
+
 
 class Livro(Material):
     def __init__(self, titulo: str, autor_editora: str, genero: str) -> None:
         super().__init__(titulo, autor_editora)
         self.genero = genero
 
-    def exibir_informacoes(self) -> str: 
+    def exibir_informacoes(self) -> str:
         return f'{super().exibir_informacoes()} \nGenero: {self.genero}'
 
 
-material = Material('Python Super', 'Infinity School')
-print(material.exibir_informacoes())
+class Revista(Material):
+    def __init__(self, titulo: str, autor_editora: str, edicao: str) -> None:
+        super().__init__(titulo, autor_editora)
+        self.edicao = edicao
 
+    def exibir_informacoes(self):
+        return f'{super().exibir_informacoes()} \nEdição: {self.edicao}'
+
+
+print('\nInstâncias das classes "Livro"')
 livro = Livro('Entendendo Algoritmos', 'Aditya Y. Bhargava', 'Tecnologia')
 print(livro.exibir_informacoes())
+
+print('\nInstâncias das classes "Revista"')
+revista = Revista('Java Magazine', 'DevMedia', '156')
+print(revista.exibir_informacoes())
