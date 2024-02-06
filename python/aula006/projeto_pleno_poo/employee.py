@@ -50,8 +50,27 @@ class Funcionario:
         rua, numero, bairro, cidade = self.endereco.split(', ')
         endereco_formatado = f'Rua: {rua} \nNúmero: {
             numero} \nBairro: {bairro} \nCidade: {cidade}'
-        
+
         return endereco_formatado
+
+
+class Operador(Funcionario):
+    def __init__(self, dados: dict, salario: float) -> None:
+        if dados and salario:
+            super().__init__(dados)
+            self.salario = salario
+            self._aplicar_reajuste()
+        else:
+            raise Exception('Dados não fornecidos.')
+
+    # setor operação deve tirar 33% do salário
+    def _aplicar_reajuste(self) -> None:
+        reajuste = (self.salario * 33) / 100
+        self.salario -= reajuste
+
+
+class Fiscal(Funcionario):
+    pass
 
 
 # entrada de dados padrão
@@ -62,13 +81,28 @@ dados = {
     'endereco': 'Rua Nossa Senhora, 190, Barreiro, Belo Horizonte'
 }
 
+dados_operador = {
+    'nome': 'Iuri dos Santos',
+    'data_nascimento': '01/01/1990',
+    'setor': 'Operacao',
+    'endereco': 'Rua Principal, 123, Centro, Contagem'
+}
+
 # teste
 try:
+    print('\nClass Funcionário')
     biel = Funcionario(dados)
 
     print(biel.cria_user())
     print(biel.format_data())
     print(biel.format_endereco())
+
+    print('\nClass Operador')
+    operador_iuri = Operador(dados_operador, 5000)
+    print(operador_iuri.cria_user())
+    print(operador_iuri.format_data())
+    print(operador_iuri.format_endereco())
+
 
 except Exception as e:
     print(f'Valores inválidos. Exceção: {e}')
