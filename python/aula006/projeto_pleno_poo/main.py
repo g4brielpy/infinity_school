@@ -8,6 +8,8 @@ setor: caso seja setor operação deve tirar 33% do salario dele e informar este
 endereço : assim como nas datas separe por rua numero bairro e cidade cada dado do associado
 '''
 
+import employee
+
 # Simulação de entrada de dados padrão
 dados = {
     'nome': 'Gabriel Iuri Dos Santos',
