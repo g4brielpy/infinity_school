@@ -15,7 +15,23 @@ Classe Biblioteca:
     empréstimo, devolução e pesquisa de livros.
 '''
 
-class Livro:
+
+class Biblioteca:
+    '''
+    Iniciaizar a biblioteca com os atributos necessários
+    '''
+
+    def __init__(self, livros: list) -> None:
+        self.catalogo_livros = livros
+        self.registro_membros = []
+
+
+livros = ['Código Limpo', 'Padrões de Projetos', 'Refatoração']
+membros = ['Gabriel', 'Iuri']
+biblioteca = Biblioteca(livros)
+
+
+class Livro(Biblioteca):
     def __init__(self, titulo: str, autor: str, id_livro: int, status: str) -> None:
         self.titulo = titulo
         self.autor = autor
@@ -23,3 +39,7 @@ class Livro:
         self.status = status
 
 
+class Membro:
+    def __init__(self, nome: str) -> None:
+        self.nome = nome
+        self.historico = []
