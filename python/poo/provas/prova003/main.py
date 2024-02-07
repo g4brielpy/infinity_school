@@ -1,4 +1,4 @@
-from fuel import BombaCombustivel
+from Fuel import BombaCombustivel
 
 
 # Menu
