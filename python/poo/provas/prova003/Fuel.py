@@ -49,7 +49,7 @@ class BombaCombustivel:
 
         if self.quantidade >= litros_abastecer:
             self.quantidade -= litros_abastecer
-            return f'Valor a ser abastecido: {valor_abastecer}  \nQuantidade de litros: {litros_abastecer}'
+            return f'Valor a ser abastecido: {valor_abastecer:,.2f}  \nQuantidade de litros: {litros_abastecer:,.2f}'
         else:
             return f'Falha! Quantidade de litros indisponível'
 
@@ -62,7 +62,7 @@ class BombaCombustivel:
             custo = litro_abastecer * self.valor_litro
 
             self.quantidade -= litro_abastecer
-            return f'Valor a ser abastecido: {custo} \nQuantidade de litros: {litro_abastecer}'
+            return f'Valor a ser abastecido: {custo:,.2f} \nQuantidade de litros: {litro_abastecer:,.2f}'
         else:
             return f'Falha! Quantidade de litros indisponível'
 
