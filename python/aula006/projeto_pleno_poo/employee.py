@@ -82,19 +82,3 @@ class Fiscal(Funcionario):
     def _aplicar_reajuste(self) -> None:
         reajuste = (self.salario * 7) / 100
         self.salario -= reajuste
-
-
-# entrada de dados padrão
-dados = {
-    'nome': 'Gabriel Iuri Dos Santos',
-    'data_nascimento': '11/12/2005',
-    'setor': 'Fiscal',  # operação ou fiscal
-    'endereco': 'Rua Nossa Senhora, 190, Barreiro, Belo Horizonte'
-}
-
-dados_operador = {
-    'nome': 'Iuri dos Santos',
-    'data_nascimento': '01/01/1990',
-    'setor': 'Operacao',
-    'endereco': 'Rua Principal, 123, Centro, Contagem'
-}
