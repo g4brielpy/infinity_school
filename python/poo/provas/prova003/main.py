@@ -76,3 +76,23 @@ class BombaCombustível:
             self.valor_litro = novo_valor
         else:
             raise Exception('Valor inválido para o litro do combustível.')
+
+    def alterarCombustivel(self, novo_combustivel: str) -> None:
+        """
+        Altera o tipo combustível.
+        Levanta uma exceção se o novo tipo não for informado.
+        """
+        if novo_combustivel:
+            self.combustivel = novo_combustivel
+        else:
+            raise Exception('Combustível inválido.')
+
+    def alterarQuantidadeCombustivel(self, nova_quantidade: float) -> None:
+        '''
+        Altera a quantidade do combustivel
+        Lavanta uma exceção caso o quantidade seja abaixo de zero
+        '''
+        if nova_quantidade > 0:
+            self.quantidade = nova_quantidade
+        else:
+            raise Exception('Valor inválido para a quantidade do combustível.')
