@@ -28,7 +28,7 @@ Possua no mínimo esses MÉTODOS:
 '''
 
 
-class BombaCombustível:
+class BombaCombustivel:
     def __init__(self, tipo_combustivel: str, valor_litro: float, quantidade_combustivel: float) -> None:
         """
         Inicializa a bomba de combustível com os atributos fornecidos.
