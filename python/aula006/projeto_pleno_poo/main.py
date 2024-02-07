@@ -17,11 +17,38 @@ dados = {
     'setor': 'Fiscal',  # operação ou fiscal
     'endereco': 'Rua Nossa Senhora, 190, Barreiro, Belo Horizonte'
 }
+if dados['setor'].lower() == 'fiscal':
+    salario = float(2000)
+    funcionario = employee.Fiscal(dados, salario)
+elif dados['setor'].lower() == 'operador':
+    salario = float(5000)
+    funcionario = employee.Operador(dados, salario)
+else:
+    funcionario = employee.Funcionario(dados)
 
 MENU = '''MENU
-[1] - Exibir Nome
+[1] - Exibir User
 [2] - Exibir Data De Nascimento
 [3] - Exibir Endereço
 [4] - Exibir Setor
 [Q] - Sair
 => '''
+
+
+while True:
+    comando = str(input(MENU)).lower()
+    match comando:
+        case '1':
+            print(funcionario.cria_user())
+        case '2':
+            print(funcionario.format_data())
+        case '3':
+            print(funcionario.format_endereco())
+        case '4':
+            print(funcionario.setor)
+            print(type(funcionario))
+        case 'q':
+            print('Programa finalizado')
+            break
+        case _:
+            print('Opção inválida!\n')
