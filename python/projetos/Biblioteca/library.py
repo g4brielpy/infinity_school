@@ -27,13 +27,23 @@ class Biblioteca:
 
     def adicionarLivro(self, livro: dict) -> None:
         '''
-        Adicionar um novo livro(class) ao catalogo de livros
+        Adicionar um novo livro(class: Livro) ao catalogo de livros
         disponíveis da biblioteca.
         '''
         if livro:
             self.catalogo_livros.append(livro)
         else:
             raise Exception('Livro inválido')
+
+    def adicionarMembro(self, membro: dict):
+        '''
+        Adicionar um novo membro(class: Membro) ao registro de membros
+        cadastrados na biblioteca
+        '''
+        if membro:
+            self.registro_membros.append(membro)
+        else:
+            raise Exception('Membro inválido')
 
 
 class Livro:
