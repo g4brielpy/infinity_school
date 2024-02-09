@@ -24,8 +24,8 @@ class Biblioteca:
         '''
         self.catalogo_livros = []
         self.registro_membros = []
-        
-    def adicionarLivro(self, livro: object) -> None:
+
+    def adicionarLivro(self, livro: dict) -> None:
         '''
         Adicionar um novo livro(class) ao catalogo de livros
         disponíveis da biblioteca.
@@ -34,32 +34,48 @@ class Biblioteca:
             self.catalogo_livros.append(livro)
         else:
             raise Exception('Livro inválido')
-        
 
 
-livros = ['Código Limpo', 'Padrões de Projetos', 'Refatoração']
-membros = ['Gabriel', 'Iuri']
-biblioteca = Biblioteca()
-
-
-class Livro(Biblioteca):
+class Livro:
     def __init__(self, titulo: str, autor: str, id_livro: int, status: str) -> None:
         '''
         Iniciaizar um livro com os atributos necessários
+        Adicionar a lista de livros da biblioteca
         '''
         self.titulo = titulo
         self.autor = autor
         self.ID = id_livro
         self.status = status
+        '''Parâmetro para adicionar o livro à biblioteca'''
+        self.livro = {
+            'titulo': self.titulo,
+            'autor': self.autor,
+            'id': self.ID,
+            'status': self.status
+        }
 
 
-class Membro(Biblioteca):
-    '''
-    Iniciaizar um membro com os atributos necessários
-    Adiciona a lista de membros da biblioteca
-    '''
+class Membro:
     def __init__(self, nome: str, id_user: int) -> None:
+        '''
+        Iniciaizar um membro com os atributos necessários
+        Adiciona a lista de membros da biblioteca
+        '''
         self.nome = nome
         self.ID = id_user
         self.historico = []
-        # super().registro_membros = 
+        '''Parâmetro para adicionar o membro à biblioteca'''
+        self.dados = {
+            'nome': self.nome,
+            'id': self.ID,
+            'histórico de livros': self.historico
+        }
+
+
+codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1, 'Disponível')
+padroes_de_projetos = Livro('Padrões de Projetos',
+                            'Erich Gamma', 2, 'Emprestado')
+
+gabriel = Membro('Gabriel', 123)
+
+biblioteca = Biblioteca()
