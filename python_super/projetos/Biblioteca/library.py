@@ -40,7 +40,11 @@ class Biblioteca:
         else:
             raise Exception('Livro inválido')
 
-    def emprestimoLivro(self, livro: str):
+    def emprestimoLivro(self, livro: str) -> None:
+        '''
+        Pegar livro disponíveis da biblioteca(catalogo_livros).
+        Registrar emprestimo no histórico do usuário
+        '''
         if livro:
             if any(livro == l['titulo'] and l['status'] == 'disponivel' for l in self.catalogo_livros):
                 user.historico.append(livro)
@@ -49,6 +53,9 @@ class Biblioteca:
                         l['status'] = 'indisponivel'
             else:
                 print('Livro indisponivel')
+                
+    def devolucaoLivro(self):
+        pass
 
     def adicionarMembro(self, membro: dict):
         '''
