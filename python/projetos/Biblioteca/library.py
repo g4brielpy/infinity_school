@@ -16,6 +16,9 @@ Classe Biblioteca:
 '''
 
 
+from decimal import DivisionByZero
+
+
 class Biblioteca:
     def __init__(self) -> None:
         '''
@@ -82,7 +85,7 @@ class Membro:
         '''
         self.nome = nome
         self.ID = id_user
-        self.historico = []
+        self.historico = set()
         '''Parâmetro para adicionar o membro à biblioteca'''
         self.dados = {
             'nome': self.nome,
@@ -91,18 +94,26 @@ class Membro:
         }
 
 
+# Teste
+biblioteca = Biblioteca()
+
+codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
+padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2)
+
+biblioteca.adicionarLivro(codigo_limpo.livro)
+biblioteca.adicionarLivro(padroes_de_projetos.livro)
+
+gabriel = Membro('Gabriel', 123)
+gabriel2 = Membro('Gabriel', 321)
+
+biblioteca.adicionarMembro(gabriel.dados)
 try:
-    biblioteca = Biblioteca()
-
-    codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
-    codigo_limpo2 = Livro('Código Limpo', 'Robert C. Martin', 1)
-    padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2)
-
-    biblioteca.adicionarLivro(codigo_limpo.livro)
-    biblioteca.adicionarLivro(codigo_limpo2.livro)
-    gabriel = Membro('Gabriel', 123)
-    
+    biblioteca.adicionarMembro(gabriel2.dados)
 except Exception as e:
+    print('Bloco Exception')
     print(e)
 
+    
+
 print(biblioteca.catalogo_livros)
+print(biblioteca.registro_membros)
