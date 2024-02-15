@@ -55,6 +55,9 @@ class Biblioteca:
                         print('Emprestimo concluido!')
             else:
                 raise Exception('Livro indisponivel')
+    
+    def pesquisaLivro(self):
+        pass
 
     def devolucaoLivro(self, livro: str):
         '''
@@ -142,6 +145,6 @@ try:
 
     biblioteca.emprestimoLivro('Código Limpo')
     biblioteca.devolucaoLivro('Código Sujo')
-    
+
 except Exception as e:
     print(f'ERRO: {e}')
