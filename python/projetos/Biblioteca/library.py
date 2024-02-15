@@ -16,9 +16,6 @@ Classe Biblioteca:
 '''
 
 
-from decimal import DivisionByZero
-
-
 class Biblioteca:
     def __init__(self) -> None:
         '''
@@ -75,6 +72,7 @@ class Livro:
             'id': self.ID,
             'status': self.status
         }
+        biblioteca.adicionarLivro(self.livro)
 
 
 class Membro:
@@ -92,28 +90,18 @@ class Membro:
             'id': self.ID,
             'histórico de livros': self.historico
         }
+        biblioteca.adicionarMembro(self.dados)
 
 
-# Teste
+# Testes
 biblioteca = Biblioteca()
 
 codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
 padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2)
 
-biblioteca.adicionarLivro(codigo_limpo.livro)
-biblioteca.adicionarLivro(padroes_de_projetos.livro)
-
 gabriel = Membro('Gabriel', 123)
 gabriel2 = Membro('Gabriel', 321)
 
-biblioteca.adicionarMembro(gabriel.dados)
-try:
-    biblioteca.adicionarMembro(gabriel2.dados)
-except Exception as e:
-    print('Bloco Exception')
-    print(e)
-
-    
 
 print(biblioteca.catalogo_livros)
 print(biblioteca.registro_membros)
