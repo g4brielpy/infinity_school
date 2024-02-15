@@ -35,6 +35,7 @@ class Biblioteca:
             if not any(livro['titulo'] == l['titulo'] and livro['autor'] == l['autor']
                        and livro['id'] == l['id'] for l in self.catalogo_livros):
                 self.catalogo_livros.append(livro)
+                print('Livro adicionado a biblioteca!')
             else:
                 raise Exception('Livro já existe na biblioteca')
         else:
@@ -51,11 +52,22 @@ class Biblioteca:
                 for l in self.catalogo_livros:
                     if livro == l['titulo']:
                         l['status'] = 'indisponivel'
+                        print('Emprestimo concluido!')
             else:
-                print('Livro indisponivel')
-                
-    def devolucaoLivro(self):
-        pass
+                raise Exception('Livro indisponivel')
+
+    def devolucaoLivro(self, livro: str):
+        '''
+        Verificar se livro está emprestado, caso seja verdade,
+        registrar a devolução do livro
+        '''
+        if any(livro == l['titulo'] and l['status'] == 'indisponivel' for l in self.catalogo_livros):
+            for l in self.catalogo_livros:
+                if livro == l['titulo']:
+                    l['status'] = 'disponivel'
+                    print('Livro devolvido!')
+        else:
+            raise Exception('Livro não encontrado ou já Devolvido!')
 
     def adicionarMembro(self, membro: dict):
         '''
@@ -111,15 +123,25 @@ class Membro:
 
 
 # Testes
-biblioteca = Biblioteca()
+try:
+    # instânciando a Biblioteca para criar o sistema
+    biblioteca = Biblioteca()
 
-codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
-padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2)
+    # criando um usuário de exemplo
+    user = Membro('Gabriel', 123)
 
-user = Membro('Gabriel', 123)
+    # criando livros de exemplos
+    codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
+    padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2),
+    print('---------')
 
+    print('\nCatalogos de livros')
+    for chave in biblioteca.catalogo_livros:
+        print(f'{chave}')
+    print('')
 
-print(biblioteca.catalogo_livros)
-print(biblioteca.registro_membros, '\n')
-
-biblioteca.emprestimoLivro('Código Limpo')
+    biblioteca.emprestimoLivro('Código Limpo')
+    biblioteca.devolucaoLivro('Código Sujo')
+    
+except Exception as e:
+    print(f'ERRO: {e}')
