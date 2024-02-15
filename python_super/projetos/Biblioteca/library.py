@@ -40,6 +40,15 @@ class Biblioteca:
         else:
             raise Exception('Livro inválido')
 
+    def emprestimoLivro(self, livro: str):
+        if livro:
+            if any(livro == l['titulo'] and l['status'] == 'disponivel' for l in self.catalogo_livros):
+                user.historico.append(livro)
+                for l in self.catalogo_livros:
+                    if livro == l['titulo']:
+                        l['status'] = 'indisponivel'
+                # print(f'Achou o livro {livro}')
+
     def adicionarMembro(self, membro: dict):
         '''
         Adicionar um novo membro(class: Membro) ao registro de membros
@@ -83,13 +92,13 @@ class Membro:
         '''
         self.nome = nome
         self.ID = id_user
-        self.historico = set()
-        '''Parâmetro para adicionar o membro à biblioteca'''
+        self.historico = list()
         self.dados = {
             'nome': self.nome,
             'id': self.ID,
             'histórico de livros': self.historico
         }
+        '''Parâmetro para adicionar o membro à biblioteca'''
         biblioteca.adicionarMembro(self.dados)
 
 
@@ -99,9 +108,10 @@ biblioteca = Biblioteca()
 codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
 padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2)
 
-gabriel = Membro('Gabriel', 123)
-gabriel2 = Membro('Gabriel', 321)
+user = Membro('Gabriel', 123)
 
 
 print(biblioteca.catalogo_livros)
-print(biblioteca.registro_membros)
+print(biblioteca.registro_membros, '\n')
+
+biblioteca.emprestimoLivro('Código Limpo')
