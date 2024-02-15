@@ -47,7 +47,8 @@ class Biblioteca:
                 for l in self.catalogo_livros:
                     if livro == l['titulo']:
                         l['status'] = 'indisponivel'
-                # print(f'Achou o livro {livro}')
+            else:
+                print('Livro indisponivel')
 
     def adicionarMembro(self, membro: dict):
         '''
