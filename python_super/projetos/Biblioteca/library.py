@@ -15,6 +15,8 @@ Classe Biblioteca:
     empréstimo, devolução e pesquisa de livros.
 '''
 
+from random import randint
+
 
 class Biblioteca:
     def __init__(self) -> None:
@@ -48,7 +50,6 @@ class Biblioteca:
         '''
         if livro:
             if any(livro == l['titulo'] and l['status'] == 'disponivel' for l in self.catalogo_livros):
-                user.historico.append(livro)
                 for l in self.catalogo_livros:
                     if livro == l['titulo']:
                         l['status'] = 'indisponivel'
@@ -108,13 +109,13 @@ class Livro:
 
 
 class Membro:
-    def __init__(self, nome: str, id_user: int) -> None:
+    def __init__(self, nome: str) -> None:
         '''
         Iniciaizar um membro com os atributos necessários
         Adiciona a lista de membros da biblioteca
         '''
         self.nome = nome
-        self.ID = id_user
+        self.ID = self.gerarID()
         self.historico = list()
         self.dados = {
             'nome': self.nome,
@@ -123,15 +124,18 @@ class Membro:
         }
         '''Parâmetro para adicionar o membro à biblioteca'''
         biblioteca.adicionarMembro(self.dados)
+        
+    def gerarID(self):
+        valores = [str(randint(0, 9)) for i in range(4)]
+        id_user = ''.join(valores)
+
+        return id_user
 
 
 # Testes
 try:
     # instânciando a Biblioteca para criar o sistema
     biblioteca = Biblioteca()
-
-    # criando um usuário de exemplo
-    user = Membro('Gabriel', 123)
 
     # criando livros de exemplos
     codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
