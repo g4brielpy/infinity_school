@@ -1,14 +1,15 @@
 import library
 from os import system
 
-MENU = '''
+MENU = f'''
+MEMBRO: {library.user.nome}
 [1] - Criar um Usuário
-[2] - Adicionar um Livro a Biblioteca
-[3] - Pegar um Livro Emprestado
+[2] - Adicionar Livro a Biblioteca
+[3] - Pegar Livro Emprestado
 [4] - Devolver um Livro
 [5] - Pesquisar de Livro Por Título
 [6] - Pesquisar de Livro Por Autor
-[] - Pesquisar de Livro Por &
+[7] - Pesquisar de Livro Por &
 [q] - Sair
 => '''
 
@@ -26,8 +27,9 @@ while controle:
     match opcao:
         case '1':
             try:
+                # ARRUMAR MÉTODO DE USUÁRIO
                 print('ADICIONAR NOVO USUÁRIO\n')
-                nome = str(input('Digite o nome: '))
+                nome = str(input('Digite o nome: ').strip)
                 library.user.definirNome(nome)
             except:
                 print('Erro ao criar o usuário!')

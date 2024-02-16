@@ -34,8 +34,7 @@ class Biblioteca:
         '''
         if livro:
             # Verifica se há um livro com os mesmos atributos no catálogo
-            if not any(livro['titulo'] == l['titulo'] and livro['autor'] == l['autor']
-                       and livro['id'] == l['id'] for l in self.catalogo_livros):
+            if not any(livro['titulo'] == l['titulo'] for l in self.catalogo_livros):
                 self.catalogo_livros.append(livro)
             else:
                 raise Exception('Livro já existe na biblioteca')
@@ -55,6 +54,8 @@ class Biblioteca:
                         user.historico.append(livro)
             else:
                 raise Exception('Livro indisponivel')
+        else:
+            raise Exception('Valor inválido!')
 
     def devolucaoLivro(self, livro: str) -> None:
         '''
@@ -170,6 +171,8 @@ class Membro:
     def definirNome(self, novo_nome: str):
         if novo_nome:
             self.nome = novo_nome
+        else:
+            raise Exception('Membro inválido')
 
     def gerarID(self) -> str:
         valores = [str(randint(0, 9)) for i in range(4)]
