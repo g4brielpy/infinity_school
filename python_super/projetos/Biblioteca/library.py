@@ -53,9 +53,33 @@ class Biblioteca:
                     if livro == l['titulo']:
                         l['status'] = 'indisponivel'
                         user.historico.append(livro)
-                        print('Emprestimo concluido!')
             else:
                 raise Exception('Livro indisponivel')
+
+    def devolucaoLivro(self, livro: str) -> None:
+        '''
+        Verificar se livro está emprestado, caso seja verdade,
+        registrar a devolução do livro
+        '''
+        if livro:
+            if any(livro == l['titulo'] and l['status'] == 'indisponivel' for l in self.catalogo_livros):
+                for l in self.catalogo_livros:
+                    if livro == l['titulo']:
+                        l['status'] = 'disponivel'
+            else:
+                raise Exception('Livro não encontrado ou já Devolvido!')
+        else:
+            raise Exception('Livro indisponivel')
+
+    def listarLivros(self) -> str:
+        '''
+        Listar todos os livros disponíveis no catalogo da biblioteca
+        '''
+        catalogo = ''
+        for livro in self.catalogo_livros:
+            catalogo += ', '.join([f'{chave.title()}: {valor}'
+                                   for chave, valor in livro.items()]) + '\n'
+        return catalogo
 
     def pesquisaLivroTitulo(self, titulo: str) -> str:
         '''
@@ -74,34 +98,15 @@ class Biblioteca:
         Faz uma pesquisa no catalogo da biblioteca, utilizando o Autor dos livros, 
         e retorna se foi encontrado um livro com o nome passado para a função ou não
         '''
+        informacoes = str()
         for livro in self.catalogo_livros:
             if livro['autor'] == nome_autor:
-                informacoes = ', '.join([f'{chave.title()}: {valor}'
-                                        for chave, valor in livro.items()]) + '\n'
-                return informacoes
-        return 'Nenhum livro foi encontrado'
-
-    def devolucaoLivro(self, livro: str) -> None:
-        '''
-        Verificar se livro está emprestado, caso seja verdade,
-        registrar a devolução do livro
-        '''
-        if any(livro == l['titulo'] and l['status'] == 'indisponivel' for l in self.catalogo_livros):
-            for l in self.catalogo_livros:
-                if livro == l['titulo']:
-                    l['status'] = 'disponivel'
+                informacoes += ', '.join([f'{chave.title()}: {valor}'
+                                          for chave, valor in livro.items()]) + '\n'
+        if informacoes:
+            return informacoes.rstrip()
         else:
-            raise Exception('Livro não encontrado ou já Devolvido!')
-
-    def listarLivros(self) -> str:
-        '''
-        Listar todos os livros disponíveis no catalogo da biblioteca
-        '''
-        catalogo = ''
-        for livro in self.catalogo_livros:
-            catalogo += ', '.join([f'{chave.title()}: {valor}'
-                                   for chave, valor in livro.items()]) + '\n'
-        return catalogo
+            return 'Nenhum livro foi encontrado'
 
     def adicionarMembro(self, membro: dict) -> None:
         '''
