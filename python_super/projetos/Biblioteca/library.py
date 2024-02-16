@@ -69,9 +69,16 @@ class Biblioteca:
             for l in self.catalogo_livros:
                 if livro == l['titulo']:
                     l['status'] = 'disponivel'
-                    print('Livro devolvido!')
         else:
             raise Exception('Livro não encontrado ou já Devolvido!')
+
+    def listarLivros(self):
+        catalogo = ''
+        for livro in self.catalogo_livros:
+            catalogo += ', '.join([f'{chave.title()}: {valor}'
+                                   for chave, valor in livro.items()]) + '\n'
+
+        return catalogo
 
     def adicionarMembro(self, membro: dict) -> None:
         '''

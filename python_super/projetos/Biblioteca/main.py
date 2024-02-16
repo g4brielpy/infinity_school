@@ -44,14 +44,16 @@ while controle:
 
         case '3':
             try:
+                catalogo = library.biblioteca.listarLivros()
                 print('PEGAR LIVRO EMPRESTADO\n')
+                print(f'Livros disponíveis: \n{catalogo}')
                 livro_emprestimo = str(input('Título do livro: '))
                 library.biblioteca.emprestimoLivro(livro_emprestimo)
             except:
                 print('Erro ao pegar o livro emprestado')
             else:
                 print('Livro emprestado com sucesso!')
-                
+
         case '4':
             try:
                 print('DEVOLVER LIVRO\n')
