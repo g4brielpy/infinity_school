@@ -58,12 +58,28 @@ class Biblioteca:
                 raise Exception('Livro indisponivel')
 
     def pesquisaLivroTitulo(self, titulo: str) -> str:
+        '''
+        Faz uma pesquisa no catalogo da biblioteca, utilizando o Título dos livros, 
+        e retorna se foi encontrado um livro com o nome passado para a função ou não
+        '''
         for livro in self.catalogo_livros:
             if livro['titulo'] == titulo:
                 informacoes = ', '.join([f'{chave.title()}: {valor}'
                                          for chave, valor in livro.items()])
                 return informacoes
         return 'Livro não encontrado!'
+
+    def pesquisaLivroAutor(self, nome_autor: str) -> str:
+        '''
+        Faz uma pesquisa no catalogo da biblioteca, utilizando o Autor dos livros, 
+        e retorna se foi encontrado um livro com o nome passado para a função ou não
+        '''
+        for livro in self.catalogo_livros:
+            if livro['autor'] == nome_autor:
+                informacoes = ', '.join([f'{chave.title()}: {valor}'
+                                        for chave, valor in livro.items()]) + '\n'
+                return informacoes
+        return 'Nenhum livro foi encontrado'
 
     def devolucaoLivro(self, livro: str) -> None:
         '''
@@ -78,6 +94,9 @@ class Biblioteca:
             raise Exception('Livro não encontrado ou já Devolvido!')
 
     def listarLivros(self) -> str:
+        '''
+        Listar todos os livros disponíveis no catalogo da biblioteca
+        '''
         catalogo = ''
         for livro in self.catalogo_livros:
             catalogo += ', '.join([f'{chave.title()}: {valor}'

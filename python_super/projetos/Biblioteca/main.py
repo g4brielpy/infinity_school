@@ -7,7 +7,7 @@ MENU = '''
 [3] - Pegar um Livro Emprestado
 [4] - Devolver um Livro
 [5] - Pesquisar de Livro Por Título
-[] - Pesquisar de Livro Por &
+[6] - Pesquisar de Livro Por Autor
 [] - Pesquisar de Livro Por &
 [q] - Sair
 => '''
@@ -74,6 +74,16 @@ while controle:
                 informacoes = library.biblioteca.pesquisaLivroTitulo(titulo)
             except:
                 print('Erro ao pesquisar por livro')
+            else:
+                print(informacoes)
+
+        case '6':
+            try:
+                print('PESQUISAR POR AUTOR\n')
+                nome_autor = str(input('Digite o Nome do Autor: '))
+                informacoes = library.biblioteca.pesquisaLivroAutor(nome_autor)
+            except:
+                print('Erro ao pesquisar por livros deste autor')
             else:
                 print(informacoes)
 
