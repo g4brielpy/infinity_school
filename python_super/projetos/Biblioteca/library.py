@@ -37,7 +37,6 @@ class Biblioteca:
             if not any(livro['titulo'] == l['titulo'] and livro['autor'] == l['autor']
                        and livro['id'] == l['id'] for l in self.catalogo_livros):
                 self.catalogo_livros.append(livro)
-                print('Livro adicionado a biblioteca!')
             else:
                 raise Exception('Livro já existe na biblioteca')
         else:
@@ -53,10 +52,11 @@ class Biblioteca:
                 for l in self.catalogo_livros:
                     if livro == l['titulo']:
                         l['status'] = 'indisponivel'
+                        user.historico.append(livro)
                         print('Emprestimo concluido!')
             else:
                 raise Exception('Livro indisponivel')
-    
+
     def pesquisaLivro(self):
         pass
 
@@ -73,7 +73,7 @@ class Biblioteca:
         else:
             raise Exception('Livro não encontrado ou já Devolvido!')
 
-    def adicionarMembro(self, membro: dict):
+    def adicionarMembro(self, membro: dict) -> None:
         '''
         Adicionar um novo membro(class: Membro) ao registro de membros
         cadastrados na biblioteca
@@ -89,23 +89,29 @@ class Biblioteca:
 
 
 class Livro:
-    def __init__(self, titulo: str, autor: str, id_livro: int) -> None:
+    def __init__(self, titulo: str, autor: str) -> None:
         '''
         Iniciaizar um livro com os atributos necessários
         Adicionar a lista de livros da biblioteca
         '''
         self.titulo = titulo
         self.autor = autor
-        self.ID = id_livro
-        self.status = 'disponivel'
+        self.ID = self.gerarID()
+
         '''Parâmetro para adicionar o livro à biblioteca'''
         self.livro = {
             'titulo': self.titulo,
             'autor': self.autor,
             'id': self.ID,
-            'status': self.status
+            'status': 'disponivel'
         }
         biblioteca.adicionarLivro(self.livro)
+
+    def gerarID(self) -> str:
+        valores = [str(randint(0, 9)) for i in range(8)]
+        id_livro = ''.join(valores)
+
+        return id_livro
 
 
 class Membro:
@@ -117,38 +123,33 @@ class Membro:
         self.nome = nome
         self.ID = self.gerarID()
         self.historico = list()
+
+        '''Parâmetro para adicionar o membro à biblioteca'''
         self.dados = {
             'nome': self.nome,
             'id': self.ID,
             'histórico de livros': self.historico
         }
-        '''Parâmetro para adicionar o membro à biblioteca'''
         biblioteca.adicionarMembro(self.dados)
-        
-    def gerarID(self):
+
+    def definirNome(self, novo_nome: str):
+        if novo_nome:
+            self.nome = novo_nome
+
+    def gerarID(self) -> str:
         valores = [str(randint(0, 9)) for i in range(4)]
         id_user = ''.join(valores)
 
         return id_user
 
 
-# Testes
+# Criando as instâncias necessárias para o código funcionar
 try:
-    # instânciando a Biblioteca para criar o sistema
+    #   . Instânciando a Biblioteca para criar o sistema
     biblioteca = Biblioteca()
 
-    # criando livros de exemplos
-    codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
-    padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2),
-    print('---------')
-
-    print('\nCatalogos de livros')
-    for chave in biblioteca.catalogo_livros:
-        print(f'{chave}')
-    print('')
-
-    biblioteca.emprestimoLivro('Código Limpo')
-    biblioteca.devolucaoLivro('Código Sujo')
+    #   . Usuário definido como visistante por padrão
+    user = Membro('Visitante')
 
 except Exception as e:
     print(f'ERRO: {e}')
