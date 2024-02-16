@@ -6,7 +6,10 @@ MENU = '''
 [2] - Adicionar um Livro a Biblioteca
 [3] - Pegar um Livro Emprestado
 [4] - Devolver um Livro
-[] - Pesquisar de Livro Por Título
+[5] - Pesquisar de Livro Por Título
+[] - Pesquisar de Livro Por &
+[] - Pesquisar de Livro Por &
+[q] - Sair
 => '''
 
 '''
@@ -45,8 +48,8 @@ while controle:
         case '3':
             try:
                 catalogo = library.biblioteca.listarLivros()
-                print('PEGAR LIVRO EMPRESTADO\n')
-                print(f'Livros disponíveis: \n{catalogo}')
+                print('PEGAR LIVRO EMPRESTADO')
+                print(f'Livros Disponíveis: \n{catalogo}')
                 livro_emprestimo = str(input('Título do livro: '))
                 library.biblioteca.emprestimoLivro(livro_emprestimo)
             except:
@@ -63,3 +66,20 @@ while controle:
                 print('Erro ao tentar devolver o livro')
             else:
                 print('Livro devolvido com sucesso!')
+
+        case '5':
+            try:
+                print('PESQUISAR POR TÍTULO\n')
+                titulo = str(input('Digite o Título do Livro: '))
+                informacoes = library.biblioteca.pesquisaLivroTitulo(titulo)
+            except:
+                print('Erro ao pesquisar por livro')
+            else:
+                print(informacoes)
+
+        case 'q':
+            controle = False
+            print('Biblioteca Encerrada!\n')
+
+        case _:
+            print('Opção inválida!')

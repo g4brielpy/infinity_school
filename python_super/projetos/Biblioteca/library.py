@@ -57,10 +57,15 @@ class Biblioteca:
             else:
                 raise Exception('Livro indisponivel')
 
-    def pesquisaLivro(self):
-        pass
+    def pesquisaLivroTitulo(self, titulo: str) -> str:
+        for livro in self.catalogo_livros:
+            if livro['titulo'] == titulo:
+                informacoes = ', '.join([f'{chave.title()}: {valor}'
+                                         for chave, valor in livro.items()])
+                return informacoes
+        return 'Livro não encontrado!'
 
-    def devolucaoLivro(self, livro: str):
+    def devolucaoLivro(self, livro: str) -> None:
         '''
         Verificar se livro está emprestado, caso seja verdade,
         registrar a devolução do livro
@@ -72,12 +77,11 @@ class Biblioteca:
         else:
             raise Exception('Livro não encontrado ou já Devolvido!')
 
-    def listarLivros(self):
+    def listarLivros(self) -> str:
         catalogo = ''
         for livro in self.catalogo_livros:
             catalogo += ', '.join([f'{chave.title()}: {valor}'
                                    for chave, valor in livro.items()]) + '\n'
-
         return catalogo
 
     def adicionarMembro(self, membro: dict) -> None:
