@@ -7,7 +7,7 @@ MENU = f'''[1] - Criar um Usuário
 [4] - Devolver um Livro
 [5] - Pesquisar de Livro Por Título
 [6] - Pesquisar de Livro Por Autor
-[7] - Pesquisar de Livro Por &
+[7] - Pesquisar de Livro Por ID
 [q] - Sair
 => '''
 

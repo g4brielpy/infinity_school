@@ -109,6 +109,21 @@ class Biblioteca:
         else:
             return 'Nenhum livro foi encontrado'
 
+    def pesquisarLivroID(self, id_livro: str):
+        '''
+        Faz uma pesquisa no catalogo da biblioteca, utilizando o ID dos livros, 
+        e retorna se foi encontrado um livro com o nome passado para a função ou não
+        '''
+        informacoes = str()
+        for livro in self.catalogo_livros:
+            if livro['id'] == id_livro:
+                informacoes += ', '.join([f'{chave.title()}: {valor}'
+                                          for chave, valor in livro.items()]) + '\n'
+            if informacoes:
+                return informacoes
+            else:
+                return 'Nenhum livro foi encontrado'
+
     def adicionarMembro(self, membro: dict) -> None:
         '''
         Adicionar um novo membro(class: Membro) ao registro de membros
