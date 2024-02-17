@@ -77,10 +77,13 @@ class Biblioteca:
         Listar todos os livros disponíveis no catalogo da biblioteca
         '''
         catalogo = ''
-        for livro in self.catalogo_livros:
-            catalogo += ', '.join([f'{chave.title()}: {valor}'
-                                   for chave, valor in livro.items()]) + '\n'
-        return catalogo
+        if self.catalogo_livros:
+            for livro in self.catalogo_livros:
+                catalogo += ', '.join([f'{chave.title()}: {valor}'
+                                    for chave, valor in livro.items()]) + '\n'
+            return catalogo
+        else:
+            return 'Não há livros para ser exibidos'
 
     def pesquisaLivroTitulo(self, titulo: str) -> str:
         '''
@@ -109,7 +112,7 @@ class Biblioteca:
         else:
             return 'Nenhum livro foi encontrado'
 
-    def pesquisarLivroID(self, id_livro: str):
+    def pesquisarLivroID(self, id_livro: str) -> str:
         '''
         Faz uma pesquisa no catalogo da biblioteca, utilizando o ID dos livros, 
         e retorna se foi encontrado um livro com o nome passado para a função ou não
@@ -119,10 +122,10 @@ class Biblioteca:
             if livro['id'] == id_livro:
                 informacoes += ', '.join([f'{chave.title()}: {valor}'
                                           for chave, valor in livro.items()]) + '\n'
-            if informacoes:
-                return informacoes
-            else:
-                return 'Nenhum livro foi encontrado'
+        if informacoes:
+            return informacoes
+        else:
+            return 'Nenhum livro foi encontrado'
 
     def adicionarMembro(self, membro: dict) -> None:
         '''

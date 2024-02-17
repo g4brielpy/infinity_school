@@ -8,6 +8,7 @@ MENU = f'''[1] - Criar um Usuário
 [5] - Pesquisar de Livro Por Título
 [6] - Pesquisar de Livro Por Autor
 [7] - Pesquisar de Livro Por ID
+[8] - Ver Todos os Livros
 [q] - Sair
 => '''
 
@@ -87,6 +88,25 @@ while controle:
                 print('Erro ao pesquisar por livros deste autor')
             else:
                 print(informacoes)
+                
+        case '7':
+            try:
+                print('PESQUISAR POR ID\n')
+                id_livro = str(input('Digite o ID do Livro: '))
+                informacoes = library.biblioteca.pesquisarLivroID(id_livro)
+            except:
+                print('Erro ao pesquisar por livro')
+            else:
+                print(informacoes)
+        
+        case '8':
+            try:
+                catalogo = library.biblioteca.listarLivros()
+            except:
+                print('Erro ao listar livros')
+            else:
+                print('LIVROS DISPONÍVEIS\n')
+                print(catalogo)
 
         case 'q':
             controle = False
