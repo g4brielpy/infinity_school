@@ -1,9 +1,7 @@
 import library
 from os import system
 
-MENU = f'''
-MEMBRO: {library.user.nome}
-[1] - Criar um Usuário
+MENU = f'''[1] - Criar um Usuário
 [2] - Adicionar Livro a Biblioteca
 [3] - Pegar Livro Emprestado
 [4] - Devolver um Livro
@@ -21,6 +19,7 @@ Livros de exemplos:
 
 controle = True
 while controle:
+    print(f'\nMEMBRO: {library.user.nome}')
     opcao = str(input(MENU))
     system('cls')
 
@@ -29,7 +28,7 @@ while controle:
             try:
                 # ARRUMAR MÉTODO DE USUÁRIO
                 print('ADICIONAR NOVO USUÁRIO\n')
-                nome = str(input('Digite o nome: ').strip)
+                nome = str(input('Digite o nome: ').strip())
                 library.user.definirNome(nome)
             except:
                 print('Erro ao criar o usuário!')

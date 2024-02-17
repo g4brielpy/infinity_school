@@ -168,9 +168,10 @@ class Membro:
         }
         biblioteca.adicionarMembro(self.dados)
 
-    def definirNome(self, novo_nome: str):
+    def definirNome(self, novo_nome: str) -> None:
         if novo_nome:
             self.nome = novo_nome
+            self.dados['nome'] = novo_nome
         else:
             raise Exception('Membro inválido')
 
