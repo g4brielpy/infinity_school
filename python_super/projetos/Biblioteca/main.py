@@ -1,7 +1,8 @@
 import library
 from os import system
 
-MENU = f'''[1] - Criar um Usuário
+MENU = f'''
+[1] - Criar um Usuário
 [2] - Adicionar Livro a Biblioteca
 [3] - Pegar Livro Emprestado
 [4] - Devolver um Livro
