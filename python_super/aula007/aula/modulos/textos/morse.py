@@ -34,4 +34,3 @@ def alfabeto_mos(nome: str):
         nome += ''.join([letras_mos[letra]])
 
     return nome
-
