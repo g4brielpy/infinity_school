@@ -16,7 +16,6 @@ for letra in frase:
         qtd_vogais += 1
     elif letra == ' ':
         qtd_espacos += 1
-    
+
 print(f'\nQuantidade de vogais: {qtd_vogais}')
 print(f'Quantidade de espaços: {qtd_espacos}')
-        

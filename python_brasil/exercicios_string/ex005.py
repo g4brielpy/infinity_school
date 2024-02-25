@@ -11,7 +11,7 @@ F
 
 nome = input('Digite seu nome: ')
 
-index = len(nome) 
+index = len(nome)
 for i in range(len(nome)+1):
     print(nome[:index])
     index -= 1
