@@ -15,18 +15,74 @@ Digite uma letra: S
 '''
 
 from random import choice
+from os import system
 
 
 def escolher_palavra() -> str:
     palavras = ["python", "programacao",
                 "desenvolvimento", "openai", "inteligencia"]
-    return choice(palavras)
+    return (choice(palavras))
 
 
-PALAVRA: str = escolher_palavra()
-exibicao = ['_' for letra in PALAVRA]
-tentativas_disponiveis = 6
+def verificar_letra(letra: str) -> str:
+    if letra:
 
-while True:
+        if letra not in letras_escolhidas:
+            letras_escolhidas.append(letra)
+
+            if letra in PALAVRA:
+                for index in range(len(palavra_oculta)):
+                    if letra == PALAVRA[index]:
+                        palavra_oculta[index] = letra
+                if PALAVRA == palavra_oculta:
+                    return 'Ganhou'
+
+                return 'Acertou'
+            else:
+                return 'Erro'
+        else:
+            return 'Letra repetida'
+
+    else:
+        raise Exception
+
+
+PALAVRA: list = list(escolher_palavra())
+palavra_oculta: list = ['_' for _ in PALAVRA]
+letras_escolhidas: list = []
+
+tentativas: int = 1
+tentativas_disponiveis: int = 6
+
+print(PALAVRA)
+print(palavra_oculta)
+
+while tentativas_disponiveis != 0:
     print('\n----- JOGO DA FORCA -----')
     print(f'Tentativas disponíveis: {tentativas_disponiveis}')
+    try:
+        letra: str = input('Digite uma letra: ').lower().strip()
+        resposta = verificar_letra(letra)
+        system('cls')
+    except Exception:
+        print('Erro! Digite um valor válido!')
+    else:
+        match resposta:
+            case 'Ganhou':
+                print(f'Você ganhou! A palavra é:', ''.join(
+                    letra for letra in palavra_oculta))
+                tentativas_disponiveis = 0
+
+            case 'Acertou':
+                print('A palavra é:', ' '.join(
+                    letra for letra in palavra_oculta))
+
+            case 'Erro':
+                print(f'Você errou pela {tentativas}ª vez. Tente de novo!')
+                tentativas_disponiveis -= 1
+                tentativas += 1
+
+            case 'Letra repetida':
+                print('Letra repetida!')
+else:
+    print('\nJOGO FINALIZADO')
