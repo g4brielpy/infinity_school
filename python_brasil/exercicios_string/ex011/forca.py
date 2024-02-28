@@ -31,7 +31,7 @@ def buscar_palavras() -> list:
 
         lista_palavras = palavras.split('\n')
         lista_palavras = [palavra for palavra in lista_palavras if palavra]
-    
+
     return lista_palavras
 
 
@@ -70,9 +70,6 @@ letras_escolhidas: list = []
 tentativas: int = 1
 tentativas_disponiveis: int = 6
 
-print(PALAVRA)
-print(palavra_oculta)
-
 while tentativas_disponiveis != 0:
     print('\n----- JOGO DA FORCA -----')
     print(f'Tentativas disponíveis: {tentativas_disponiveis}')
@@ -94,8 +91,8 @@ while tentativas_disponiveis != 0:
                     letra for letra in palavra_oculta))
 
             case 'Erro':
-                print(f'Você errou pela {tentativas}ª vez. Tente de novo!')
                 tentativas_disponiveis -= 1
+                print(f'Você errou pela {tentativas}ª vez. Tente de novo!' if tentativas_disponiveis != 0 else 'Você perdeu!')
                 tentativas += 1
 
             case 'Letra repetida':
