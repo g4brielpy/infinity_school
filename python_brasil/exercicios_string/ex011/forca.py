@@ -15,12 +15,28 @@ Digite uma letra: S
 '''
 
 from random import choice
-from os import system
+import os
+
+
+def buscar_palavras() -> list:
+    # Obtém o caminho absoluto do script
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    # Constrói o caminho completo para 'palavras.txt'
+    caminho_arquivo = os.path.join(diretorio_atual, 'palavras.txt')
+
+    palavras: str = ''
+
+    with open(caminho_arquivo, 'r') as arquivo:
+        palavras = '\n'.join(arquivo)
+
+        lista_palavras = palavras.split('\n')
+        lista_palavras = [palavra for palavra in lista_palavras if palavra]
+    
+    return lista_palavras
 
 
 def escolher_palavra() -> str:
-    palavras = ["python", "programacao",
-                "desenvolvimento", "openai", "inteligencia"]
+    palavras = buscar_palavras()
     return (choice(palavras))
 
 
@@ -63,7 +79,7 @@ while tentativas_disponiveis != 0:
     try:
         letra: str = input('Digite uma letra: ').lower().strip()
         resposta = verificar_letra(letra)
-        system('cls')
+        os.system('cls')
     except Exception:
         print('Erro! Digite um valor válido!')
     else:
