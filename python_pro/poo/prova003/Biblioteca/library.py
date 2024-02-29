@@ -34,7 +34,7 @@ class Biblioteca:
         '''
         Iniciaizar a biblioteca com os atributos necessários
         '''
-        self.catalogo_livros = []
+        self.catalogo_livros: list = []
 
     def adicionarLivro(self, livro: dict) -> None:
         '''
@@ -54,7 +54,7 @@ class Biblioteca:
         '''
         Listar todos os livros disponíveis no catalogo da biblioteca
         '''
-        catalogo = ''
+        catalogo: str = ''
         if self.catalogo_livros:
             for livro in self.catalogo_livros:
                 catalogo += ', '.join([f'{chave.title()}: {valor}'
@@ -70,8 +70,8 @@ class Biblioteca:
         '''
         for livro in self.catalogo_livros:
             if livro['titulo'] == titulo:
-                informacoes = ', '.join([f'{chave.title()}: {valor}'
-                                         for chave, valor in livro.items()])
+                informacoes: str = ', '.join([f'{chave.title()}: {valor}'
+                                              for chave, valor in livro.items()])
                 return informacoes
         return 'Livro não encontrado!'
 
@@ -80,7 +80,7 @@ class Biblioteca:
         Faz uma pesquisa no catalogo da biblioteca, utilizando o Autor dos livros, 
         e retorna se foi encontrado um livro com o nome passado para a função ou não
         '''
-        informacoes = str()
+        informacoes: str = ''
         for livro in self.catalogo_livros:
             if livro['autor'] == nome_autor:
                 informacoes += ', '.join([f'{chave.title()}: {valor}'
@@ -95,7 +95,7 @@ class Biblioteca:
         Faz uma pesquisa no catalogo da biblioteca, utilizando o Genero dos livros, 
         e retorna se foi encontrado um livro com o nome passado para a função ou não
         '''
-        informacoes = str()
+        informacoes: str = ''
         for livro in self.catalogo_livros:
             if livro['genero'] == genero_livro.title():
                 informacoes += ', '.join([f'{chave.title()}: {valor}'
@@ -112,11 +112,11 @@ class Livro:
         Iniciaizar um livro com os atributos necessários
         Adicionar a lista de livros da biblioteca
         '''
-        self.titulo = titulo
-        self.autor = autor
-        self.paginas = qtd_pargina
-        self.ID = self.gerarID()
-        self.tipo = tipo
+        self.titulo: str = titulo
+        self.autor: str = autor
+        self.paginas: int = qtd_pargina
+        self.ID: str = self.gerarID()
+        self.tipo: str = tipo
 
         '''Parâmetro para adicionar o livro à biblioteca'''
         self.livro = {
@@ -130,21 +130,21 @@ class Livro:
         biblioteca.adicionarLivro(self.livro)
 
     def gerarID(self) -> str:
-        valores = [str(randint(0, 9)) for i in range(8)]
-        id_livro = ''.join(valores)
+        valores: list = [str(randint(0, 9)) for i in range(8)]
+        id_livro: str = ''.join(valores)
 
         return id_livro
 
 
 class Romance(Livro):
     def __init__(self, titulo: str, autor: str, qtd_pargina: int) -> None:
-        self.tipo = 'Romance'
+        self.tipo: str = 'Romance'
         super().__init__(titulo, autor, qtd_pargina, self.tipo)
 
 
 class Biografia(Livro):
     def __init__(self, titulo: str, autor: str, qtd_pargina: int) -> None:
-        self.tipo = 'Biografia'
+        self.tipo: str = 'Biografia'
         super().__init__(titulo, autor, qtd_pargina, self.tipo)
 
 
@@ -153,4 +153,4 @@ try:
     biblioteca = Biblioteca()
 
 except Exception as e:
-    print(f'ERRO: {e}')
+    print(f'ERRO ao criar uma biblioteca: {e}')

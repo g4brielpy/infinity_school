@@ -20,23 +20,24 @@ Livros de exemplos:
 
 controle = True
 while controle:
-    opcao = str(input(MENU))
+    opcao: str = input(MENU)
     system('cls')
 
     match opcao:
 
         case '1':
             try:
-                genero = int(
-                    input('GÊNEROS\n [1] - Romance\n [2] - Biografica\n [3] - Outros\n => '))
+                genero: int = int(
+                    input('GÊNEROS\n [1] - Romance\n [2] - Biografia\n [3] - Outros\n => '))
                 if genero not in [1, 2, 3]:
                     raise ValueError
 
                 print('\nADICIONAR NOVO LIVRO\n')
-                titulo = str(input('Título: '))
-                autor = str(input('Autor ou Editora: '))
-                qtd_paginas = int(input('Quantidade de páginas: '))
-                novo_livro = generos[genero-1](titulo, autor, qtd_paginas)
+                titulo: str = input('Título: ')
+                autor: str = input('Autor ou Editora: ')
+                qtd_paginas: int = int(input('Quantidade de páginas: '))
+                novo_livro: object = generos[genero -
+                                             1](titulo, autor, qtd_paginas)
             except ValueError:
                 print('Opção inválida')
             except Exception as e:
@@ -47,8 +48,9 @@ while controle:
         case '2':
             try:
                 print('PESQUISAR POR TÍTULO\n')
-                titulo = str(input('Digite o Título do Livro: '))
-                informacoes = library.biblioteca.exibirDetalheLivro(titulo)
+                titulo: str = input('Digite o Título do Livro: ')
+                informacoes: str = library.biblioteca.exibirDetalheLivro(
+                    titulo)
             except:
                 print('Erro ao pesquisar por livro')
             else:
@@ -57,8 +59,9 @@ while controle:
         case '3':
             try:
                 print('PESQUISAR POR AUTOR\n')
-                nome_autor = str(input('Digite o Nome do Autor: '))
-                informacoes = library.biblioteca.pesquisaLivroAutor(nome_autor)
+                nome_autor: str = input('Digite o Nome do Autor: ')
+                informacoes: str = library.biblioteca.pesquisaLivroAutor(
+                    nome_autor)
             except:
                 print('Erro ao pesquisar por livros deste autor')
             else:
@@ -67,8 +70,8 @@ while controle:
         case '4':
             try:
                 print('PESQUISAR POR GÊNERO\n')
-                genero_livro = str(input('Digite o GÊNERO do Livro: '))
-                informacoes = library.biblioteca.pesquisarLivroGenero(
+                genero_livro: str = input('Digite o GÊNERO do Livro: ')
+                informacoes: str = library.biblioteca.pesquisarLivroGenero(
                     genero_livro)
             except:
                 print('Erro ao pesquisar por livro')
@@ -77,7 +80,7 @@ while controle:
 
         case '5':
             try:
-                catalogo = library.biblioteca.listarLivros()
+                catalogo: str = library.biblioteca.listarLivros()
             except:
                 print('Erro ao listar livros')
             else:
@@ -85,7 +88,7 @@ while controle:
                 print(catalogo)
 
         case 'q':
-            controle = False
+            controle: bool = False
             print('Biblioteca Encerrada!\n')
 
         case _:
