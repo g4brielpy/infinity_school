@@ -28,7 +28,6 @@ while controle:
     match opcao:
         case '1':
             try:
-                # ARRUMAR MÉTODO DE USUÁRIO
                 print('ADICIONAR NOVO USUÁRIO\n')
                 nome = str(input('Digite o nome: ').strip())
                 library.user.definirNome(nome)
@@ -42,7 +41,8 @@ while controle:
                 print('ADICIONAR NOVO LIVRO\n')
                 titulo = str(input('Título: '))
                 autor = str(input('Autor ou Editora: '))
-                novo_livro = library.Livro(titulo, autor)
+                qtd_paginas = int(input('Quantidade de páginas: '))
+                novo_livro = library.Livro(titulo, autor, qtd_paginas)
             except:
                 print('Erro ao criar o livro')
             else:

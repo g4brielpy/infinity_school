@@ -14,10 +14,20 @@ Classe Biblioteca:
     disponíveis, um registro de membros e métodos para
     empréstimo, devolução e pesquisa de livros.
 '''
+'''
+Imagine que você está desenvolvendo um sistema para gerenciar uma biblioteca. 
+
+Nessa biblioteca, existem diferentes tipos de livros, como romances, biografias, livros infantis, etc. 
+
+Todos esses livros possuem algumas características em comum, como o título, o autor e a editora, mas também possuem características específicas,
+
+como o número de páginas, a faixa etária recomendada, etc.
+'''
+
+
+
 
 from random import randint
-
-
 class Biblioteca:
     def __init__(self) -> None:
         '''
@@ -80,7 +90,7 @@ class Biblioteca:
         if self.catalogo_livros:
             for livro in self.catalogo_livros:
                 catalogo += ', '.join([f'{chave.title()}: {valor}'
-                                    for chave, valor in livro.items()]) + '\n'
+                                       for chave, valor in livro.items()]) + '\n'
             return catalogo
         else:
             return 'Não há livros para ser exibidos'
@@ -143,21 +153,25 @@ class Biblioteca:
 
 
 class Livro:
-    def __init__(self, titulo: str, autor: str) -> None:
+    def __init__(self, titulo: str, autor: str, qtd_pargina: int, tipo: str = 'Não informado') -> None:
         '''
         Iniciaizar um livro com os atributos necessários
         Adicionar a lista de livros da biblioteca
         '''
         self.titulo = titulo
         self.autor = autor
+        self.paginas = qtd_pargina
         self.ID = self.gerarID()
+        self.tipo = tipo
 
         '''Parâmetro para adicionar o livro à biblioteca'''
         self.livro = {
             'titulo': self.titulo,
             'autor': self.autor,
+            'paginas': self.paginas,
+            'genero': self.tipo,
             'id': self.ID,
-            'status': 'disponivel'
+            'status': 'disponivel',
         }
         biblioteca.adicionarLivro(self.livro)
 
@@ -166,6 +180,17 @@ class Livro:
         id_livro = ''.join(valores)
 
         return id_livro
+
+
+class Romance(Livro):
+    def __init__(self, titulo: str, autor: str, qtd_pargina: int) -> None:
+        self.tipo = 'Romance'
+        super().__init__(titulo, autor, qtd_pargina, self.tipo)
+
+class Biografia(Livro):
+    def __init__(self, titulo: str, autor: str, qtd_pargina: int) -> None:
+        self.tipo = 'Biografia'
+        super().__init__(titulo, autor, qtd_pargina, self.tipo)
 
 
 class Membro:
