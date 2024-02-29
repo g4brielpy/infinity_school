@@ -1,14 +1,14 @@
 import library
 from os import system
 
+
+generos = [library.Romance, library.Biografia, library.Livro]
 MENU = f'''
 [1] - Adicionar Livro a Biblioteca
-[2] - Pegar Livro Emprestado
-[3] - Devolver um Livro
-[4] - Pesquisar de Livro Por Título
-[5] - Pesquisar de Livro Por Autor
-[6] - Pesquisar de Livro Por Gênero
-[7] - Ver Todos os Livros
+[2] - Pesquisar de Livro Por Título
+[3] - Pesquisar de Livro Por Autor
+[4] - Pesquisar de Livro Por Gênero
+[5] - Ver Todos os Livros
 [q] - Sair
 => '''
 
@@ -27,49 +27,34 @@ while controle:
 
         case '1':
             try:
-                print('ADICIONAR NOVO LIVRO\n')
+                genero = int(
+                    input('GÊNEROS\n [1] - Romance\n [2] - Biografica\n [3] - Outros\n => '))
+                if genero not in [1, 2, 3]:
+                    raise ValueError
+
+                print('\nADICIONAR NOVO LIVRO\n')
                 titulo = str(input('Título: '))
                 autor = str(input('Autor ou Editora: '))
                 qtd_paginas = int(input('Quantidade de páginas: '))
-                novo_livro = library.Livro(titulo, autor, qtd_paginas)
-            except:
+                novo_livro = generos[genero-1](titulo, autor, qtd_paginas)
+            except ValueError:
+                print('Opção inválida')
+            except Exception as e:
                 print('Erro ao criar o livro')
             else:
                 print('Livro criado com sucesso!')
 
         case '2':
             try:
-                catalogo = library.biblioteca.listarLivros()
-                print('PEGAR LIVRO EMPRESTADO')
-                print(f'Livros Disponíveis: \n{catalogo}')
-                livro_emprestimo = str(input('Título do livro: '))
-                library.biblioteca.emprestimoLivro(livro_emprestimo)
-            except:
-                print('Erro ao pegar o livro emprestado')
-            else:
-                print('Livro emprestado com sucesso!')
-
-        case '3':
-            try:
-                print('DEVOLVER LIVRO\n')
-                livro_devolver = str(input('Título do livro: '))
-                library.biblioteca.devolucaoLivro(livro_devolver)
-            except:
-                print('Erro ao tentar devolver o livro')
-            else:
-                print('Livro devolvido com sucesso!')
-
-        case '4':
-            try:
                 print('PESQUISAR POR TÍTULO\n')
                 titulo = str(input('Digite o Título do Livro: '))
-                informacoes = library.biblioteca.pesquisaLivroTitulo(titulo)
+                informacoes = library.biblioteca.exibirDetalheLivro(titulo)
             except:
                 print('Erro ao pesquisar por livro')
             else:
                 print(informacoes)
 
-        case '5':
+        case '3':
             try:
                 print('PESQUISAR POR AUTOR\n')
                 nome_autor = str(input('Digite o Nome do Autor: '))
@@ -79,7 +64,7 @@ while controle:
             else:
                 print(informacoes)
 
-        case '6':
+        case '4':
             try:
                 print('PESQUISAR POR GÊNERO\n')
                 genero_livro = str(input('Digite o GÊNERO do Livro: '))
@@ -90,7 +75,7 @@ while controle:
             else:
                 print(informacoes)
 
-        case '7':
+        case '5':
             try:
                 catalogo = library.biblioteca.listarLivros()
             except:

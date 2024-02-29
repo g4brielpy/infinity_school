@@ -50,35 +50,6 @@ class Biblioteca:
         else:
             raise Exception('Livro inválido')
 
-    def emprestimoLivro(self, livro: str) -> None:
-        '''
-        Pegar livro disponíveis da biblioteca(catalogo_livros).
-        '''
-        if livro:
-            if any(livro == l['titulo'] and l['status'] == 'disponivel' for l in self.catalogo_livros):
-                for l in self.catalogo_livros:
-                    if livro == l['titulo']:
-                        l['status'] = 'indisponivel'
-            else:
-                raise Exception('Livro indisponivel')
-        else:
-            raise Exception('Valor inválido!')
-
-    def devolucaoLivro(self, livro: str) -> None:
-        '''
-        Verificar se livro está emprestado, caso seja verdade,
-        registrar a devolução do livro
-        '''
-        if livro:
-            if any(livro == l['titulo'] and l['status'] == 'indisponivel' for l in self.catalogo_livros):
-                for l in self.catalogo_livros:
-                    if livro == l['titulo']:
-                        l['status'] = 'disponivel'
-            else:
-                raise Exception('Livro não encontrado ou já Devolvido!')
-        else:
-            raise Exception('Livro indisponivel')
-
     def listarLivros(self) -> str:
         '''
         Listar todos os livros disponíveis no catalogo da biblioteca
@@ -92,7 +63,7 @@ class Biblioteca:
         else:
             return 'Não há livros para ser exibidos'
 
-    def pesquisaLivroTitulo(self, titulo: str) -> str:
+    def exibirDetalheLivro(self, titulo: str) -> str:
         '''
         Faz uma pesquisa no catalogo da biblioteca, utilizando o Título dos livros, 
         e retorna se foi encontrado um livro com o nome passado para a função ou não
