@@ -2,41 +2,30 @@ import library
 from os import system
 
 MENU = f'''
-[1] - Criar um Usuário
-[2] - Adicionar Livro a Biblioteca
-[3] - Pegar Livro Emprestado
-[4] - Devolver um Livro
-[5] - Pesquisar de Livro Por Título
-[6] - Pesquisar de Livro Por Autor
-[7] - Pesquisar de Livro Por ID
-[8] - Ver Todos os Livros
+[1] - Adicionar Livro a Biblioteca
+[2] - Pegar Livro Emprestado
+[3] - Devolver um Livro
+[4] - Pesquisar de Livro Por Título
+[5] - Pesquisar de Livro Por Autor
+[6] - Pesquisar de Livro Por Gênero
+[7] - Ver Todos os Livros
 [q] - Sair
 => '''
 
 '''
 Livros de exemplos:
     I.  codigo_limpo = Livro('Código Limpo', 'Robert C. Martin', 1)
-    II. padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 2),
+    II. padroes_de_projetos = Livro('Padrões de Projetos', 'Erich Gamma', 1),
 '''
 
 controle = True
 while controle:
-    print(f'\nMEMBRO: {library.user.nome}')
     opcao = str(input(MENU))
     system('cls')
 
     match opcao:
-        case '1':
-            try:
-                print('ADICIONAR NOVO USUÁRIO\n')
-                nome = str(input('Digite o nome: ').strip())
-                library.user.definirNome(nome)
-            except:
-                print('Erro ao criar o usuário!')
-            else:
-                print('Usuário criado com sucesso!')
 
-        case '2':
+        case '1':
             try:
                 print('ADICIONAR NOVO LIVRO\n')
                 titulo = str(input('Título: '))
@@ -48,7 +37,7 @@ while controle:
             else:
                 print('Livro criado com sucesso!')
 
-        case '3':
+        case '2':
             try:
                 catalogo = library.biblioteca.listarLivros()
                 print('PEGAR LIVRO EMPRESTADO')
@@ -60,7 +49,7 @@ while controle:
             else:
                 print('Livro emprestado com sucesso!')
 
-        case '4':
+        case '3':
             try:
                 print('DEVOLVER LIVRO\n')
                 livro_devolver = str(input('Título do livro: '))
@@ -70,7 +59,7 @@ while controle:
             else:
                 print('Livro devolvido com sucesso!')
 
-        case '5':
+        case '4':
             try:
                 print('PESQUISAR POR TÍTULO\n')
                 titulo = str(input('Digite o Título do Livro: '))
@@ -80,7 +69,7 @@ while controle:
             else:
                 print(informacoes)
 
-        case '6':
+        case '5':
             try:
                 print('PESQUISAR POR AUTOR\n')
                 nome_autor = str(input('Digite o Nome do Autor: '))
@@ -89,18 +78,19 @@ while controle:
                 print('Erro ao pesquisar por livros deste autor')
             else:
                 print(informacoes)
-                
-        case '7':
+
+        case '6':
             try:
-                print('PESQUISAR POR ID\n')
-                id_livro = str(input('Digite o ID do Livro: '))
-                informacoes = library.biblioteca.pesquisarLivroID(id_livro)
+                print('PESQUISAR POR GÊNERO\n')
+                genero_livro = str(input('Digite o GÊNERO do Livro: '))
+                informacoes = library.biblioteca.pesquisarLivroGenero(
+                    genero_livro)
             except:
                 print('Erro ao pesquisar por livro')
             else:
                 print(informacoes)
-        
-        case '8':
+
+        case '7':
             try:
                 catalogo = library.biblioteca.listarLivros()
             except:
