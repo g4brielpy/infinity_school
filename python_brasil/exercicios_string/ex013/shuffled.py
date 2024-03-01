@@ -31,10 +31,30 @@ def buscar_palavras() -> str:
     return choice(lista_palavras)
 
 
+def menu(palavra: str, tentativas: int) -> None:
+    print('\nJOGO DA PALAVRA EMBARALHADA')
+    print(f'Palavra embaralhada: {palavra}')
+    print(f'Tentativas restantes: {tentativas}\n')
+
+
 PALAVRA: str = buscar_palavras()
 palavra_embaralhada: str = embaralhar_palavra(PALAVRA)
 
 
 tentativas_disponiveis: int = 6
 while tentativas_disponiveis != 0:
-    pass
+    menu(palavra_embaralhada, tentativas_disponiveis)
+    chute: str = input('Chute: ')
+
+    if chute == PALAVRA:
+        print('Parabéns, você ganhou!')
+        break
+
+    os.system('cls')
+    tentativas_disponiveis -= 1
+
+    if not tentativas_disponiveis == 0:
+        print('Tente novamente, você errou!')
+
+else:
+    print(f'Você perdeu! A palavra é {PALAVRA}')

@@ -4,7 +4,6 @@ desenvolvimento
 openai
 inteligencia
 jogo
-forca
 exemplo
 lista
 arquivo
