@@ -5,7 +5,11 @@ def somar():
     global num1_input
     global num2_input
 
-    resultado: float = float(num1_input.get()) + float(num2_input.get())
+    try: 
+        resultado = float(num1_input.get()) + float(num2_input.get())
+    except ValueError:
+        resultado = 'Valores inválido!'
+        
     resultado_label.config(text=resultado)
 
 
@@ -44,7 +48,6 @@ num2_label.pack()
 num2_input.pack()
 
 somar_button.pack(pady=25)
-
 resultado_label.pack()
 
 
