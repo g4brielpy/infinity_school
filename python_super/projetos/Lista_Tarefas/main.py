@@ -68,7 +68,6 @@ while True:
             except (ValueError,TypeError) as e:
                 print(colored(f"Erro ao criar tarefa: {e}", 'red'))
                 sleep(1)
-            except(KeyboardInterrupt)
 
         case '2':
             print(colored(f'Exibir Tarefas', 'blue'))
