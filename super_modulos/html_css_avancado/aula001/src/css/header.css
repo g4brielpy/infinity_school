@@ -30,7 +30,7 @@ nav.links-header {
   color: #000;
   font-size: 1.1em;
 }
-.links-header  a:hover {
+.links-header a:hover {
   text-decoration: underline;
 }
 .cabecalho a.login {
@@ -43,4 +43,10 @@ nav.links-header {
 .cabecalho a.login:hover {
   opacity: 0.6;
   transition: 1s;
+}
+
+@media only screen and (max-width: 500px) {
+  nav.links-header {
+    display: none;
+  }
 }
