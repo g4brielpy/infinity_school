@@ -4,8 +4,6 @@
 h1.titulo-main {
   font-size: 3em;
   font-weight: 600;
-
-  margin: 2em 0;
 }
 h1.titulo-main span {
   color: var(--cor_sub_destaque);
@@ -18,12 +16,13 @@ h1.titulo-main span {
   padding: 0 1em;
 }
 
-/* SECTION - CURSOS */
+/* SECTION - container dos cards */
 section.secao-cursos {
   border-radius: 10px;
   background: var(--cor_destaque);
   box-shadow: 35px 35px 70px #bebebe, -35px -35px 70px #ffffff;
   padding: 2.5em;
+  margin: 5em 0;
 
   display: flex;
   flex-direction: column;
@@ -36,6 +35,7 @@ div.conteiner-coluna {
   justify-content: space-between;
   gap: 1em;
 }
+/* cards do cursos */
 div.card-cursos {
   background-color: var(--branco);
   border-radius: 10px;
@@ -55,7 +55,7 @@ div.card-cursos {
 .box-conteudo a:hover > :first-child {
   text-decoration: underline;
 }
-.box-conteudo .real {
+.box-conteudo span.real {
   color: var(--cor_sub_destaque);
   font-weight: 500;
   text-transform: lowercase;

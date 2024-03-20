@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import "header.css";
 @import "section.css";
+@import "footer.css";
 
 :root {
   --cor_destaque: #140066;

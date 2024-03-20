@@ -1,0 +1,38 @@
+@import "main.css";
+
+footer.rodape {
+  margin-top: 6em;
+  padding: 2.6em 1em 1em;
+  background-color: var(--cor_destaque);
+}
+.rodape .copy {
+  width: fit-content;
+  border-top: 1px solid #ffffffb4;
+
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.1em;
+
+  margin: 1em auto 1em;
+  padding-top: 1em;
+  color: var(--branco);
+}
+
+nav.minhas-redes {
+  width: 100%;
+  max-width: 300px;
+
+  margin: auto;
+  padding: 0.2em 0.4em;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em 5em;
+}
+.minhas-redes img {
+  width: 100%;
+  max-width: 50px;
+  object-fit: cover;
+}
