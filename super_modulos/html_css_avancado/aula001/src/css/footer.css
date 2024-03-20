@@ -36,3 +36,8 @@ nav.minhas-redes {
   max-width: 50px;
   object-fit: cover;
 }
+.minhas-redes img:hover {
+  transition: 0.5s;
+  transform: scale(1.02);
+  opacity: 0.9;
+}

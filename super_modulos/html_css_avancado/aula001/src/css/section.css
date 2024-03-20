@@ -44,7 +44,8 @@ div.conteiner-coluna {
 div.card-cursos {
   background-color: var(--branco);
   border-radius: 10px;
-  padding: 1em 0.5em;
+  padding: 2em 0.5em 1.2em;
+  text-align: left;
   flex: 1 2 250px;
 
   display: flex;
@@ -52,17 +53,35 @@ div.card-cursos {
   align-items: center;
   gap: 1em;
 }
-.card-cursos .box-conteudo a {
+.card-cursos .box-conteudo p {
   color: var(--preto);
-  font-size: 1.2em;
+  font-size: 1.3em;
   text-decoration: none;
 }
-.box-conteudo a:hover > :first-child {
-  text-decoration: underline;
+.card-cursos a.botao-infor {
+  background-color: var(--cor_sub_destaque);
+  color: var(--branco);
+
+  width: 100%;
+  min-width: 120px;
+
+  font-size: 1.1em;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+
+  border-radius: 10px;
+  padding: 1em;
+}
+.card-cursos a.botao-infor:hover {
+  transition: 0.5s;
+  transform: scale(1.005);
+  opacity: 0.9;
 }
 .box-conteudo span.real {
   color: var(--cor_sub_destaque);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: lowercase;
 }
 .card-cursos .box-img img {
@@ -71,9 +90,12 @@ div.card-cursos {
 
   border-radius: 50px;
   object-fit: cover;
+  opacity: 0.85;
 }
 .card-cursos .box-img img:hover {
-  opacity: 0.8;
+  transition: 0.5s;
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 @media only screen and (max-width: 730px) {
