@@ -18,7 +18,7 @@ header.cabecalho {
 }
 .cabecalho .titulo-header {
   color: var(--cor_destaque);
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 nav.links-header {
@@ -28,7 +28,7 @@ nav.links-header {
 .cabecalho a {
   text-decoration: none;
   color: #000;
-  font-size: 1.1em;
+  font-size: 1.4em;
 }
 .links-header a:hover {
   text-decoration: underline;
@@ -45,8 +45,16 @@ nav.links-header {
   transition: 1s;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 620px) {
   nav.links-header {
     display: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .cabecalho .titulo-header {
+    font-size: 1.6em;
+  }
+  .cabecalho a {
+    font-size: 1.2em;
   }
 }
