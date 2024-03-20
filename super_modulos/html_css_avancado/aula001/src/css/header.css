@@ -18,7 +18,7 @@ header.cabecalho {
 }
 .cabecalho .titulo-header {
   color: var(--cor_destaque);
-  font-size: 1.8em;
+  font-size: 2em;
 }
 
 nav.links-header {
@@ -45,7 +45,7 @@ nav.links-header {
   transition: 1s;
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 630px) {
   nav.links-header {
     display: none;
   }
