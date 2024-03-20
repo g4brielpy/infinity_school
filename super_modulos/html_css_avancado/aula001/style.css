@@ -21,7 +21,7 @@ header.cabecalho {
 
   margin: 2em auto;
   padding: 0 1em 1.5em;
-  border-bottom: 2px solid var(--cor_destaque);
+  border-bottom: 2px solid #14006669;
 
   display: flex;
   flex-wrap: wrap;
@@ -82,10 +82,10 @@ section.container-cursos {
   align-items: center;
 }
 .box-cursos {
-  padding: 0.8em;
+  padding: 1.4em;
 
   border-radius: 5px;
-  background: #e0e0e0;
+  background: #e0e0e0d3;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 
   display: flex;
@@ -99,6 +99,11 @@ section.container-cursos {
   font-variant: small-caps;
 
   color: var(--cor_destaque);
+}
+.box-cursos .preco {
+  align-self: flex-start;
+  padding-left: 1em;
+  font-size: 1.4em;
 }
 .box-cursos img {
   width: 100%;
