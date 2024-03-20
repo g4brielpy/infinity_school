@@ -1,0 +1,41 @@
+@import "main.css";
+
+/* HEADER - CABEÇALHO */
+header.cabecalho {
+  width: 100%;
+  max-width: 1024px;
+
+  margin: 2em auto 0em;
+  padding: 0 1em 1.5em;
+  border-bottom: 2px solid #14006669;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.cabecalho strong.titulo-header {
+  color: var(--cor_destaque);
+  font-size: 1.5em;
+}
+nav.links-header {
+  display: flex;
+  gap: 1em;
+}
+.cabecalho a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1em;
+}
+.cabecalho a:hover {
+  text-decoration: underline;
+}
+.cabecalho a.login {
+  background-color: var(--cor_destaque);
+  color: #fff;
+
+  padding: 0.4em;
+  border-radius: 5px;
+}

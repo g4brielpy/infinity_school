@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@import "header.css";
+@import "section.css";
+
+:root {
+  --cor_destaque: #140066;
+  --cor_sub_destaque: #cf3c5c;
+  --cor_curso: #cf3cc3;
+  --font_principal: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font_principal);
+}

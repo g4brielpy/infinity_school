@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Venha comprar seu curso aqui!" />
     <title>Cursos</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/main.css" />
   </head>
   <body>
     <header class="cabecalho">
@@ -23,16 +23,66 @@
         Melhores <span class="rosa">Cursos</span> <br />
         Cursos de todas as <span>categorias</span>
       </h1>
-      <section class="container-cursos">
-        <div class="box-cursos">
-          <picture><img src="src/html.png" alt="HTML" /></picture>
-          <h3>curso de HTML5</h3>
-          <p class="preco">R$ 200,00</p>
+      <section class="secao-cursos">
+
+        <!-- 1° conteiner -->
+        <div class="conteiner-coluna">
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-html.png" alt="Logo HTML" />
+            </picture>
+            <span>
+              <p>Curso de HTML5</p>
+            </span>
+          </div>
+
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-css.png" alt="Logo CSS" />
+            </picture>
+            <span>
+              <p>Curso de CSS</p>
+            </span>
+          </div>
+
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-javascript.png" alt="Logo JavaScript" />
+            </picture>
+            <span>
+              <p>Curso JavaScript</p>
+            </span>
+          </div>
         </div>
-        <div class="box-cursos">
-          <picture><img src="src/css-3.png" alt="CSS" /></picture>
-          <h3>curso de CSS3</h3>
-          <p class="preco">R$ 200,00</p>
+
+        <!-- 2° conteiner -->
+        <div class="conteiner-coluna">
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-java.png" alt="Logo Java" />
+            </picture>
+            <span>
+              <p>Curso de Java</p>
+            </span>
+          </div>
+
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-node.png" alt="Logo Node" />
+            </picture>
+            <span>
+              <p>Curso de Nodejs</p>
+            </span>
+          </div>
+
+          <div class="box-cursos">
+            <picture>
+              <img src="src/image/logotipo-c.png" alt="Logo C#" />
+            </picture>
+            <span>
+              <p>Curso de C#</p>
+            </span>
+          </div>
         </div>
       </section>
     </main>
