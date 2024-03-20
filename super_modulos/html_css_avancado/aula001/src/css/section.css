@@ -21,8 +21,25 @@ h1.titulo-main span {
 /* SECTION - CURSOS */
 section.secao-cursos {
   background-color: rgba(255, 0, 0, 0.199);
-}
+  padding: 2.5em 0;
 
-img {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+div.conteiner-coluna {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1em;
+}
+div.box-cursos {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1em 0.5em;
+}
+.box-cursos img {
   max-width: 250px;
+  border-radius: 50px;
 }
