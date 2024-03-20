@@ -20,11 +20,10 @@ h1.titulo-main span {
 
 /* SECTION - CURSOS */
 section.secao-cursos {
-    border-radius: 10px;
-    background: var(--cor_destaque);
-    box-shadow:  35px 35px 70px #bebebe,
-                 -35px -35px 70px #ffffff;
-  padding: 2.5em 0;
+  border-radius: 10px;
+  background: var(--cor_destaque);
+  box-shadow: 35px 35px 70px #bebebe, -35px -35px 70px #ffffff;
+  padding: 2.5em;
 
   display: flex;
   flex-direction: column;
@@ -34,16 +33,18 @@ div.conteiner-coluna {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1em;
 }
 div.card-cursos {
   background-color: var(--branco);
   border-radius: 10px;
   padding: 1em 0.5em;
+  flex: 1 2 250px;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1em;
 }
 .card-cursos .box-conteudo a {
@@ -60,6 +61,13 @@ div.card-cursos {
   text-transform: lowercase;
 }
 .card-cursos .box-img img {
-  max-width: 250px;
+  width: 100%;
+  max-width: 220px;
+
   border-radius: 50px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 855px) {
+  /* adicionar css */
 }

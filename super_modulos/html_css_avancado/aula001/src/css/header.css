@@ -7,7 +7,7 @@ header.cabecalho {
 
   margin: 2em auto 0em;
   padding: 0 1em 1.5em;
-  border-bottom: 2px solid #14006669;
+  border-bottom: 2px solid #140066b4;
 
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +29,7 @@ nav.links-header {
   color: #000;
   font-size: 1.1em;
 }
-.cabecalho a:hover {
+.links-header  a:hover {
   text-decoration: underline;
 }
 .cabecalho a.login {
@@ -38,4 +38,8 @@ nav.links-header {
 
   padding: 0.4em;
   border-radius: 5px;
+}
+.cabecalho a.login:hover {
+  opacity: 0.6;
+  transition: 1s;
 }
