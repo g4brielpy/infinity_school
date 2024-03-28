@@ -11,7 +11,7 @@ def paridade(num: int) -> str:
 def numero_primo(num: int):
     primo: bool = True
 
-    if num >= 1:
+    if num > 1:
         for i in range(2, num):
             if num % i == 0:
                 primo = False
@@ -33,4 +33,4 @@ def contar_vogais(frase: str) -> int:
     return qtds_vogais
 
 
-print(numero_primo(0))
+print(numero_primo(7))
