@@ -2,6 +2,7 @@
 @import "header.css";
 @import "section.css";
 @import "footer.css";
+@import "form.css";
 
 :root {
   --cor_destaque: #140066;

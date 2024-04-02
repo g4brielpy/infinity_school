@@ -138,27 +138,31 @@
 
       <aside id="cadastro">
         <form action="#" method="get">
-          <div class="box-input">
-            <label for="nome">Nome:</label>
-            <input
-              type="text"
-              name="nome"
-              id="nome"
-              placeholder="Nome completo"
-              required
-            />
+          <div class="conteiner-input">
+            <div class="box-input">
+              <label for="nome">Nome</label>
+              <input
+                lang="pt-br"
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Nome completo"
+                required
+              />
+            </div>
+            <div class="box-input">
+              <label for="email">E-mail</label>
+              <input
+                lang="pt-br"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Exemplo@gmail.com"
+                required
+              />
+            </div>
+            <button type="submit" id="fazer-cadastro" class="login">Cadastrar</button>
           </div>
-          <div class="box-input">
-            <label for="email">E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="E-mail"
-              required
-            />
-          </div>
-          <button type="submit">Cadastrar</button>
         </form>
       </aside>
     </main>

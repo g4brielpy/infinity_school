@@ -1,0 +1,55 @@
+@import "main.css";
+
+aside#cadastro {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 10em auto;
+  padding: 1em;
+
+  border: solid 2px var(--cor_sub_destaque);
+  border-radius: 5px;
+}
+
+#cadastro form {
+  padding: 1em;
+
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+div.conteiner-input {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+div.box-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.box-input label {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.box-input input {
+  font-size: 1.2em;
+  padding: 0.4em 0.4em;
+}
+
+button#fazer-cadastro {
+  font-size: 1.2em;
+  background-color: var(--cor_destaque);
+  color: #fff;
+
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+  border: none;
+}
+button#fazer-cadastro:hover {
+  opacity: 0.8;
+  transition: 1s;
+}
