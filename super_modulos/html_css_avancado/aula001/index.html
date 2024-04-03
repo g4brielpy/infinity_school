@@ -16,25 +16,35 @@
     <header class="cabecalho">
       <strong class="titulo-header">CURSOS</strong>
       <nav class="links-header">
-        <a href="#">Home</a>
-        <a href="#">Cursos</a>
-        <a href="#">Pesquisar</a>
+        <a href="#Home" aria-label="Navegar até Home da página">Home</a>
+        <a href="#cursos" aria-label="Navegar até a seção de Cursos da página">Cursos</a>
+        <a href="#" aria-label="Navegar até a seção de pesquisa da página">Pesquisar</a>
       </nav>
-      <a href="#" class="login">Fazer Login</a>
+      <a
+        href="#fazer-cadastro"
+        class="login"
+        aria-label="Navegar para seção de cadastro"
+        role="button"
+        >Fazer Cadastro</a
+      >
     </header>
 
-    <main class="conteudo-principal largura-max">
+    <main id="Home" class="conteudo-principal largura-max">
       <h1 class="titulo-main">Melhores <span class="rosa">Cursos</span></h1>
       <h2 class="sub-titulo-main">
         Cursos de todas as <span class="rosa">categorias</span>
       </h2>
 
-      <section class="secao-cursos">
+      <section id="cursos" class="secao-cursos">
         <!-- 1° conteiner -->
         <div class="conteiner-coluna front-end">
           <div class="card-cursos">
             <picture class="box-img">
-              <img src="src/image/logotipo-html.png" alt="Logo HTML" />
+              <img
+                src="src/image/logotipo-html.png"
+                alt="Logo HTML"
+                title="HTML5"
+              />
             </picture>
             <span class="box-conteudo">
               <p>Curso de HTML5</p>
@@ -42,6 +52,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -50,7 +62,11 @@
 
           <div class="card-cursos">
             <picture class="box-img">
-              <img src="src/image/logotipo-css.png" alt="Logo CSS" />
+              <img
+                src="src/image/logotipo-css.png"
+                alt="Logo CSS"
+                title="CSS3"
+              />
             </picture>
             <span class="box-conteudo">
               <p>Curso de CSS</p>
@@ -58,6 +74,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -69,6 +87,7 @@
               <img
                 src="src/image/logotipo-javascript.png"
                 alt="Logo JavaScript"
+                title="JavaScript"
               />
             </picture>
             <span class="box-conteudo">
@@ -77,6 +96,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -88,7 +109,11 @@
         <div class="conteiner-coluna back-end">
           <div class="card-cursos">
             <picture class="box-img">
-              <img src="src/image/logotipo-java.png" alt="Logo Java" />
+              <img
+                src="src/image/logotipo-java.png"
+                alt="Logo Java"
+                title="Java"
+              />
             </picture>
             <span class="box-conteudo">
               <p>Curso de Java</p>
@@ -96,6 +121,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -104,7 +131,11 @@
 
           <div class="card-cursos">
             <picture class="box-img">
-              <img src="src/image/logotipo-node.png" alt="Logo Node" />
+              <img
+                src="src/image/logotipo-node.png"
+                alt="Logo Node"
+                title="Nodejs"
+              />
             </picture>
             <span class="box-conteudo">
               <p>Curso de Nodejs</p>
@@ -112,6 +143,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -120,7 +153,7 @@
 
           <div class="card-cursos">
             <picture class="box-img">
-              <img src="src/image/logotipo-c.png" alt="Logo C#" />
+              <img src="src/image/logotipo-c.png" alt="Logo C#" title="C#" />
             </picture>
             <span class="box-conteudo">
               <p>Curso de C#</p>
@@ -128,6 +161,8 @@
             </span>
             <a
               class="botao-infor"
+              aria-label="Abrir Informações do curso"
+              role="button"
               href="https://infinityschool.com.br/"
               target="_blank"
               >VER MAIS</a
@@ -142,26 +177,40 @@
             <div class="box-input">
               <label for="nome">Nome</label>
               <input
+                title="Nome do Usuário"
+                aria-label="Pegar Nome do Usuário"
                 lang="pt-br"
                 type="text"
                 name="nome"
                 id="nome"
                 placeholder="Nome completo"
+                aria-required="true"
                 required
               />
             </div>
             <div class="box-input">
               <label for="email">E-mail</label>
               <input
+                title="E-mail do Usuário"
+                aria-label="Pegar E-mail do Usuário"
                 lang="pt-br"
                 type="email"
                 name="email"
                 id="email"
                 placeholder="Exemplo@gmail.com"
+                aria-required="true"
                 required
               />
             </div>
-            <button type="submit" id="fazer-cadastro" class="login">Cadastrar</button>
+            <button
+              title="Cadastro"
+              aria-label="Fazer Cadastro do Usuário"
+              type="submit"
+              id="fazer-cadastro"
+              class="login"
+            >
+              Cadastrar
+            </button>
           </div>
         </form>
       </aside>
