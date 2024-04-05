@@ -18,16 +18,11 @@ const adicionarTarefa = (nome, descricao, tarefas = lista_tarefas) => {
   return dadosTarefas;
 };
 
-const atualizarTarefas = (
-  nomeTarefaAtualizar,
-  novoNome,
-  tarefas = lista_tarefas
-) => {
+const atualizarTarefas = (nomeTarefaAtualizar, tarefas = lista_tarefas) => {
   //   localizar a tarefa para fazer a alteração.
   for (let i = 0; i < tarefas.length; i++) {
     if (tarefas[i].Nome == nomeTarefaAtualizar) {
-      lista_tarefas[i].Nome = novoNome;
-      return true;
+      return [true, i];
     }
   }
 
@@ -39,13 +34,29 @@ const deletarTarefa = (nomeTarefaDeletar, tarefas = lista_tarefas) => {
   //   localizar a tarefa para fazer a deletar.
   for (let i = 0; i < tarefas.length; i++) {
     if (tarefas[i].Nome == nomeTarefaDeletar) {
-      lista_tarefas.splice(i, 1);
       return [true, i];
     }
   }
 
   //   retorna false caso a tarefa não exista
   return false;
+};
+
+const listarTarefas = (tarefas = lista_tarefas) => {
+  if (tarefas.length != 0) {
+    for (let tarefa of tarefas) {
+      console.log(
+        "Nome: ".padEnd(30, ".") +
+          tarefa.Nome +
+          "\n" +
+          "Descricao: ".padEnd(30, ".") +
+          tarefa.Descricao +
+          "\n"
+      );
+    }
+  } else {
+    console.log("Sem tarefas ainda!\n");
+  }
 };
 
 const menu = () => {
@@ -64,6 +75,7 @@ while (controle) {
   const opcao = input.question("=> ");
 
   switch (opcao) {
+    // 1 - Adicionar nova tarefa a lista de tarefas
     case "1":
       let nome = input.question("Nome da Tarefa: ").trim();
       let descricao = input.question("Descricao da Tarefa: ").trim();
@@ -75,18 +87,21 @@ while (controle) {
       tarefaValida && console.log("Tarefa Adicionada!");
       break;
 
+    // 2 - Alterar alguma tarefa já existente
     case "2":
       let nomeTarefaAlterar = input
         .question("Nome da Tarefa para Atualizar: ")
         .trim();
       let novoNome = input.question("Novo Nome da Tarefa: ").trim();
-      let tarefaAtualizada = atualizarTarefas(nomeTarefaAlterar, novoNome);
+      let tarefaAtualizada = atualizarTarefas(nomeTarefaAlterar);
 
-      tarefaAtualizada
-        ? console.log("Tarefa Atualizada!")
+      tarefaAtualizada[0]
+        ? (lista_tarefas[tarefaAtualizada[1]].Nome = novoNome)
         : console.log("Tarefa Inválida!");
+      tarefaAtualizada[0] && console.log("Tarefa Atualizada!");
       break;
 
+    // 3 - Deletar alguma tarefa já existente
     case "3":
       let nomeTarefaDeletar = input
         .question("Nome da Tarefa para Deletar: ")
@@ -94,17 +109,22 @@ while (controle) {
       let tarefaDeletada = deletarTarefa(nomeTarefaDeletar);
 
       tarefaDeletada[0]
-        ? lista_tarefas.splice(tarefaDeletada[1], tarefaDeletada[1])
+        ? lista_tarefas.splice(tarefaDeletada[1], 1)
         : console.log("Tarefa Inválida!");
       tarefaDeletada[0] && console.log("Tarefa Deletada!");
       break;
 
+    // 4 - Lista todas as tarefas da lista
     case "4":
-      console.log(lista_tarefas);
+      console.log("..... Tarefas .....");
+      listarTarefas();
       break;
+
+    // q - Finalizar aplicação
     case "q":
-      console.log("Exit\n");
+      console.log("Exit...\n");
       controle = false;
+
     default:
       console.log("Opção inválida, Digite novamente!\n");
       break;
