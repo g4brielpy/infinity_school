@@ -39,7 +39,7 @@ const deletarTarefa = (nomeTarefaDeletar, tarefas = lista_tarefas) => {
   //   localizar a tarefa para fazer a deletar.
   for (let i = 0; i < tarefas.length; i++) {
     if (tarefas[i].Nome == nomeTarefaDeletar) {
-      lista_tarefas.splice(i, i);
+      lista_tarefas.splice(i, 1);
       return [true, i];
     }
   }
