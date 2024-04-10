@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Restaurante</title>
+  </head>
+  <body>
+    <h1 id="titulo">Restaurante</h1>
+    <h2 id="subtitulo">Faça sua avaliação aqui!</h2>
+    <form id="form-gorjeta" action="#">
+      <h3 id="titulo-form">Gorjeta</h3>
+
+      <div class="box-input">
+        <label for="valor_conta">Valor da Conta</label>
+        <input type="number" name="valor_conta" id="valor_conta" required />
+      </div>
+
+      <div class="box-input">
+        <label for="qualidade_servico">Qualidade do Serviço</label>
+        <select name="qualidade_servico" id="qualidade_servico" required>
+          <option value="bom">Bom</option>
+          <option value="regular" selected>Regular</option>
+          <option value="ruim">Ruim</option>
+        </select>
+      </div>
+
+      <div class="box-input">
+        <button type="submit" id="button_calcular">Calcular Gorjeta</button>
+      </div>
+      <div id="container-valores"></div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
