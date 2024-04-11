@@ -1,0 +1,49 @@
+@import "main.css";
+
+main#corpo {
+  width: 100%;
+  max-width: 500px;
+
+  background-color: var(--black_1);
+  color: var(--white);
+
+  padding: 1rem;
+  margin: 3rem auto 0;
+}
+
+section#sectionAddTarefas {
+  margin-bottom: 2rem;
+  border-radius: 5px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}
+#sectionAddTarefas input {
+  background-color: var(--black_3);
+  color: var(--white);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+
+  flex: 1 1 auto;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+#sectionAddTarefas button#buttonAdd {
+  background-color: var(--black_3);
+  color: var(--white);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  flex: 0 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button#buttonAdd img {
+  width: 20px;
+  object-fit: cover;
+}
