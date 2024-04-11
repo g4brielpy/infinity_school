@@ -1,0 +1,9 @@
+@import "main.css";
+
+h1#titulo {
+  color: var(--black_1);
+  font-family: var(--font_titulo);
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
