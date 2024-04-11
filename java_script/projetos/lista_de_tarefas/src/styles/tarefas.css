@@ -2,12 +2,12 @@
 
 main#corpo {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 
   background-color: var(--black_1);
   color: var(--white);
 
-  padding: 1rem;
+  padding: 2rem 1rem;
   margin: 3rem auto 0;
 }
 
