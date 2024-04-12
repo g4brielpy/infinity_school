@@ -1,4 +1,5 @@
 // selecionando os elementos do HTML;
+const btnExcluirTarefa = document.querySelectorAll(".btnExcluirTarefa");
 const buttonAdd = document.querySelector("#buttonAdd");
 const inputAddTarefa = document.querySelector("#inputAddTarefa");
 const sectionTarefas = document.querySelector("#sectionTarefas");
@@ -16,21 +17,27 @@ const adcionarTarefa = () => {
     sectionTarefas.innerHTML = "";
 
     // iterando sobre a lista e exibindo todas as tarefas
-    for (const tarefa of listaTarefas) {
-      sectionTarefas.innerHTML += `
-          <div class="boxTarefa">
+    listaTarefas.forEach((tarefa, index) => {
+      const containerTarefa = document.createElement("div");
+      const estruturaHTMLTarefa = `
             <p class="tituloTarefa">${tarefa}</p>
             <div class="iconeOpcoes">
               <div class="boxImg">
                 <img src="src/image/definicoes.png" alt="Definicoes" />
               </div>
-              <div class="boxImg">
+              <div class="boxImg btnExcluirTarefa" data-tarefa-id="${index}">
                 <img src="src/image/lixo.png" alt="Lixo" />
               </div>
             </div>
-          </div>
-        `;
-    }
+      `;
+
+      // set os atributos necessários, e add id único a cada tarefa
+      containerTarefa.setAttribute("id", `tarefa_${index}`);
+      containerTarefa.setAttribute("class", "boxTarefa");
+      // definindo o conteúdo e adicionando a lista de tarefas
+      containerTarefa.innerHTML = estruturaHTMLTarefa;
+      sectionTarefas.appendChild(containerTarefa);
+    });
   };
 
   // função para verifica se a tarefa é válida
@@ -59,5 +66,21 @@ const adcionarTarefa = () => {
   }
 };
 
-// adicionar um observador de 'clicks' no elemento 'button'
+const excluirTarefa = (id) => {
+  alert("Função excluir");
+  console.log("ID da Tarefa a ser excluída: " + id);
+};
+
+// adicionar um observador de 'clicks' no elemento 'button' e 'lixeira'
 buttonAdd.addEventListener("click", adcionarTarefa);
+
+btnExcluirTarefa.forEach((button) => {
+  console.log("Botão de exclusão selecionado:", button);
+
+  button.addEventListener("click", () => {
+    console.log("Teste");
+
+    const indexExcluir = parseInt(button.getAttribute("data-tarefa-id"));
+    excluirTarefa(indexExcluir);
+  });
+});
