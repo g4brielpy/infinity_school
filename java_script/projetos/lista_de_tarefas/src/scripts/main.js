@@ -72,7 +72,12 @@ const excluirTarefa = (id) => {
 };
 
 // adicionar um observador de 'clicks' no elemento 'button' e 'lixeira'
-buttonAdd.addEventListener("click", adcionarTarefa);
+buttonAdd.addEventListener("click", () => {
+  // adicionar tarefa
+  adcionarTarefa();
+  // limpar o valor do input
+  inputAddTarefa.value = "";
+});
 
 btnExcluirTarefa.forEach((button) => {
   console.log("Botão de exclusão selecionado:", button);
