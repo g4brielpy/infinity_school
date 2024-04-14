@@ -40,3 +40,29 @@ class Conta:
     def transferir(self, valor: float, conta: "Conta"):
         self.sacar(valor)
         conta.depositar(valor)
+
+
+class ContaCorrente(Conta):
+    def __init__(self, titular: str, saldo: float, cheque_especial: float = 100) -> None:
+        super().__init__(titular, saldo)
+        self.cheque_especial = cheque_especial
+
+    def sacar(self, valor: float):
+        if valor < 0 and not (isinstance(valor, (float, int))):
+            raise ValueError("O valor do deposito é inválido!")
+
+        if valor > self.saldo + self.cheque_especial:
+            raise ValueError("Valor inválido!")
+
+        self.saldo -= valor
+
+
+class ContaPoupanca(Conta):
+    def __init__(self, titular: str, saldo: float) -> None:
+        super().__init__(titular, saldo)
+        self.juros = 1
+
+    def corrigir_saldo(self) -> float:
+        correcao = self.saldo * (self.juros/100)
+        self.saldo += correcao
+        return correcao
