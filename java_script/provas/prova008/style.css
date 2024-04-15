@@ -1,1 +1,54 @@
 @charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+h1#titulo {
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+main#conteudo {
+  background-color: #c9c9c9;
+  border-radius: 5px;
+
+  width: 100%;
+  max-width: 450px;
+
+  margin: 2rem auto 2rem;
+  padding: 1.4rem 1rem;
+}
+#conteudo form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+div.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.box label {
+  font-size: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.box :where(input, select) {
+  padding: 0.2rem;
+  font-size: 1.05rem;
+}
+
+#resultado {
+  font-size: 1.3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  margin-top: 2rem;
+}

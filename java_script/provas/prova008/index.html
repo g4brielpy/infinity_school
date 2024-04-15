@@ -3,8 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Conversor de Comprimento</title>
   </head>
-  <body></body>
+  <body>
+    <h1 id="titulo">Conversor de Comprimento</h1>
+    <main id="conteudo">
+      <form action="#">
+        <div class="box">
+          <label for="inputMetros">Metros </label>
+          <input
+            type="number"
+            name="metros"
+            id="inputMetros"
+            placeholder="Digite o valor em metros"
+          />
+        </div>
+        <div class="box">
+          <label for="inputUnidade">Unidade para Converter </label>
+          <select name="unidades" id="inputUnidade">
+            <option value="jardas">Jardas</option>
+            <option value="pes">Pés</option>
+            <option value="polegadas">Polegadas</option>
+            <option value="milhas">Milhas</option>
+          </select>
+        </div>
+      </form>
+      <!-- <p id="resultado">Resultado: 1,094 jadas</p> -->
+    </main>
+  </body>
 </html>
