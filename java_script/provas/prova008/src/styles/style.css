@@ -44,6 +44,9 @@ div.box {
   padding: 0.2rem;
   font-size: 1.05rem;
 }
+.box-button button {
+  padding: 0.2rem 1rem;
+}
 
 #resultado {
   font-size: 1.3rem;
