@@ -1,8 +1,8 @@
 // selecionando os elementos do HTML;
-const btnExcluirTarefa = document.querySelectorAll(".btnExcluirTarefa");
 const buttonAdd = document.querySelector("#buttonAdd");
 const inputAddTarefa = document.querySelector("#inputAddTarefa");
 const sectionTarefas = document.querySelector("#sectionTarefas");
+const btnExcluirTarefa = document.querySelectorAll("div.btnExcluirTarefa");
 // iniciando a lista de tarefas como um array;
 let listaTarefas = [];
 
@@ -64,11 +64,14 @@ const adcionarTarefa = () => {
   } else {
     alert("Tarefa Inválida!");
   }
+
+  for (let i = 0; i < listaTarefas.length; i++) {
+    console(i);
+  }
 };
 
 const excluirTarefa = (id) => {
   alert("Função excluir");
-  console.log("ID da Tarefa a ser excluída: " + id);
 };
 
 // adicionar um observador de 'clicks' no elemento 'button' e 'lixeira'
@@ -77,15 +80,4 @@ buttonAdd.addEventListener("click", () => {
   adcionarTarefa();
   // limpar o valor do input
   inputAddTarefa.value = "";
-});
-
-btnExcluirTarefa.forEach((button) => {
-  console.log("Botão de exclusão selecionado:", button);
-
-  button.addEventListener("click", () => {
-    console.log("Teste");
-
-    const indexExcluir = parseInt(button.getAttribute("data-tarefa-id"));
-    excluirTarefa(indexExcluir);
-  });
 });
