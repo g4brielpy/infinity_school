@@ -1,8 +1,10 @@
+// < Projeto lista de tarefas v-1.0 - Gabriel Iuri >
+
 // selecionando os elementos do HTML;
 const buttonAdd = document.querySelector("#buttonAdd");
 const inputAddTarefa = document.querySelector("#inputAddTarefa");
-const sectionTarefas = document.querySelector("#sectionTarefas");
-const btnExcluirTarefa = document.querySelectorAll("div.btnExcluirTarefa");
+const sectionTarefas = document.querySelector("#listaDeTarefas");
+
 // iniciando a lista de tarefas como um array;
 let listaTarefas = [];
 
@@ -18,24 +20,29 @@ const adcionarTarefa = () => {
 
     // iterando sobre a lista e exibindo todas as tarefas
     listaTarefas.forEach((tarefa, index) => {
-      const containerTarefa = document.createElement("div");
-      const estruturaHTMLTarefa = `
-            <p class="tituloTarefa">${tarefa}</p>
-            <div class="iconeOpcoes">
-              <div class="boxImg">
-                <img src="src/image/definicoes.png" alt="Definicoes" />
-              </div>
-              <div class="boxImg btnExcluirTarefa" data-tarefa-id="${index}">
-                <img src="src/image/lixo.png" alt="Lixo" />
-              </div>
-            </div>
+      const containerTarefa = document.createElement("li");
+
+      const buttonLixo = document.createElement("button");
+      buttonLixo.setAttribute("class", "buttonLixo");
+      buttonLixo.setAttribute("data-tarefa-id", index);
+
+      const imgLixo = document.createElement("img");
+      imgLixo.setAttribute("src", "src/image/lixo.png");
+      imgLixo.setAttribute("alt", "Lixo");
+
+      buttonLixo.appendChild(imgLixo);
+
+      const estruturaHTML = `
+        ${tarefa}
       `;
 
       // set os atributos necessários, e add id único a cada tarefa
       containerTarefa.setAttribute("id", `tarefa_${index}`);
       containerTarefa.setAttribute("class", "boxTarefa");
+
       // definindo o conteúdo e adicionando a lista de tarefas
-      containerTarefa.innerHTML = estruturaHTMLTarefa;
+      containerTarefa.innerHTML = estruturaHTML;
+      containerTarefa.appendChild(buttonLixo);
       sectionTarefas.appendChild(containerTarefa);
     });
   };
@@ -48,7 +55,7 @@ const adcionarTarefa = () => {
     }
 
     // verificar se a tarefa já existe na lista
-    for (const tarefaAtual of listaTarefas) {
+    for (let tarefaAtual of listaTarefas) {
       if (tarefaAtual === tarefa) {
         return false;
       }
@@ -63,10 +70,6 @@ const adcionarTarefa = () => {
     exibirTarefas();
   } else {
     alert("Tarefa Inválida!");
-  }
-
-  for (let i = 0; i < listaTarefas.length; i++) {
-    console(i);
   }
 };
 
