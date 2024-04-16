@@ -1,42 +1,37 @@
 @import "main.css";
 
-section#sectionTarefas {
+ol#listaDeTarefas {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
 }
 
-div.boxTarefa {
+li.boxTarefa {
   background-color: rgba(240, 248, 255, 0.144);
   padding: 0.6rem 1rem;
   border-radius: 6px;
+  font-size: 1.2rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.boxTarefa p.tituloTarefa {
-  font-size: 1.1rem;
-}
-.boxTarefa div.iconeOpcoes {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.iconeOpcoes .boxImg {
-  background-color: rgba(255, 255, 255, 0.479);
-  border-radius: 50%;
-  padding: 0.4rem;
+.boxTarefa button.buttonLixo {
+  width: 35px;
+  height: 35px;
 
-  width: 30px;
-  height: 30px;
+  background-color: #b4b4b4;
+  border-radius: 50%;
+
+  border: none;
+  outline: none;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.iconeOpcoes .boxImg img {
-  max-width: 16px;
+.boxTarefa img {
+  max-width: 18px;
   object-fit: cover;
   cursor: pointer;
 }
