@@ -13,8 +13,10 @@ li.boxTarefa {
   font-size: 1.2rem;
 
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 .boxTarefa button.buttonLixo {
   width: 35px;
@@ -26,6 +28,7 @@ li.boxTarefa {
   border: none;
   outline: none;
 
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,4 +37,14 @@ li.boxTarefa {
   max-width: 18px;
   object-fit: cover;
   cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  li.boxTarefa {
+    flex-direction: column;
+    align-self: center;
+  }
+  .boxTarefa button.buttonLixo {
+    align-self: center;
+  }
 }
