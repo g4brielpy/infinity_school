@@ -27,7 +27,7 @@ const exibirTarefas = () => {
 
     buttonLixo.appendChild(imgLixo);
 
-    const estruturaHTML = tarefa;
+    const estruturaHTML = tarefa.slice(0, 40);
 
     // set os atributos necessários, e add id único a cada tarefa
     containerTarefa.setAttribute("id", `tarefa_${index}`);
@@ -56,13 +56,13 @@ const adicionarTarefa = () => {
   // função para verifica se a tarefa é válida
   const verificarTarefaValida = () => {
     // verificar se a tarefa é vazia ou muito longa
-    if (tarefa === "" || tarefa.length > 50) {
+    if (tarefa == "") {
       return false;
     }
 
     // verificar se a tarefa já existe na lista
     for (let tarefaAtual of listaTarefas) {
-      if (tarefaAtual === tarefa) {
+      if (tarefaAtual == tarefa) {
         return false;
       }
     }
