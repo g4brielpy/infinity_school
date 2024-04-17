@@ -8,6 +8,26 @@ const sectionTarefas = document.querySelector("#listaDeTarefas");
 // iniciando a lista de tarefas como um array;
 let listaTarefas = [];
 
+// add evento de click para deletar tarefa
+const adicionarEventoLixo = () => {
+  const listaButtonLixo = document.querySelectorAll(".buttonLixo");
+  listaButtonLixo.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      excluirTarefa(index);
+    });
+  });
+};
+
+// add evento de click para concluir tarefa
+const adicionarEventoConcluir = () => {
+  const listaButtonConcluir = document.querySelectorAll(".buttonConcluir");
+  listaButtonConcluir.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      concluirTarefa(index);
+    });
+  });
+};
+
 // função para exibir as tárefas válidas no HTML
 const exibirTarefas = () => {
   // limpando as tarefas para não duplicar
@@ -56,21 +76,9 @@ const exibirTarefas = () => {
     sectionTarefas.appendChild(containerTarefa);
   });
 
-  // add evento de click para deletar tarefa
-  const listaButtonLixo = document.querySelectorAll(".buttonLixo");
-  listaButtonLixo.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      excluirTarefa(index);
-    });
-  });
-
-  // add evento de click para concluir tarefa
-  const listaButtonConcluir = document.querySelectorAll(".buttonConcluir");
-  listaButtonConcluir.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      concluirTarefa(index);
-    });
-  });
+  // add evento de click para deletar e concluir tarefa
+  adicionarEventoLixo();
+  adicionarEventoConcluir();
 };
 
 // função base para adicionar as tarefas
@@ -108,8 +116,8 @@ const concluirTarefa = (id) => {
   const tarefa = listaTarefas[id];
   const tarefaDel = `<del>${tarefa}</del>`;
 
-  listaTarefas[id] = tarefaDel;
-  alert(tarefaDel);
+  listaTarefas.splice(id, 1, tarefaDel);
+  // alert(tarefaDel);
   exibirTarefas();
 };
 
