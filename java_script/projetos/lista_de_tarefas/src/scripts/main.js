@@ -6,6 +6,8 @@ const inputAddTarefa = document.querySelector("#inputAddTarefa");
 const sectionTarefas = document.querySelector("#listaDeTarefas");
 
 // iniciando a lista de tarefas como um array;
+// subistituir a array por um dicionário,
+// colocando os index como chave
 let listaTarefas = [];
 
 // add evento de click para deletar tarefa
@@ -17,15 +19,29 @@ const adicionarEventoLixo = () => {
     });
   });
 };
+const excluirTarefa = (id) => {
+  listaTarefas.splice(id, 1);
+  exibirTarefas();
+};
 
 // add evento de click para concluir tarefa
-const adicionarEventoConcluir = () => {
-  const listaButtonConcluir = document.querySelectorAll(".buttonConcluir");
-  listaButtonConcluir.forEach((button, index) => {
+const adicionarEventoConcluir = (id) => {
+  const listButtonConcluir = document.querySelectorAll(".buttonConcluir");
+
+  listButtonConcluir.forEach((button, index) => {
     button.addEventListener("click", () => {
+      // Arruma função
+      // sub. array por dicionários.
       concluirTarefa(index);
     });
   });
+};
+const concluirTarefa = (id) => {
+  const tarefa = listaTarefas[id];
+  const tarefaDel = `<del>${tarefa}</del>`;
+
+  listaTarefas.splice(id, 1, tarefaDel);
+  exibirTarefas();
 };
 
 // função para exibir as tárefas válidas no HTML
@@ -74,11 +90,13 @@ const exibirTarefas = () => {
     containerTarefa.innerHTML = estruturaHTML;
     containerTarefa.appendChild(boxImg);
     sectionTarefas.appendChild(containerTarefa);
+
+    // add evento de click concluir tarefa
+    adicionarEventoConcluir(index);
   });
 
   // add evento de click para deletar e concluir tarefa
   adicionarEventoLixo();
-  adicionarEventoConcluir();
 };
 
 // função base para adicionar as tarefas
@@ -110,20 +128,6 @@ const adicionarTarefa = () => {
   } else {
     alert("Tarefa Inválida!");
   }
-};
-
-const concluirTarefa = (id) => {
-  const tarefa = listaTarefas[id];
-  const tarefaDel = `<del>${tarefa}</del>`;
-
-  listaTarefas.splice(id, 1, tarefaDel);
-  // alert(tarefaDel);
-  exibirTarefas();
-};
-
-const excluirTarefa = (id) => {
-  listaTarefas.splice(id, 1);
-  exibirTarefas();
 };
 
 // adicionar um observador de 'clicks' no elemento 'button' e 'lixeira'
