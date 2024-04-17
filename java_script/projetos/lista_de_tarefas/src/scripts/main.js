@@ -16,18 +16,35 @@ const exibirTarefas = () => {
   // iterando sobre a lista e exibindo todas as tarefas
   listaTarefas.forEach((tarefa, index) => {
     const containerTarefa = document.createElement("li");
+    const boxImg = document.createElement("span");
+    boxImg.setAttribute("id", "boxImg");
 
     const buttonLixo = document.createElement("button");
-    buttonLixo.setAttribute("class", "buttonLixo");
-    buttonLixo.setAttribute("data-tarefa-id", index);
+    buttonLixo.classList.add("buttonTarefa");
+    buttonLixo.classList.add("buttonLixo");
+
+    const buttonConcluir = document.createElement("button");
+    buttonConcluir.classList.add("buttonTarefa");
+    buttonConcluir.classList.add("buttonConcluir");
 
     const imgLixo = document.createElement("img");
     imgLixo.setAttribute("src", "src/image/lixo.png");
     imgLixo.setAttribute("alt", "Lixo");
 
-    buttonLixo.appendChild(imgLixo);
+    const imgConcluir = document.createElement("img");
+    imgConcluir.setAttribute("src", "src/image/verificar.png");
+    imgConcluir.setAttribute("alt", "Concluir Tarefa");
 
-    const estruturaHTML = tarefa.slice(0, 40);
+    buttonLixo.appendChild(imgLixo);
+    buttonConcluir.appendChild(imgConcluir);
+
+    boxImg.appendChild(buttonLixo);
+    // verificar se a tarefa já está concluida
+    if (!tarefa.includes("<del>")) {
+      boxImg.appendChild(buttonConcluir);
+    }
+
+    const estruturaHTML = tarefa;
 
     // set os atributos necessários, e add id único a cada tarefa
     containerTarefa.setAttribute("id", `tarefa_${index}`);
@@ -35,7 +52,7 @@ const exibirTarefas = () => {
 
     // definindo o conteúdo e adicionando a lista de tarefas
     containerTarefa.innerHTML = estruturaHTML;
-    containerTarefa.appendChild(buttonLixo);
+    containerTarefa.appendChild(boxImg);
     sectionTarefas.appendChild(containerTarefa);
   });
 
@@ -44,6 +61,14 @@ const exibirTarefas = () => {
   listaButtonLixo.forEach((button, index) => {
     button.addEventListener("click", () => {
       excluirTarefa(index);
+    });
+  });
+
+  // add evento de click para concluir tarefa
+  const listaButtonConcluir = document.querySelectorAll(".buttonConcluir");
+  listaButtonConcluir.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      concluirTarefa(index);
     });
   });
 };
@@ -77,6 +102,15 @@ const adicionarTarefa = () => {
   } else {
     alert("Tarefa Inválida!");
   }
+};
+
+const concluirTarefa = (id) => {
+  const tarefa = listaTarefas[id];
+  const tarefaDel = `<del>${tarefa}</del>`;
+
+  listaTarefas[id] = tarefaDel;
+  alert(tarefaDel);
+  exibirTarefas();
 };
 
 const excluirTarefa = (id) => {
