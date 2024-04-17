@@ -1,14 +1,19 @@
 @import "main.css";
 
+body {
+  padding: 1rem;
+}
+
 main#corpo {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 
   background-color: var(--black_1);
   color: var(--white);
 
   padding: 2rem 1rem;
   margin: 3rem auto 0;
+  border-radius: 2px;
 }
 
 section#sectionAddTarefas {
@@ -46,4 +51,14 @@ section#sectionAddTarefas {
 button#buttonAdd img {
   width: 20px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+button#buttonAdd:hover img {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 425px) {
+  body {
+    padding: 0;
+  }
 }
