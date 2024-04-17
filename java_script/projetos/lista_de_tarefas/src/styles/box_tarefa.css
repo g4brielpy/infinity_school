@@ -18,7 +18,7 @@ li.boxTarefa {
   justify-content: space-between;
   gap: 1rem;
 }
-.boxTarefa button.buttonLixo {
+.boxTarefa button.buttonTarefa {
   width: 35px;
   height: 35px;
 
@@ -33,10 +33,18 @@ li.boxTarefa {
   justify-content: center;
   align-items: center;
 }
-.boxTarefa img {
+span#boxImg {
+  display: flex;
+  gap: 0.8rem;
+}
+#boxImg img {
   max-width: 18px;
   object-fit: cover;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#boxImg .buttonTarefa:hover img {
+  transform: scale(1.5);
 }
 
 @media (max-width: 425px) {
@@ -44,11 +52,15 @@ li.boxTarefa {
     width: 100%;
     max-width: 300px;
 
-    word-wrap: break-word;
+    font-size: 1.1rem;
+
     flex-direction: column;
     align-self: center;
   }
   .boxTarefa button.buttonLixo {
     align-self: center;
+  }
+  span#boxImg {
+    column-gap: 2rem;
   }
 }
