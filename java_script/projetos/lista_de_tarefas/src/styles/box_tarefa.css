@@ -44,7 +44,7 @@ span#boxImg {
   transition: transform 0.3s ease;
 }
 #boxImg .buttonTarefa:hover img {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 @media (max-width: 425px) {
