@@ -3,7 +3,7 @@
 @import "reset.css";
 @import "titulo.css";
 @import "tarefa.css";
-@import "header_tarefas.css";
+@import "body.css";
 
 :root {
   --white: #fff;
