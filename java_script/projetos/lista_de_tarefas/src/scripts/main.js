@@ -3,6 +3,32 @@ const buttonAdd = document.querySelector("button#buttonAdd");
 const secaoTarefas = document.querySelector("ol#listaDeTarefas");
 const listaTarefas = [];
 
+const criarElemento = (elemento) => {
+  switch (elemento) {
+    case "lixo":
+      const imgLixo = document.createElement("img");
+      imgLixo.setAttribute("src", "src/image/lixo.png");
+      imgLixo.setAttribute("alt", "Lixo");
+      imgLixo.setAttribute("title", "Excluir");
+
+      const buttonLixo = document.createElement("button");
+      buttonLixo.setAttribute("class", "buttonLixo");
+      buttonLixo.appendChild(imgLixo);
+      return buttonLixo;
+
+    case "concluir":
+      const imgConcluir = document.createElement("img");
+      imgConcluir.setAttribute("src", "src/image/verificar.png");
+      imgConcluir.setAttribute("alt", "Concluit");
+      imgConcluir.setAttribute("title", "Concluir Tarefa");
+
+      const buttonConcluir = document.createElement("button");
+      buttonConcluir.setAttribute("class", "buttonConcluir");
+      buttonConcluir.appendChild(imgConcluir);
+      return buttonConcluir;
+  }
+};
+
 const validarTarefa = (novaTarefa) => {
   if (!novaTarefa) {
     return false;
@@ -32,28 +58,31 @@ const exibirTarefas = () => {
   secaoTarefas.innerHTML = "";
   listaTarefas.forEach((tarefa, index) => {
     // Estrutura de cada item da tarefa:
+    // Adicionar button lixo e 'CONCLUIR'
 
-    //     <li class="boxTarefa">
-    //     'Nome da Nota'
+    // <li class="boxTarefa">
+    //   Nome da Nota
+    //   <span class="containerImg">
     //     <button class="buttonLixo">
     //       <img src="src\image\lixo.png" alt="Lixo" title="Excluir" />
     //     </button>
-    //   </li>
+    //     <button class="buttonVerificar">
+    //       <img src="src/image/verificar.png" alt="Verificar" />
+    //     </button>
+    //   </span>
+    // </li>;
 
     const li = document.createElement("li");
     li.setAttribute("class", "boxTarefa");
     li.textContent = tarefa;
 
-    const imgLixo = document.createElement("img");
-    imgLixo.setAttribute("src", "src/image/lixo.png");
-    imgLixo.setAttribute("alt", "Lixo");
-    imgLixo.setAttribute("title", "Excluir");
+    const buttonLixo = criarElemento("lixo");
 
-    const buttonLixo = document.createElement("button");
-    buttonLixo.setAttribute("class", "buttonLixo");
-    buttonLixo.appendChild(imgLixo);
+    const spanContainerImg = document.createElement("span");
+    spanContainerImg.setAttribute("class", "containerImg");
+    spanContainerImg.appendChild(buttonLixo);
 
-    li.appendChild(buttonLixo);
+    li.appendChild(spanContainerImg);
     secaoTarefas.appendChild(li);
 
     buttonLixo.addEventListener("click", () => {
