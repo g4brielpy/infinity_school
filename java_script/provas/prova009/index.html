@@ -3,10 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Notas</title>
   </head>
   <body>
+    <h1 id="titulo">Notas</h1>
+    <main id="corpo">
+      <section id="sectionAddTarefas">
+        <input
+          type="text"
+          id="inputAddTarefa"
+          name="novaTarefa"
+          placeholder="Adicione uma nova Nota"
+          maxlength="50"
+          lang="PT-BR"
+        />
+        <button id="buttonAdd" title="Adicionar Nota">
+          <img src="img/adicionar.png" alt="+" />
+        </button>
+      </section>
+
+      <!-- seção dinâmica: add tarefas aqui -->
+      <ol id="listaDeTarefas"></ol>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
