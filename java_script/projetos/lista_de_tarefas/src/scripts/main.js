@@ -8,7 +8,8 @@ const sectionTarefas = document.querySelector("#listaDeTarefas");
 // iniciando a lista de tarefas como um array;
 // subistituir a array por um dicionário,
 // colocando os index como chave
-let listaTarefas = [];
+const listaTarefas = [];
+const listaTarefasConcluidas = [];
 
 // add evento de click para deletar tarefa
 const adicionarEventoLixo = () => {
@@ -24,23 +25,22 @@ const excluirTarefa = (id) => {
   exibirTarefas();
 };
 
-// add evento de click para concluir tarefa
-const adicionarEventoConcluir = (id) => {
+// ...
+
+// função para adicionar evento de concluir tarefa
+const adicionarEventoConcluir = () => {
   const listButtonConcluir = document.querySelectorAll(".buttonConcluir");
 
   listButtonConcluir.forEach((button, index) => {
     button.addEventListener("click", () => {
-      // Arruma função
-      // sub. array por dicionários.
       concluirTarefa(index);
+      button.removeEventListener("click", adicionarEventoConcluir);
     });
   });
 };
 const concluirTarefa = (id) => {
   const tarefa = listaTarefas[id];
-  const tarefaDel = `<del>${tarefa}</del>`;
-
-  listaTarefas.splice(id, 1, tarefaDel);
+  listaTarefasConcluidas.push(tarefa);
   exibirTarefas();
 };
 
@@ -75,25 +75,30 @@ const exibirTarefas = () => {
     buttonConcluir.appendChild(imgConcluir);
 
     boxImg.appendChild(buttonLixo);
-    // verificar se a tarefa já está concluida
-    if (!tarefa.includes("<del>")) {
+
+    // verifica se a tarefa está concluída
+    if (listaTarefasConcluidas.includes(tarefa)) {
+      const tarefaConcluida = document.createElement("del");
+      tarefaConcluida.textContent = tarefa;
+      containerTarefa.appendChild(tarefaConcluida);
+    } else {
+      // adiciona a tarefa normalmente
+      containerTarefa.textContent = tarefa;
+    }
+
+    // adiciona o botão de concluir apenas se a tarefa não estiver concluída
+    if (!listaTarefasConcluidas.includes(tarefa)) {
       boxImg.appendChild(buttonConcluir);
     }
 
-    const estruturaHTML = tarefa;
-
-    // set os atributos necessários, e add id único a cada tarefa
+    containerTarefa.appendChild(boxImg);
     containerTarefa.setAttribute("id", `tarefa_${index}`);
     containerTarefa.setAttribute("class", "boxTarefa");
-
-    // definindo o conteúdo e adicionando a lista de tarefas
-    containerTarefa.innerHTML = estruturaHTML;
-    containerTarefa.appendChild(boxImg);
     sectionTarefas.appendChild(containerTarefa);
-
-    // add evento de click concluir tarefa
-    adicionarEventoConcluir(index);
   });
+
+  // add evento de click concluir tarefa
+  adicionarEventoConcluir();
 
   // add evento de click para deletar e concluir tarefa
   adicionarEventoLixo();
