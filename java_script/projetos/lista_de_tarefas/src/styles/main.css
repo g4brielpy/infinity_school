@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 @import "reset.css";
-@import "cabecalho.css";
-@import "tarefas.css";
-@import "box_tarefa.css";
+@import "titulo.css";
+@import "tarefa.css";
+@import "header_tarefas.css";
 
 :root {
   --white: #fff;
