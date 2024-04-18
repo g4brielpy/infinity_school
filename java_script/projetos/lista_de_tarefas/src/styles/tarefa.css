@@ -17,7 +17,12 @@ li.boxTarefa {
   justify-content: space-between;
   gap: 1rem;
 }
-.boxTarefa button.buttonLixo {
+span.containerImg {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.containerImg button {
   width: 35px;
   height: 35px;
 
@@ -32,13 +37,13 @@ li.boxTarefa {
   justify-content: center;
   align-items: center;
 }
-.buttonLixo img {
+.containerImg img {
   max-width: 18px;
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.buttonLixo:hover img {
+:where(.buttonLixo, .buttonVerificar):hover img {
   transform: scale(1.25);
 }
 
