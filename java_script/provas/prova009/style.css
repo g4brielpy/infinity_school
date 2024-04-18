@@ -1,2 +1,150 @@
 @charset "UTF-8";
 
+:root {
+  --white: #fff;
+  --black_1: #373739;
+  --black_2: #19191a;
+  --black_3: #020202;
+  --destaque: #60d4ea;
+  --sub_destaque: #9ae5f3;
+
+  --font_titulo: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font_padrao: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-family: var(--font_padrao);
+  box-sizing: border-box;
+}
+body {
+  padding: 1rem;
+}
+
+/* titulo */
+h1#titulo {
+  color: var(--black_1);
+  font-family: var(--font_titulo);
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+/* Conteudo das tarefas */
+main#corpo {
+  width: 100%;
+  max-width: 700px;
+
+  background-color: var(--black_1);
+  color: var(--white);
+
+  padding: 2rem 1rem;
+  margin: 3rem auto 0;
+  border-radius: 2px;
+}
+
+/* seção do cabeçalho da tarefa */
+section#sectionAddTarefas {
+  margin-bottom: 2rem;
+  border-radius: 5px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}
+#sectionAddTarefas input {
+  background-color: var(--black_3);
+  color: var(--white);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+
+  flex: 1 1 auto;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+#sectionAddTarefas button#buttonAdd {
+  background-color: var(--black_3);
+  color: var(--white);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  flex: 0 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button#buttonAdd img {
+  width: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+button#buttonAdd:hover img {
+  transform: rotate(90deg);
+}
+
+/* seção dos itens da lista de notas */
+ol#listaDeTarefas {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+li.boxTarefa {
+  background-color: rgba(240, 248, 255, 0.144);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.boxTarefa button.buttonLixo {
+  width: 35px;
+  height: 35px;
+
+  background-color: #b4b4b4;
+  border-radius: 50%;
+
+  border: none;
+  outline: none;
+
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonLixo img {
+  max-width: 18px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.buttonLixo:hover img {
+  transform: scale(1.25);
+}
+
+@media (max-width: 425px) {
+  body {
+    padding: 0;
+  }
+
+  li.boxTarefa {
+    width: 100%;
+    max-width: 300px;
+
+    font-size: 1.1rem;
+
+    flex-direction: column;
+    align-self: center;
+  }
+  .boxTarefa button.buttonLixo {
+    align-self: center;
+  }
+}
