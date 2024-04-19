@@ -1,7 +1,12 @@
+// by: Gabriel Iuri - g4brielpy
+
 const inputAddTarefa = document.querySelector("input#inputAddTarefa");
 const buttonAdd = document.querySelector("button#buttonAdd");
 const secaoTarefas = document.querySelector("ol#listaDeTarefas");
+
 const listaTarefas = [];
+const listaTarefasDeletadas = [];
+const listaTarefasConcluidas = [];
 
 const criarElemento = (elemento) => {
   switch (elemento) {
@@ -46,11 +51,24 @@ const adicionarTarefa = () => {
   validarTarefa(tarefaAtual)
     ? listaTarefas.push(tarefaAtual)
     : alert("Tarefa Inválida");
+
   exibirTarefas();
 };
 
 const excluirTarefa = (id) => {
+  listaTarefasDeletadas.push(listaTarefas[id]);
   listaTarefas.splice(id, 1);
+
+  exibirTarefas();
+};
+
+const concluirTarefa = (id) => {
+  const tarefa = listaTarefas[id];
+  listaTarefasConcluidas.push(tarefa);
+
+  const tarefaConcluirda = `<del>${tarefa}</del>`;
+  listaTarefas.splice(id, 1, tarefaConcluirda);
+
   exibirTarefas();
 };
 
@@ -66,7 +84,7 @@ const exibirTarefas = () => {
     //     <button class="buttonLixo">
     //       <img src="src\image\lixo.png" alt="Lixo" title="Excluir" />
     //     </button>
-    //     <button class="buttonVerificar">
+    //     <button class="buttonConcluir">
     //       <img src="src/image/verificar.png" alt="Verificar" />
     //     </button>
     //   </span>
@@ -74,19 +92,26 @@ const exibirTarefas = () => {
 
     const li = document.createElement("li");
     li.setAttribute("class", "boxTarefa");
-    li.textContent = tarefa;
+    li.innerHTML = tarefa;
 
     const buttonLixo = criarElemento("lixo");
+    const buttonConcluir = criarElemento("concluir");
 
     const spanContainerImg = document.createElement("span");
     spanContainerImg.setAttribute("class", "containerImg");
+
     spanContainerImg.appendChild(buttonLixo);
+    spanContainerImg.appendChild(buttonConcluir);
 
     li.appendChild(spanContainerImg);
     secaoTarefas.appendChild(li);
 
     buttonLixo.addEventListener("click", () => {
       excluirTarefa(index);
+    });
+    buttonConcluir.addEventListener("click", () => {
+      concluirTarefa(index);
+      // remover button de concluir quando for clicado;
     });
   });
 };
