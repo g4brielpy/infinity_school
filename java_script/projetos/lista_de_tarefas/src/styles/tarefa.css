@@ -43,7 +43,7 @@ span.containerImg {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-:where(.buttonLixo, .buttonVerificar):hover img {
+:where(.buttonLixo, .buttonConcluir):hover img {
   transform: scale(1.25);
 }
 
