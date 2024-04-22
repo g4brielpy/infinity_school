@@ -5,8 +5,6 @@ const buttonAdd = document.querySelector("button#buttonAdd");
 const secaoTarefas = document.querySelector("ol#listaDeTarefas");
 
 const listaTarefas = [];
-const listaTarefasDeletadas = [];
-const listaTarefasConcluidas = [];
 
 const criarElemento = (elemento) => {
   switch (elemento) {
@@ -47,29 +45,24 @@ const validarTarefa = (novaTarefa) => {
 };
 
 const adicionarTarefa = () => {
-  const tarefaAtual = inputAddTarefa.value.trim();
+  const tarefaAtual = {
+    nome: inputAddTarefa.value.trim(),
+    status: false,
+  };
   validarTarefa(tarefaAtual)
     ? listaTarefas.push(tarefaAtual)
     : alert("Tarefa Inválida");
-
-  exibirTarefas();
 };
 
 const excluirTarefa = (id) => {
-  listaTarefasDeletadas.push(listaTarefas[id]);
   listaTarefas.splice(id, 1);
-
-  exibirTarefas();
 };
 
 const concluirTarefa = (id) => {
-  const tarefa = listaTarefas[id];
-  listaTarefasConcluidas.push(tarefa);
+  const tarefa = listaTarefas[id].nome;
+  const tarefaConcluirda = { nome: `<del>${tarefa}</del>`, status: true };
 
-  const tarefaConcluirda = `<del>${tarefa}</del>`;
   listaTarefas.splice(id, 1, tarefaConcluirda);
-
-  exibirTarefas();
 };
 
 const exibirTarefas = () => {
@@ -92,7 +85,7 @@ const exibirTarefas = () => {
 
     const li = document.createElement("li");
     li.setAttribute("class", "boxTarefa");
-    li.innerHTML = tarefa;
+    li.innerHTML = tarefa.nome;
 
     const buttonLixo = criarElemento("lixo");
     const buttonConcluir = criarElemento("concluir");
@@ -103,20 +96,29 @@ const exibirTarefas = () => {
     spanContainerImg.appendChild(buttonLixo);
     spanContainerImg.appendChild(buttonConcluir);
 
+    if (tarefa.status) {
+      buttonConcluir.style.display = "none";
+    }
+
     li.appendChild(spanContainerImg);
     secaoTarefas.appendChild(li);
 
     buttonLixo.addEventListener("click", () => {
       excluirTarefa(index);
+      exibirTarefas();
     });
     buttonConcluir.addEventListener("click", () => {
       concluirTarefa(index);
-      // remover button de concluir quando for clicado;
+      exibirTarefas();
+
+      buttonConcluir.style.display = "none";
+      buttonConcluir.removeEventListener("click", concluirTarefa);
     });
   });
 };
 
 buttonAdd.addEventListener("click", () => {
   adicionarTarefa();
+  exibirTarefas();
   inputAddTarefa.value = "";
 });
