@@ -48,7 +48,7 @@ ol#lista-opcoes {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 2rem;
 }
 li.opcao button {
   width: 100%;
@@ -64,7 +64,7 @@ li.opcao button {
   cursor: pointer;
 }
 li.opcao:hover {
-  transition: 0.6s;
+  transition: 0.4s;
   outline: 1px solid #bebebe;
 }
 
@@ -85,7 +85,8 @@ button#reload {
 }
 button#reload:hover {
   transition: 0.4s;
-  background-color: #e6e6e6;
+  background-color: #3d3d3d;
+  color: #fff;
 }
 
 #resposta {
@@ -96,4 +97,26 @@ button#reload:hover {
 
   margin-bottom: 2rem;
   display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 2rem 0.2rem;
+  }
+  h1#titulo-principal {
+    font-size: 2rem;
+  }
+  main#container-perguntas {
+    box-shadow: none;
+    margin: 3rem auto 2rem;
+  }
+  h2#pergunta {
+    font-size: 1.25rem;
+  }
+  ol#lista-opcoes {
+    margin: 3rem 0;
+  }
+  button#reload {
+    min-width: 100px;
+  }
 }
