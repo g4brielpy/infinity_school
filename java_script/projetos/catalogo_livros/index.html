@@ -3,11 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./src/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/styles/main.css" />
+    <link
+      rel="shortcut icon"
+      href="src/image/favicon.ico"
+      type="image/x-icon"
+    />
     <title>Catálogo de Livros Online</title>
   </head>
+
   <body>
     <h1 id="titulo-principal">Catálogo de Livros Online</h1>
+    <main>
+      <!-- seção estática com form para adicionar livro -->
+      <section id="secao-add-livro">
+        <h2 class="titulo-secao">Adicionar Livro</h2>
+
+        <!-- formulário para adicionar novo livro -->
+        <form id="formulario-add-livro" action="#">
+          <div class="box-input">
+            <label for="titulo">Título</label>
+            <input id="titulo" type="text" />
+          </div>
+
+          <div class="box-input">
+            <label for="autor">Autor</label>
+            <input id="autor" type="text" />
+          </div>
+
+          <div class="box-input">
+            <label for="genero">Gênero</label>
+            <input id="genero" type="text" />
+          </div>
+
+          <div class="box-input">
+            <label for="ano-publicacao">Ano de Publicação</label>
+            <input id="ano-publicacao" type="number" />
+          </div>
+
+          <div class="box-input">
+            <label for="avaliacao">Avaliação 1 - 5</label>
+            <input id="avaliacao" type="number" />
+          </div>
+          <button id="button-add" type="submit">Adicionar</button>
+        </form>
+      </section>
+
+      <!-- seção dinâmica todos os livros criados -->
+      <section id="secao-catalogo-livros">
+        <h2 id="titulo-secao">Lista de Livros</h2>
+        <!-- Representação de como um resultado será exibido -->
+        <p>
+          Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+          avaliacao >]
+        </p>
+      </section>
+
+      <!-- seção dinâmica contendo os resultados da busca dos livros -->
+      <section id="secao-buscar-livros">
+        <h2 id="titulo-secao">Buscar Livros</h2>
+        <form id="formulario-buscar-livro" action="#">
+          <label for="nome-livro">Livro</label>
+          <input id="nome-livro" type="text" />
+          <button id="button-buscar" type="submit">Buscar</button>
+        </form>
+      </section>
+    </main>
 
     <script src="./src/scripts/main.js"></script>
   </body>
