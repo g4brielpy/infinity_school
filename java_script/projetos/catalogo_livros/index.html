@@ -16,57 +16,95 @@
     <h1 id="titulo-principal">Catálogo de Livros Online</h1>
     <main>
       <!-- seção estática com form para adicionar livro -->
-      <section id="secao-add-livro">
+      <section id="secao-add-livro" class="secao">
         <h2 class="titulo-secao">Adicionar Livro</h2>
 
         <!-- formulário para adicionar novo livro -->
         <form id="formulario-add-livro" action="#">
           <div class="box-input">
             <label for="titulo">Título</label>
-            <input id="titulo" type="text" />
+            <input
+              id="titulo"
+              type="text"
+              placeholder="Digite o Título do Livro"
+            />
           </div>
 
           <div class="box-input">
             <label for="autor">Autor</label>
-            <input id="autor" type="text" />
+            <input
+              id="autor"
+              type="text"
+              placeholder="Digite o Autor ou Editora do Livro"
+            />
           </div>
 
           <div class="box-input">
             <label for="genero">Gênero</label>
-            <input id="genero" type="text" />
+            <input id="genero" type="text" placeholder="Ex.: Romance" />
           </div>
 
           <div class="box-input">
             <label for="ano-publicacao">Ano de Publicação</label>
-            <input id="ano-publicacao" type="number" />
+            <input id="ano-publicacao" type="number" placeholder="Ex.: 1998" />
           </div>
 
           <div class="box-input">
             <label for="avaliacao">Avaliação 1 - 5</label>
-            <input id="avaliacao" type="number" />
+            <input
+              id="avaliacao"
+              type="number"
+              placeholder="Digite uma Nota para o Livro"
+            />
           </div>
           <button id="button-add" type="submit">Adicionar</button>
         </form>
       </section>
 
       <!-- seção dinâmica todos os livros criados -->
-      <section id="secao-catalogo-livros">
-        <h2 id="titulo-secao">Lista de Livros</h2>
+      <section id="secao-catalogo-livros" class="secao">
+        <h2 class="titulo-secao">Lista de Livros</h2>
         <!-- Representação de como um resultado será exibido -->
-        <p>
-          Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-          avaliacao >]
-        </p>
+        <div class="resultados">
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+        </div>
       </section>
 
       <!-- seção dinâmica contendo os resultados da busca dos livros -->
-      <section id="secao-buscar-livros">
-        <h2 id="titulo-secao">Buscar Livros</h2>
+      <section id="secao-buscar-livros" class="secao">
+        <h2 class="titulo-secao">Buscar Livros</h2>
         <form id="formulario-buscar-livro" action="#">
-          <label for="nome-livro">Livro</label>
-          <input id="nome-livro" type="text" />
+          <div class="box-input">
+            <label for="nome-livro">Livro</label>
+            <input id="nome-livro" type="text" />
+          </div>
           <button id="button-buscar" type="submit">Buscar</button>
         </form>
+        <div class="resultados">
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+          <p>
+            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
+            avaliacao >]
+          </p>
+        </div>
       </section>
     </main>
 
