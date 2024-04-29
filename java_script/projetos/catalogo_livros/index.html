@@ -64,26 +64,14 @@
       <!-- seção dinâmica todos os livros criados -->
       <section id="secao-catalogo-livros" class="secao">
         <h2 class="titulo-secao">Lista de Livros</h2>
-        <!-- Representação de como um resultado será exibido -->
-        <div class="resultados">
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-        </div>
+        <!-- lista dinâmica com os livros criados -->
+        <ol class="resultados"></ol>
       </section>
 
       <!-- seção dinâmica contendo os resultados da busca dos livros -->
       <section id="secao-buscar-livros" class="secao">
         <h2 class="titulo-secao">Buscar Livros</h2>
+
         <form id="formulario-buscar-livro" action="#">
           <div class="box-input">
             <label for="nome-livro">Livro</label>
@@ -91,20 +79,8 @@
           </div>
           <button id="button-buscar" type="submit">Buscar</button>
         </form>
-        <div class="resultados">
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-          <p>
-            Livro: < Nome > por < Gênero > [Publicado em < Ano >] [Avaliação: <
-            avaliacao >]
-          </p>
-        </div>
+        <!-- lista dinâmica com os resultados de busca de livros -->
+        <ol class="resultados"></ol>
       </section>
     </main>
 
