@@ -58,7 +58,24 @@ const adicionarLivro = () => {
   return novoLivro;
 };
 
+const buscarLivros = (query) => {
+  const resultado = listaLivros.filter((livro) => {
+    return (
+      livro.titulo.toLowerCase().includes(query.toLowerCase()) ||
+      livro.autor.toLowerCase().includes(query.toLowerCase()) ||
+      livro.genero.toLowerCase().includes(query.toLowerCase())
+    );
+  });
+  return resultado;
+};
+
 buttonAdd.addEventListener("click", () => {
   const livro = adicionarLivro();
   exibirLivro(livro, catalogoLivros);
+});
+
+buttonBuscar.addEventListener("click", () => {
+  const query = document.querySelector("#nome-livro").value;
+  const resultado = buscarLivros(query);
+  alert(resultado);
 });
