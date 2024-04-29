@@ -47,11 +47,11 @@ const adicionarLivro = () => {
     contendo todas as informações do novo livro;
   */
   const novoLivro = {
-    titulo: document.getElementById("titulo").value,
-    autor: document.getElementById("autor").value,
-    genero: document.getElementById("genero").value,
-    anoPublicacao: document.getElementById("ano-publicacao").value,
-    avaliacao: document.getElementById("avaliacao").value,
+    titulo: document.getElementById("titulo").value.trim(),
+    autor: document.getElementById("autor").value.trim(),
+    genero: document.getElementById("genero").value.trim(),
+    anoPublicacao: document.getElementById("ano-publicacao").value.trim(),
+    avaliacao: document.getElementById("avaliacao").value.trim(),
   };
 
   listaLivros.push(JSON.stringify(novoLivro));
