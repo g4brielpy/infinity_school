@@ -27,6 +27,7 @@
               id="titulo"
               type="text"
               placeholder="Digite o Título do Livro"
+              required
             />
           </div>
 
@@ -36,17 +37,28 @@
               id="autor"
               type="text"
               placeholder="Digite o Autor ou Editora do Livro"
+              required
             />
           </div>
 
           <div class="box-input">
             <label for="genero">Gênero</label>
-            <input id="genero" type="text" placeholder="Ex.: Romance" />
+            <input
+              id="genero"
+              type="text"
+              placeholder="Ex.: Romance"
+              required
+            />
           </div>
 
           <div class="box-input">
             <label for="ano-publicacao">Ano de Publicação</label>
-            <input id="ano-publicacao" type="number" placeholder="Ex.: 1998" />
+            <input
+              id="ano-publicacao"
+              type="number"
+              placeholder="Ex.: 1998"
+              required
+            />
           </div>
 
           <div class="box-input">
@@ -55,6 +67,7 @@
               id="avaliacao"
               type="number"
               placeholder="Digite uma Nota para o Livro"
+              required
             />
           </div>
           <button id="button-add" type="submit">Adicionar</button>
@@ -75,7 +88,12 @@
         <form id="formulario-buscar-livro" action="#">
           <div class="box-input">
             <label for="nome-livro">Livro</label>
-            <input id="nome-livro" type="text" />
+            <input
+              id="nome-livro"
+              type="text"
+              placeholder="Informação do Livro"
+              required
+            />
           </div>
           <button id="button-buscar" type="submit">Buscar</button>
         </form>
