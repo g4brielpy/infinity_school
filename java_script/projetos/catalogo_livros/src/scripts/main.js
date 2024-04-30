@@ -98,10 +98,18 @@ document
     const resultado = buscarLivros(query);
 
     catalogoBusca.innerHTML = "";
-    resultado.forEach((livro) => {
-      livro = JSON.parse(livro);
-      exibirLivro(livro, catalogoBusca);
-    });
+    if (resultado.length > 0) {
+      resultado.forEach((livro) => {
+        livro = JSON.parse(livro);
+        exibirLivro(livro, catalogoBusca);
+      });
+    } else {
+      const li = document.createElement("li");
+      li.innerHTML = `Nenhum resultado encontrado com a busca "${query}"!`;
+      li.style.listStyleType = "none";
+
+      catalogoBusca.appendChild(li);
+    }
 
     // Limpar inputs depois do envio do formulário;
     document.getElementById("formulario-buscar-livro").reset();
