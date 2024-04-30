@@ -1,15 +1,3 @@
-// Buttons para add e buscar livro;
-const buttonAdd = document.querySelector("#button-add");
-const buttonBuscar = document.querySelector("#button-buscar");
-
-// Catalogos onde os livros vão ser exibidos;
-const catalogoLivros = document.querySelector(
-  "#secao-catalogo-livros .resultados"
-);
-const catalogoBusca = document.querySelector(
-  "#secao-buscar-livros .resultados"
-);
-
 /* 
   Inicializar a lista geral dos livros;
 
@@ -30,7 +18,7 @@ const exibirLivro = (livro, lista) => {
 
   const li = document.createElement("li");
 
-  li.textContent = `
+  li.innerHTML = `
   ${livro["titulo"]} por ${livro["autor"]} - 
   Gênero: ${livro["genero"]} 
   [Publicado em ${livro["anoPublicacao"]}] 
@@ -59,23 +47,56 @@ const adicionarLivro = () => {
 };
 
 const buscarLivros = (query) => {
-  const resultado = listaLivros.filter((livro) => {
+  /*
+    Função para buscar livros pelo título, autor ou gênero
+
+    A função recebe um parâmetro e faz a busca na lista de livros
+    através do método 'filter', a cada iteração do método, o item
+    é convertido do JSON para Objeto. É retornado um Array com 
+    os resultados da busca.
+  */
+  const busca = listaLivros.filter((livro) => {
+    livro = JSON.parse(livro);
     return (
       livro.titulo.toLowerCase().includes(query.toLowerCase()) ||
       livro.autor.toLowerCase().includes(query.toLowerCase()) ||
       livro.genero.toLowerCase().includes(query.toLowerCase())
     );
   });
-  return resultado;
+
+  return busca;
 };
 
-buttonAdd.addEventListener("click", () => {
-  const livro = adicionarLivro();
-  exibirLivro(livro, catalogoLivros);
-});
+document
+  .getElementById("formulario-add-livro")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
 
-buttonBuscar.addEventListener("click", () => {
-  const query = document.querySelector("#nome-livro").value;
-  const resultado = buscarLivros(query);
-  alert(resultado);
-});
+    // Catalogos onde os livros vão ser exibidos;
+    const catalogoLivros = document.querySelector(
+      "#secao-catalogo-livros .resultados"
+    );
+
+    const livro = adicionarLivro();
+    exibirLivro(livro, catalogoLivros);
+  });
+
+document
+  .getElementById("formulario-buscar-livro")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Catalogos onde os livros vão ser exibidos;
+    const catalogoBusca = document.querySelector(
+      "#secao-buscar-livros .resultados"
+    );
+
+    const query = document.querySelector("#nome-livro").value;
+    const resultado = buscarLivros(query);
+
+    catalogoBusca.innerHTML = "";
+    resultado.forEach((livro) => {
+      livro = JSON.parse(livro);
+      exibirLivro(livro, catalogoBusca);
+    });
+  });
