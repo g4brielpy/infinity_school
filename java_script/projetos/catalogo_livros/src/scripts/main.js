@@ -79,6 +79,9 @@ document
 
     const livro = adicionarLivro();
     exibirLivro(livro, catalogoLivros);
+
+    // Limpar inputs depois do envio do formulário;
+    document.getElementById("formulario-add-livro").reset();
   });
 
 document
@@ -99,4 +102,7 @@ document
       livro = JSON.parse(livro);
       exibirLivro(livro, catalogoBusca);
     });
+
+    // Limpar inputs depois do envio do formulário;
+    document.getElementById("formulario-buscar-livro").reset();
   });
