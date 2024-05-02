@@ -1,7 +1,7 @@
 /* 
   Inicializar a lista geral dos livros;
 
-  Onde a lista é um Array de JSON's, cada livro
+  Onde a lista é um Array de Object's, cada livro
   é representado pelo objeto de notação, contendo:
    titulo, autor, genero, ano de publicacao e avaliacao;
 */
@@ -31,7 +31,7 @@ const adicionarLivro = () => {
   /*
     Função para adicionar um novo livro na lista;
 
-    A função adiciona e retorna um arquivo JSON 
+    A função adiciona e retorna um arquivo Object 
     contendo todas as informações do novo livro;
   */
   const novoLivro = {
@@ -39,10 +39,10 @@ const adicionarLivro = () => {
     autor: document.getElementById("autor").value.trim(),
     genero: document.getElementById("genero").value.trim(),
     anoPublicacao: document.getElementById("ano-publicacao").value.trim(),
-    avaliacao: document.getElementById("avaliacao").value.trim(),
+    avaliacao: Number(document.getElementById("avaliacao").value.trim()),
   };
 
-  listaLivros.push(JSON.stringify(novoLivro));
+  listaLivros.push(novoLivro);
   return novoLivro;
 };
 
@@ -51,12 +51,10 @@ const buscarLivros = (query) => {
     Função para buscar livros pelo título, autor ou gênero
 
     A função recebe um parâmetro e faz a busca na lista de livros
-    através do método 'filter', a cada iteração do método, o item
-    é convertido do JSON para Objeto. É retornado um Array com 
+    através do método 'filter'. É retornado um Array com 
     os resultados da busca.
   */
   const busca = listaLivros.filter((livro) => {
-    livro = JSON.parse(livro);
     return (
       livro.titulo.toLowerCase().includes(query.toLowerCase()) ||
       livro.autor.toLowerCase().includes(query.toLowerCase()) ||
@@ -65,6 +63,27 @@ const buscarLivros = (query) => {
   });
 
   return busca;
+};
+
+const classificarLivro = (campoOrdenar) => {
+  listaLivros.sort((a, b) => {
+    if (campoOrdenar == "avaliacao") {
+      return a[campoOrdenar] - b[campoOrdenar];
+    } else {
+      return a[campoOrdenar]
+        .toLowerCase()
+        .localeCompare(b[campoOrdenar].toLowerCase());
+    }
+  });
+
+  const catalogoLivros = document.querySelector(
+    "#secao-catalogo-livros .resultados"
+  );
+  catalogoLivros.innerHTML = "";
+
+  listaLivros.forEach((livro) => {
+    exibirLivro(livro, catalogoLivros);
+  });
 };
 
 document
@@ -100,7 +119,6 @@ document
     catalogoBusca.innerHTML = "";
     if (resultado.length > 0) {
       resultado.forEach((livro) => {
-        livro = JSON.parse(livro);
         exibirLivro(livro, catalogoBusca);
       });
     } else {
@@ -114,3 +132,13 @@ document
     // Limpar inputs depois do envio do formulário;
     document.getElementById("formulario-buscar-livro").reset();
   });
+
+document.querySelectorAll("#box-buttons .button").forEach((button) => {
+  // iterar sobre essa lista de buttons e add um evento em cada um
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const ordenar = button.getAttribute("data-ordenar");
+    classificarLivro(ordenar);
+  });
+});

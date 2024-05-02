@@ -16,7 +16,7 @@
     <header>
       <h1 id="titulo-principal">Catálogo de Livros Online</h1>
     </header>
-    
+
     <main>
       <!-- seção estática com form para adicionar livro -->
       <section id="secao-add-livro" class="secao">
@@ -73,7 +73,9 @@
               required
             />
           </div>
-          <button id="button-add" type="submit">Adicionar</button>
+          <button id="button-add" class="button" type="submit">
+            Adicionar
+          </button>
         </form>
       </section>
 
@@ -98,10 +100,22 @@
               required
             />
           </div>
-          <button id="button-buscar" type="submit">Buscar</button>
+          <button id="button-buscar" class="button" type="submit">
+            Buscar
+          </button>
         </form>
         <!-- lista dinâmica com os resultados de busca de livros -->
         <ol class="resultados"></ol>
+      </section>
+
+      <section id="secao-classificar-livros" class="secao">
+        <h2 class="titulo-secao">Classificar Livros</h2>
+
+        <div id="box-buttons">
+          <button type="submit" data-ordenar="titulo" class="button">Título</button>
+          <button type="submit" data-ordenar="autor" class="button">Autor</button>
+          <button type="submit" data-ordenar="avaliacao" class="button">Avaliação</button>
+        </div>
       </section>
     </main>
 
