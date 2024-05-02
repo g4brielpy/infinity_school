@@ -2,8 +2,9 @@
 @import "body.css";
 @import "reset.css";
 @import "section-add.css";
-@import "section-catalogo.css";
 @import "section-buscar.css";
+@import "section-catalogo.css";
+@import "section-classificacao.css";
 
 :root {
   --white: #fff;
