@@ -5,6 +5,7 @@
 @import "section-buscar.css";
 @import "section-catalogo.css";
 @import "section-classificacao.css";
+@import "footer.css";
 
 :root {
   --white: #fff;
