@@ -1,41 +1,31 @@
-CREATE DATABASE escola;
 USE escola;
 
-CREATE TABLE professor(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(100) NOT NULL,
-    cpf VARCHAR(11) NOT NULL UNIQUE,
-    ativo BOOLEAN NOT NULL DEFAULT 1
-);
+SELECT * FROM curso;
+SELECT * FROM aluno;
+SELECT * FROM materia;
+SELECT * FROM professor;
 
-CREATE TABLE aluno(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-	curso VARCHAR(100) NOT NULL,
-    ativo BOOLEAN NOT NULL DEFAULT 1,
-    matricula VARCHAR(10) NOT NULL UNIQUE
-);
 
-CREATE TABLE materia(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(100) NOT NULL UNIQUE,
-    sigla VARCHAR(5) NOT NULL UNIQUE
-);
-
-ALTER TABLE professor
-	ADD COLUMN
-		id_materia INTEGER NOT NULL,
-	ADD CONSTRAINT
-		FOREIGN KEY (id_materia) REFERENCES materia(id);
-	
-CREATE TABLE turma(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    sala VARCHAR(50) NOT NULL,
-    professor_id INTEGER NOT NULL,
-    materia_id INTEGER NOT NULL,
-    data_inicio DATE NOT NULL,
-    hora_aula TIME NOT NULL,
+INSERT INTO curso(descricao)
+VALUES
+	("Desenvolvimento de Software"),
+	("Ciência de Dados");
     
-    FOREIGN KEY (professor_id) REFERENCES professor(id),
-    FOREIGN KEY (materia_id) REFERENCES materia(id)
-);
+    
+INSERT INTO aluno(nome, matricula, curso_id)
+VALUES ("Gabriel Iuri", "12345", 1);
+
+INSERT INTO aluno(nome, matricula, curso_id)
+VALUES ("Davi", "54321", 1),
+	("Felipe", "98765", 2),
+    ("Fernando", "85296", 2);
+    
+
+INSERT INTO materia(descricao, sigla)
+VALUES ("Python", "PY"),
+	("JavaScript", "JS");
+    
+    
+INSERT INTO professor(nome, cpf, materia_id)
+VALUES ("Otavio", "70536987802", 2),
+	("Davi", "70506248987", 1);
