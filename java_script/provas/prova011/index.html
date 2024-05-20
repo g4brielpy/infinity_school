@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="src/styles/index.css" />
     <title>Caixa Eletrônico</title>
   </head>
-  
+
   <body>
     <form id="caixa" action="#">
       <h1 id="titulo-principal">Simulador de Caixa Eletrônico</h1>
@@ -17,12 +17,14 @@
       </select>
       <input
         id="input-valor-operacao"
-        type="text"
+        type="number"
         placeholder="Insera um valor"
+        min="1"
       />
       <button id="button-realizar-operacao" type="submit">Realizar</button>
+      <p id="demonstracao"></p>
     </form>
 
-    <script src="src/scripts/main.js"></script>
+    <script type="module" src="src/scripts/main.js"></script>
   </body>
 </html>
