@@ -35,7 +35,17 @@ form#caixa {
   flex-direction: column;
   gap: 2rem;
 }
+input#input-valor-operacao {
+  display: none;
+}
 #caixa :where(#operacoes, #input-valor-operacao, #button-realizar-operacao) {
   padding: 1rem;
   font-size: 1.2rem;
+}
+
+p#demonstracao {
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  margin-top: 2rem;
 }
