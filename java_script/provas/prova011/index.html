@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="src/image/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="src/styles/index.css" />
+    <title>Caixa Eletrônico</title>
+  </head>
+
+  <body>
+    <form id="caixa" action="#">
+      <h1 id="titulo-principal">Simulador de Caixa Eletrônico</h1>
+      <select name="operacoes" id="operacoes">
+        <option value="consultarSaldo">Consultar Saldo</option>
+        <option value="sacar">Sacar</option>
+        <option value="depositar">Depositar</option>
+      </select>
+      <input
+        id="input-valor-operacao"
+        type="number"
+        placeholder="Insera um valor"
+        min="1"
+        step="any"
+      />
+      <button id="button-realizar-operacao" type="submit">Realizar</button>
+      <p id="demonstracao"></p>
+    </form>
+
+    <script type="module" src="src/scripts/main.js"></script>
+  </body>
+</html>
