@@ -1,36 +1,12 @@
 // by: Gabriel Iuri - g4brielpy
 
+import { criarElemento } from "./elementos.js";
+
 const inputAddTarefa = document.querySelector("input#inputAddTarefa");
 const buttonAdd = document.querySelector("button#buttonAdd");
 const secaoTarefas = document.querySelector("ol#listaDeTarefas");
 
 const listaTarefas = [];
-
-const criarElemento = (elemento) => {
-  switch (elemento) {
-    case "lixo":
-      const imgLixo = document.createElement("img");
-      imgLixo.setAttribute("src", "src/image/lixo.png");
-      imgLixo.setAttribute("alt", "Lixo");
-      imgLixo.setAttribute("title", "Excluir");
-
-      const buttonLixo = document.createElement("button");
-      buttonLixo.setAttribute("class", "buttonLixo");
-      buttonLixo.appendChild(imgLixo);
-      return buttonLixo;
-
-    case "concluir":
-      const imgConcluir = document.createElement("img");
-      imgConcluir.setAttribute("src", "src/image/verificar.png");
-      imgConcluir.setAttribute("alt", "Concluit");
-      imgConcluir.setAttribute("title", "Concluir Tarefa");
-
-      const buttonConcluir = document.createElement("button");
-      buttonConcluir.setAttribute("class", "buttonConcluir");
-      buttonConcluir.appendChild(imgConcluir);
-      return buttonConcluir;
-  }
-};
 
 const validarTarefa = (novaTarefa) => {
   if (!novaTarefa.nome) {
