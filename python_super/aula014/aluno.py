@@ -51,7 +51,7 @@ def pegar_id_curso() -> int:
     cursor.execute(sql)
     dados = cursor.fetchall()
 
-    curso.close()
+    cursor.close()
 
     colunas = ["Id", "Descrição"]
     print(tabulate(dados, colunas))
@@ -75,6 +75,7 @@ def verificar_matricula(matricula: str) -> bool:
     WHERE
         alunos.matricula = %s
     '''
+
 
 def cadastrar_aluno():
     pass
