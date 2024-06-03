@@ -35,14 +35,14 @@ def lista_alunos() -> None:
     cursor.close()
 
     colunas = ["Id", "Nome", "Ativo", "Matricula", "Curso"]
-    print(tabulate(dados, colunas))
+    print("\n", tabulate(dados, colunas), "\n")
 
 
 def pegar_id_curso() -> int:
     sql = '''
     SELECT
         id,
-        descricao,
+        descricao
     FROM
         curso
     '''
@@ -54,7 +54,7 @@ def pegar_id_curso() -> int:
     cursor.close()
 
     colunas = ["Id", "Descrição"]
-    print(tabulate(dados, colunas))
+    print("\n", tabulate(dados, colunas), "\n")
 
     cursos_ids: list = [str(id) for id, _ in dados]
     while True:
@@ -67,18 +67,44 @@ def pegar_id_curso() -> int:
 
 
 def verificar_matricula(matricula: str) -> bool:
+    if len(matricula) > 5:
+        return False
+
     sql = '''
     SELECT
-        id
+        id, nome
     FROM
-        alunos
+        aluno
     WHERE
-        alunos.matricula = %s
+        matricula = %s
     '''
 
+    cursor = db.cursor()
+    cursor.execute(sql, [matricula])
+    dados = cursor.fetchone()
 
-def cadastrar_aluno():
-    pass
+    cursor.close()
+
+    return dados == None
+
+
+def cadastrar_aluno(nome: str, matricula: str, id_curso: int) -> None:
+    sql = '''
+    INSERT INTO aluno (nome, matricula, curso_id)
+    VALUES (%s, %s, %s)
+    '''
+
+    try:
+        cursor = db.cursor()
+        cursor.execute(sql, [nome, matricula, id_curso])
+    except Exception as e:
+        db.rollback()
+        print("\nErro não tratado ao inserir novo:", e)
+    else:
+        db.commit()
+        print("\nAluno cadastrado com sucesso!")
+    finally:
+        cursor.close()
 
 
 def editar_aluno():
@@ -99,7 +125,15 @@ def main():
                 lista_alunos()
 
             case "2":
-                cadastrar_aluno()
+                nome: str = input("Digite o nome do aluno: ").strip()
+                matricula: str = input(
+                    "Digite a matricula do aluno (5 dígitos): ").strip()
+
+                if not verificar_matricula(matricula):
+                    print("Matricula repetida ou inválida!")
+                else:
+                    id_curso: int = pegar_id_curso()
+                    cadastrar_aluno(nome, matricula, id_curso)
 
             case  "3":
                 editar_aluno()
