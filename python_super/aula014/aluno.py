@@ -30,7 +30,12 @@ def lista_alunos() -> None:
 
     cursor = db.cursor()
     cursor.execute(sql)
+
     dados = cursor.fetchall()
+    dados = [
+        (ID, nome, "Sim" if ativo == 1 else "Não", matricula, curso)
+        for ID, nome, ativo, matricula, curso in dados
+    ]
 
     cursor.close()
 
