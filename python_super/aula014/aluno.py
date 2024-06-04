@@ -71,6 +71,41 @@ def pegar_id_curso() -> int:
     return int(curso_id)
 
 
+def pegar_matricula_aluno() -> str:
+    sql = '''
+    SELECT 
+        aluno.nome,
+        aluno.matricula,
+        curso.descricao
+    FROM 
+        aluno
+        INNER JOIN curso ON aluno.curso_id = curso.id;
+    '''
+
+    cursor = db.cursor()
+    cursor.execute(sql)
+    alunos = cursor.fetchall()
+
+    cursor.close()
+
+    colunas = ["Nome", "Matricula", "Curso"]
+    print("\n", tabulate(alunos, colunas))
+
+    matriculas: list = [matricula for _, matricula, _ in alunos]
+    while True:
+        matriculas_aluno = input(
+            "\nInforme o id do aluno para ser desativado: ")
+        if len(matriculas_aluno) == 5:
+            if matriculas_aluno in matriculas:
+                break
+            else:
+                print("Matricula não encontrada. Digite novamente!")
+        else:
+            print("Tamanho inválido da matricula. Digite novamente!")
+
+    return matriculas_aluno
+
+
 def verificar_matricula(matricula: str) -> bool:
     if len(matricula) > 5:
         return False
@@ -116,7 +151,7 @@ def editar_aluno():
     pass
 
 
-def desativar_aluno():
+def desativar_aluno(matriculas_aluno: int):
     pass
 
 
@@ -144,7 +179,9 @@ def main():
                 editar_aluno()
 
             case "4":
-                desativar_aluno()
+                matricula: str = pegar_matricula_aluno()
+                print(f"Matricula do aluno: {matricula}")
+                desativar_aluno(matricula)
 
             case "q":
                 print("Programa finalizado!")
