@@ -79,7 +79,9 @@ def pegar_matricula_aluno() -> str:
         curso.descricao
     FROM 
         aluno
-        INNER JOIN curso ON aluno.curso_id = curso.id;
+        INNER JOIN curso ON aluno.curso_id = curso.id
+    WHERE
+        aluno.ativo = TRUE
     '''
 
     cursor = db.cursor()
@@ -94,7 +96,7 @@ def pegar_matricula_aluno() -> str:
     matriculas: list = [matricula for _, matricula, _ in alunos]
     while True:
         matriculas_aluno = input(
-            "\nInforme o id do aluno para ser desativado: ")
+            "\nInforme a matricula do aluno ativo para ser desativado: ")
         if len(matriculas_aluno) == 5:
             if matriculas_aluno in matriculas:
                 break
@@ -139,7 +141,7 @@ def cadastrar_aluno(nome: str, matricula: str, id_curso: int) -> None:
         cursor.execute(sql, [nome, matricula, id_curso])
     except Exception as e:
         db.rollback()
-        print("\nErro não tratado ao inserir novo:", e)
+        print(f"\nErro não tratado ao inserir novo aluno: {e}")
     else:
         db.commit()
         print("\nAluno cadastrado com sucesso!")
@@ -151,8 +153,27 @@ def editar_aluno():
     pass
 
 
-def desativar_aluno(matriculas_aluno: int):
-    pass
+def desativar_aluno(matriculas_aluno: str):
+    sql = '''
+    UPDATE 
+        aluno 
+    SET 
+        ativo = FALSE
+    WHERE
+        matricula = %s
+    '''
+
+    try:
+        cursor = db.cursor()
+        cursor.execute(sql, [matriculas_aluno])
+    except Exception as e:
+        db.rollback()
+        print(f"\nErro não tratado ao desativar aluno: {e}")
+    else:
+        db.commit()
+        print("\nAluno desativado com sucesso!")
+    finally:
+        cursor.close()
 
 
 def main():
@@ -180,12 +201,15 @@ def main():
 
             case "4":
                 matricula: str = pegar_matricula_aluno()
-                print(f"Matricula do aluno: {matricula}")
                 desativar_aluno(matricula)
 
             case "q":
                 print("Programa finalizado!")
+                db.close()
                 break
+
+            case _:
+                print("Opção inválida. Digíte novamente!")
 
         input('Aperte qualquer tecla para continuar...')
 
