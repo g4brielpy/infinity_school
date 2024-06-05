@@ -71,7 +71,7 @@ def pegar_id_curso() -> int:
     return int(curso_id)
 
 
-def pegar_matricula_aluno() -> str:
+def pegar_matricula_aluno(ativo=True) -> str:
     sql = '''
     SELECT 
         aluno.nome,
@@ -83,6 +83,9 @@ def pegar_matricula_aluno() -> str:
     WHERE
         aluno.ativo = TRUE
     '''
+    if not ativo:
+        index_where = sql.index("WHERE")
+        sql = sql[:index_where]
 
     cursor = db.cursor()
     cursor.execute(sql)
@@ -95,8 +98,11 @@ def pegar_matricula_aluno() -> str:
 
     matriculas: list = [matricula for _, matricula, _ in alunos]
     while True:
-        matriculas_aluno = input(
-            "\nInforme a matricula do aluno ativo: ")
+        if ativo:
+            matriculas_aluno = input("\nInforme a matricula do aluno ativo: ")
+        else:
+            matriculas_aluno = input("\nInforme a matricula do aluno: ")
+
         if matriculas_aluno in matriculas:
             break
         else:
@@ -148,7 +154,7 @@ def cadastrar_aluno(nome: str, matricula: str, id_curso: int) -> None:
 
 def editar_aluno(matricula: str, nome=None, id_curso=None) -> None:
     if nome is None and id_curso is None:
-        print("Nenhum dado alterado! Informe o nome e/ou curso.")
+        print("\nNenhum dado alterado! Informe o nome e/ou curso.")
         return None
 
     dados: list = []
@@ -228,7 +234,7 @@ def main():
                     cadastrar_aluno(nome, matricula, id_curso)
 
             case  "3":
-                matricula: str = pegar_matricula_aluno()
+                matricula: str = pegar_matricula_aluno(ativo=False)
                 dados: list = [matricula]
 
                 nome: str = input(
