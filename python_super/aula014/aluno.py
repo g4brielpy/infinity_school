@@ -96,14 +96,11 @@ def pegar_matricula_aluno() -> str:
     matriculas: list = [matricula for _, matricula, _ in alunos]
     while True:
         matriculas_aluno = input(
-            "\nInforme a matricula do aluno ativo para ser desativado: ")
-        if len(matriculas_aluno) == 5:
-            if matriculas_aluno in matriculas:
-                break
-            else:
-                print("Matricula não encontrada. Digite novamente!")
+            "\nInforme a matricula do aluno ativo: ")
+        if matriculas_aluno in matriculas:
+            break
         else:
-            print("Tamanho inválido da matricula. Digite novamente!")
+            print("Matricula não encontrada. Digite novamente!")
 
     return matriculas_aluno
 
@@ -149,8 +146,42 @@ def cadastrar_aluno(nome: str, matricula: str, id_curso: int) -> None:
         cursor.close()
 
 
-def editar_aluno():
-    pass
+def editar_aluno(matricula: str, nome=None, id_curso=None) -> None:
+    if nome is None and id_curso is None:
+        print("Nenhum dado alterado! Informe o nome e/ou curso.")
+        return None
+
+    dados: list = []
+    sql = '''
+    UPDATE aluno
+    SET 
+        '''
+
+    if nome is not None:
+        sql += "nome = %s, "
+        dados.append(nome)
+    if id_curso is not None:
+        sql += "curso_id = %s, "
+        dados.append(id_curso)
+
+    dados.append(matricula)
+    sql = sql.rstrip(", ")
+    sql += '''
+    WHERE
+        matricula = %s
+    '''
+
+    try:
+        cursor = db.cursor()
+        cursor.execute(sql, dados)
+    except Exception as e:
+        db.rollback()
+        print(f"\nErro não tratado ao editar aluno: {e}")
+    else:
+        db.commit()
+        print("\nAluno editado com sucesso!")
+    finally:
+        cursor.close()
 
 
 def desativar_aluno(matriculas_aluno: str):
@@ -197,7 +228,27 @@ def main():
                     cadastrar_aluno(nome, matricula, id_curso)
 
             case  "3":
-                editar_aluno()
+                matricula: str = pegar_matricula_aluno()
+                dados: list = [matricula]
+
+                nome: str = input(
+                    "Insira o novo nome ou aperte <Enter> para não alterar: ").strip()
+                if nome:
+                    dados.append(nome)
+
+                while True:
+                    alterar_curso: str = input("Alterar curso [S/N]: ").lower()
+                    match alterar_curso:
+                        case "s":
+                            id_curso: int = pegar_id_curso()
+                            dados.append(id_curso)
+                            break
+                        case "n":
+                            break
+                        case _:
+                            print(
+                                "\nOpção inválida. Insira 'S' ou 'N' para alterar o curso!")
+                editar_aluno(*dados)
 
             case "4":
                 matricula: str = pegar_matricula_aluno()
