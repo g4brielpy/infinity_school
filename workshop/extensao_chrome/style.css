@@ -1,0 +1,36 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  padding: 2rem;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+
+  margin: 0rem 1rem 3rem;
+}
+
+.form-url {
+  max-width: 600px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-url input {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #444444;
+  outline: none;
+}
+.form-url button {
+  max-width: fit-content;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
